@@ -1,0 +1,1213 @@
+/* 02. slider area css here */
+.single_slider{
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-position: center center;
+        background-size: cover; 
+        height: 910px;
+        @media #{$laptop-device}{
+           height: 639px;
+        }
+        @media #{$desktop-device}{
+           height: 470px;
+        }
+        @media #{$tablet-device}{
+            height: 380px;
+            background-position: 55%;
+        }
+        @media #{$large-mobile}{
+           background-position: 0%;
+            height: 300px;
+        }
+
+   
+}
+.slider_section{
+    &.mb-40{
+        @media #{$tablet-device}{
+            margin-bottom: 30px;
+        }
+        @media #{$large-mobile}{
+           margin-bottom: 30px;
+        }
+    }
+}
+.slider_area{
+     &:hover{
+        & .owl-nav{
+            & div{
+                opacity: 1;
+                visibility: visible;
+                left: 20px;
+                &.owl-next{
+                    right: 20px;
+                }
+            }
+        }
+    }
+    & .owl-nav{
+        & div{
+            position: absolute;
+            top: 49%;
+            transform: translatey(-50%);
+            left: 0;
+            font-size: 24px;
+            color: $white;
+            width: 45px;
+            height: 45px;
+            line-height: 41px;
+            text-align: center;
+            border: 2px solid $white;
+            opacity: 0;
+            visibility: hidden;
+            @include transition(.3s);
+            &:hover{
+                color: $secondary_color;
+                border-color: $secondary_color;
+            }
+            &.owl-next{
+                right: 0;
+                left: auto;
+            }
+            @media #{$large-mobile}{
+                display: none;
+            }
+        }
+    }
+}
+
+.slider_s_one{
+    & .slider_content{
+        @media #{$mini-laptop-device}{
+           padding-left: 50px;
+        }
+        @media #{$desktop-device}{
+            padding-left: 70px;
+        }
+    }
+}
+.slider_content{
+    @media #{$desktop-device}{
+        padding-left: 40px;
+    }
+    @media #{$tablet-device}{
+        padding-left: 60px;
+    }
+    @media #{$large-mobile}{
+        text-align: center;
+    }
+    &.content_right{
+        padding-left: 90px;
+        @media #{$desktop-device}{
+            padding-left: 66px;
+        }
+        @media #{$tablet-device}{
+            padding-left: 0;
+        }
+        @media #{$large-mobile}{
+            padding-left: 0;
+        }
+    }
+    & h1{
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-family: $Montserrat;
+        color: $white;
+        @media #{$desktop-device}{
+            font-size: 20px;
+            line-height: 20px;
+        }
+        @media #{$tablet-device}{
+            font-size: 18px;
+            line-height: 18px;
+        }
+        @media #{$large-mobile}{
+            font-size: 15px;
+            line-height: 18px;
+            margin-bottom: 7px;
+            letter-spacing: 1px;
+        }
+    }
+    & h2{
+        font-size: 72px;
+        line-height: 72px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        color: $white;
+        font-family: $Montserrat;
+        @media #{$desktop-device}{
+            font-size: 50px;
+            line-height: 50px;
+        }
+        @media #{$tablet-device}{
+            font-size: 35px;
+            line-height: 35px;
+        }
+        @media #{$large-mobile}{
+            font-size: 22px;
+            line-height: 22px;
+        }
+    }
+    & p{
+        margin: 24px 0 35px;
+        font-size: 20px;
+        line-height: 25px;
+        font-weight: 500;
+        color: $white;
+        letter-spacing: 1px;
+        font-family: $Montserrat;
+        @media #{$desktop-device}{
+           font-size: 15px;
+            line-height: 20px;
+        }
+        @media #{$tablet-device}{
+            margin: 20px 0 28px;
+            font-size: 15px;
+            line-height: 20px;
+        }
+        @media #{$large-mobile}{
+            margin: 17px auto 22px;
+            font-size: 12px;
+            line-height: 20px;
+            max-width: 247px;
+        }
+    }
+    & a{
+        font-size: 14px;
+        font-weight: 600;
+        color: $white;
+        padding: 0 25px;
+        display: inline-block;
+        border-radius: 0;
+        height: 45px;
+        line-height: 43px;
+        letter-spacing: 2px;
+        border: 1px solid $white;
+        background: inherit;
+        font-family: $Montserrat;
+        &:hover{
+            background: $secondary_color;
+            border-color: $secondary_color;
+        }
+        @media #{$tablet-device}{
+            padding: 0 15px;
+            height: 43px;
+            line-height: 41px;
+            font-size: 13px;
+        }
+        @media #{$large-mobile}{
+            font-size: 12px;
+            height: 35px;
+            line-height: 35px;
+            padding: 0 13px;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+
+
+
+.active .slider_content h1,.active .slider_content h2,.active .slider_content h3,.active .slider_content a,.active .slider_content p,.active .slider_content span {
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.active .slider_content h2{
+     -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+.active .slider_content h3,.active .slider_content span{
+     -webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+.active .slider_content p{
+     -webkit-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+.active .slider_content a{
+     -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+}
+
+
+
+/*home two css here*/
+.slider_section2{
+    @media #{$large-mobile}{
+       margin-bottom: 56px;
+    }
+    & .single_slider{
+        height: 990px;
+        @media #{$laptop-device}{
+           height: 696px;
+        }
+        @media #{$desktop-device}{
+           height: 550px;
+        }
+        @media #{$tablet-device}{
+            height: 380px;
+            background-position: 55%;
+        }
+        @media #{$large-mobile}{
+           background-position: 10%;
+            height: 300px;
+        }
+    }
+    & .owl-nav{
+        & div{
+            &:hover{
+                color: $secondary_color2;
+                border-color: $secondary_color2;
+            }
+        }
+    } 
+}
+
+.slider_content2{
+    padding-top: 50px;
+    @media #{$mini-laptop-device}{
+       padding-left: 50px;
+    }
+    @media #{$desktop-device}{
+       padding-left: 60px;
+    }
+    @media #{$tablet-device}{
+        padding-top: 0;
+    }
+    @media #{$large-mobile}{
+       padding-top: 0;
+    }
+    &.content_right{
+        padding-left: 0;
+        @media #{$large-mobile}{
+           padding-left: 40px;
+        }
+        @media #{$small-mobile}{
+           padding-left: 0;
+        }
+    }
+    & h1{
+        color: $secondary_color2;
+    }
+    & h2{
+        font-size: 60px;
+        line-height: 60px;
+        letter-spacing: 9px;
+        @media #{$laptop-device}{
+           letter-spacing: 6px;
+        }
+        @media #{$desktop-device}{
+           font-size: 45px;
+            line-height: 45px;
+            letter-spacing: 3px;
+        }
+        @media #{$tablet-device}{
+           font-size: 35px;
+            line-height: 35px;
+            letter-spacing: 3px;
+        }
+        @media #{$large-mobile}{
+           font-size: 22px;
+            line-height: 22px;
+            letter-spacing: 1px;
+        }
+    }
+    & p{
+        max-width: 507px;
+        @media #{$desktop-device}{
+           line-height: 18px;
+        }
+    }
+    & a{
+        &:hover{
+            background: $secondary_color2;
+            border-color: $secondary_color2;
+        }
+    }
+}
+
+
+
+
+/*home three css here*/
+.slider_s_three{
+    & .single_slider{
+        height: 600px;
+        @media #{$laptop-device}{
+           height: 422px;
+        }
+        @media #{$desktop-device}{
+           height: 400px;
+        }
+        @media #{$tablet-device}{
+            height: 360px;
+            background-position: 55%;
+        }
+        @media #{$large-mobile}{
+           background-position: 10%;
+            height: 270px;
+        }
+
+   
+    }
+    & .owl-nav{
+        & div{
+            color: $fonts_color;
+            border: 2px solid $fonts_color;
+            &:hover{
+                color: $secondary_color3; 
+               border-color: $secondary_color3; 
+            }
+        }
+    }
+}
+
+.slider_c_three{
+    @media #{$mini-laptop-device}{
+       padding-left: 50px;
+    }
+    @media #{$desktop-device}{
+       padding-left: 90px;
+    }
+    & h1{
+        font-size: 36px;
+        line-height: 36px;
+        text-transform: capitalize;
+        font-weight: 500;
+        color: $fonts_color;
+        margin-bottom: 0;
+        @media #{$tablet-device}{
+            font-size: 25px;
+            line-height: 27px;
+        }
+        @media #{$large-mobile}{
+            font-size: 18px;
+            line-height: 18px;
+        }
+    }
+    & p{
+        font-size: 18px;
+        color: $fonts_color;
+        margin: 14px 0 16px;
+        max-width: 427px;
+        @media #{$desktop-device}{
+           font-size: 16px;
+        }
+        @media #{$tablet-device}{
+            font-size: 15px;
+            max-width: 369px;
+            line-height: 22px;
+        }
+        @media #{$large-mobile}{
+            font-size: 13px;
+            margin: 10px 0 11px;
+        }
+    }
+    & span{
+        font-size: 48px;
+        line-height: 48px;
+        font-family: $Montserrat;
+        font-weight: 600;
+        display: block;
+        @media #{$tablet-device}{
+            font-size: 33px;
+            line-height: 33px;
+        }
+        @media #{$large-mobile}{
+            font-size: 23px;
+            line-height: 24px;
+        }
+    }
+    & a{
+        background: $fonts_color;
+        border-color: $fonts_color;
+        margin-top: 42px;
+        &:hover{
+            background: $secondary_color3;
+            border-color: $secondary_color3;
+        }
+        @media #{$tablet-device}{
+            padding: 0 13px;
+            height: 40px;
+            line-height: 38px;
+            letter-spacing: 1px;
+            margin-top: 30px;
+        }
+        @media #{$large-mobile}{
+            margin-top: 26px;
+            letter-spacing: 0;
+        }
+    }
+}
+
+
+
+
+.slider_s_four{
+    & .single_slider{
+        height: 507px;
+        @media #{$desktop-device}{
+           height: 480px;
+        }
+        @media #{$tablet-device}{
+            height: 380px;
+            background-position: 55%;
+        }
+        @media #{$large-mobile}{
+           background-position: 10%;
+            height: 280px;
+        }
+    }
+    & .owl-nav{
+        & div{
+            &:hover{
+                color: $secondary_color3;
+                border-color: $secondary_color3;
+            }
+        }
+    }
+    
+}
+.slider_c_four{
+    padding-left: 75px;
+    @media #{$large-mobile}{
+        padding-left: 25px;
+    }
+    &.style1{
+        & h1{
+            font-size: 48px;
+            line-height: 48px;
+            color: $white;
+            letter-spacing: 3px;
+            font-weight: 700;
+            @media #{$tablet-device}{
+                font-size: 35px;
+                line-height: 35px;
+            }
+             @media #{$large-mobile}{
+                font-size: 24px;
+                line-height: 25px;
+                 letter-spacing: 1px;
+                 margin-bottom: 5px;
+            }
+        }
+        & h2{
+            font-size: 36px;
+            line-height: 25px;
+            font-weight: 500;
+            text-transform: capitalize;
+            @media #{$tablet-device}{
+                font-size: 25px;
+                line-height: 25px;
+            }
+            @media #{$large-mobile}{
+                font-size: 18px;
+                line-height: 20px;
+            }
+        }
+        & p{
+            font-size: 30px;
+            line-height: 30px;
+            letter-spacing: 2px;
+            font-weight: 500;
+            max-width: 290px;
+            margin: 37px 0 36px;
+            @media #{$tablet-device}{
+                font-size: 20px;
+                line-height: 26px;
+                max-width: 249px;
+                margin: 27px 0 27px;
+            }
+            @media #{$large-mobile}{
+                font-size: 15px;
+                line-height: 28px;
+                letter-spacing: 0px;
+                margin: 13px 0 15px;
+            }
+        }
+        & a{
+            &:hover{
+                background: $secondary_color3;
+                border-color: $secondary_color3;
+                color: $white;
+            }
+        }
+    }
+    &.style2{
+        & h1{
+            font-size: 28px;
+            line-height: 33px;
+            letter-spacing: 1px;
+            font-weight: 500;
+            color: $fonts_color;
+            text-transform: capitalize;
+            max-width: 300px;
+            margin-bottom: 26px;
+            @media #{$tablet-device}{
+                font-size: 22px;
+                line-height: 26px;
+                margin-bottom: 16px;
+            }
+            @media #{$large-mobile}{
+                font-size: 15px;
+                line-height: 20px;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+            }
+        }
+        & h2{
+            font-size: 60px;
+            line-height: 60px;
+            letter-spacing: 4px;
+            color: $fonts_color;
+            @media #{$tablet-device}{
+                font-size: 40px;
+                line-height: 45px;
+            }
+            @media #{$large-mobile}{
+                font-size: 21px;
+                line-height: 28px;
+                letter-spacing: 2px;
+            }
+        }
+        & p{
+            margin: 0;
+            font-size: 30px;
+            line-height: 30px;
+            font-weight: 500;
+            color: $fonts_color;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            @media #{$tablet-device}{
+                font-size: 22px;
+                line-height: 24px;
+            }
+            @media #{$large-mobile}{
+                font-size: 13px;
+                line-height: 22px;
+                letter-spacing: 1px;
+            }
+        }
+        & a{
+            color: $fonts_color;
+            border: 1px solid $fonts_color;
+            margin-top: 35px;
+            &:hover{
+                background: $secondary_color3;
+                border-color: $secondary_color3;
+                color: $white;
+            }
+            @media #{$tablet-device}{
+                margin-top: 25px;
+            }
+            @media #{$large-mobile}{
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
+
+
+/*hhome five css here*/
+.slider_s_five{
+    @media #{$tablet-device}{
+        margin-bottom: 30px;
+    }
+    @media #{$large-mobile}{
+       margin-bottom: 30px;
+    }
+    & a{
+        &:hover{
+            background: $secondary_color4;
+            border-color: $secondary_color4;
+        }
+    }
+    & .single_slider{
+        height: 750px;
+        @media #{$laptop-device}{
+           height: 527px;
+        }
+        @media #{$desktop-device}{
+           height: 480px;
+        }
+        @media #{$tablet-device}{
+            height: 380px;
+            background-position: 55%;
+        }
+        @media #{$large-mobile}{
+           background-position: 10%;
+            height: 280px;
+        }
+    }
+    & .owl-nav{
+        & div{
+            &:hover{
+                color: $secondary_color4;
+                border-color: $secondary_color4;
+            }
+        }
+    }
+}
+
+.slider_c_five{
+    @media #{$mini-laptop-device}{
+       padding-left: 50px;
+    }
+    @media #{$desktop-device}{
+       padding-left: 55px;
+    }
+    &.style1{
+        & h1{
+            font-size: 20px;
+            line-height: 20px;
+            font-weight: 600;
+            margin-bottom: 7px;
+            @media #{$desktop-device}{
+               font-size: 18px;
+            }
+             @media #{$tablet-device}{
+                font-size: 17px;
+            }
+            @media #{$large-mobile}{
+               font-size: 12px;
+                line-height: 18px;
+                margin-bottom: 6px;
+            }
+        }
+        & h2{
+            font-size: 60px;
+            line-height: 60px;
+            @media #{$desktop-device}{
+               font-size: 45px;
+                line-height: 45px;
+            }
+            @media #{$tablet-device}{
+                font-size: 32px;
+                line-height: 32px;
+            }
+            @media #{$large-mobile}{
+                font-size: 20px;
+                line-height: 22px;
+            }
+        }
+        & p{
+            font-size: 24px;
+            line-height: 24px;
+            font-weight: 600;
+            text-transform: capitalize;
+            @media #{$desktop-device}{
+               font-size: 20px;
+            }
+            @media #{$tablet-device}{
+                font-size: 18px;
+                line-height: 21px;
+            }
+            @media #{$large-mobile}{
+                font-size: 13px;
+                line-height: 20px;
+                max-width: 100%;
+                letter-spacing: 0;
+                margin: 13px auto 17px;
+            }
+        }
+    }
+    &.style2{
+        & h1{
+            font-size: 40px;
+            line-height: 52px;
+            font-weight: 600;
+            margin-bottom: 0;
+            @media #{$desktop-device}{
+               font-size: 35px;
+                line-height: 42px
+            }
+            @media #{$tablet-device}{
+                font-size: 28px;
+                line-height: 35px;
+            }
+            @media #{$large-mobile}{
+                    font-size: 16px;
+                    line-height: 23px;
+            }
+        }
+        & h2{
+            font-size: 40px;
+            line-height: 52px;
+            font-weight: 600;
+            @media #{$desktop-device}{
+               font-size: 35px;
+                line-height: 42px
+            }
+            @media #{$tablet-device}{
+                font-size: 28px;
+                line-height: 35px;
+            }
+            @media #{$large-mobile}{
+                font-size: 16px;
+                line-height: 23px;
+            }
+        }
+        & p{
+            font-size: 24px;
+            line-height: 25px;
+            font-weight: 600;
+            text-transform: capitalize;
+            margin: 25px 0 40px;
+            @media #{$desktop-device}{
+               font-size: 20px;
+            }
+            @media #{$tablet-device}{
+                font-size: 16px;
+                line-height: 24px;
+                max-width: 270px;
+                margin: 20px 0 28px;
+            }
+            @media #{$large-mobile}{
+                font-size: 13px;
+                line-height: 22px;
+                margin: 12px 0 20px;
+                max-width: 100%;
+            }
+        }
+    }
+    
+}
+
+
+
+
+/*home six css here*/
+.slider_s_six{
+    @media #{$large-mobile}{
+       margin-bottom: 30px;
+    }
+    & .single_slider{
+        height: 854px;
+        @media #{$laptop-device}{
+           height: 600px;
+        }
+        @media #{$desktop-device}{
+           height: 480px;
+        }
+        @media #{$tablet-device}{
+            height: 380px;
+            background-position: 55%;
+        }
+        @media #{$large-mobile}{
+           background-position: 10%;
+            height: 280px;
+        }
+    }
+    & .owl-nav{
+        & div{
+             color: $fonts_color;
+            border-color: $fonts_color;
+            &:hover{
+                color: $secondary_color5;
+                border-color: $secondary_color5;
+            }
+        }
+    }
+}
+
+.slider_c_six{
+    @media #{$mini-laptop-device}{
+        padding-left: 50px;
+    }
+    &.content_right{
+        padding-left: 54px;
+        @media #{$tablet-device}{
+            padding-left: 0;
+        }
+        @media #{$large-mobile}{
+            padding-left: 0;
+        }
+    }
+    &.content_left{
+        @media #{$desktop-device}{
+           padding-left: 60px;
+        }
+        
+    }
+    & h1{
+        font-size: 24px;
+        line-height: 24px;
+        font-weight: 700;
+        color: $fonts_color;
+        letter-spacing: 2px;
+        @media #{$desktop-device}{
+           font-size: 20px;
+        }
+        @media #{$tablet-device}{
+            font-size: 18px;
+            line-height: 20px;
+        }
+         @media #{$large-mobile}{
+           font-size: 13px;
+            line-height: 16px;
+        }
+    } 
+    & h2{
+        font-size: 64px;
+        line-height: 64px;
+        letter-spacing: 6px;
+        color: $fonts_color;
+        @media #{$desktop-device}{
+           font-size: 40px;
+            line-height: 40px;
+            letter-spacing: 3px;
+        }
+        @media #{$tablet-device}{
+            font-size: 34px;
+            line-height: 35px;
+            letter-spacing: 3px;
+        }
+        @media #{$large-mobile}{
+            font-size: 18px;
+            line-height: 20px;
+            letter-spacing: 2px;
+        }
+    }
+    & p{
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: 500;
+        color: $fonts_color;
+        @media #{$desktop-device}{
+            font-size: 17px;
+            line-height: 26px;
+            max-width: 409px;
+        }
+        @media #{$tablet-device}{
+            font-size: 16px;
+            line-height: 24px;
+        }
+        @media #{$large-mobile}{
+            font-size: 13px;
+            line-height: 20px;
+            max-width: 280px;
+            margin: 10px auto 15px;
+        }
+    }
+    & a{
+        background: $secondary_color5;
+        border: 1px solid $secondary_color5;
+        color: $white;
+        &:hover{
+            background: $fonts_color;
+            border-color: $fonts_color;
+        }
+    }
+}
+
+
+/*home seven css here*/
+.slider_section7{
+    & .single_slider{
+        height: 910px;
+        @media #{$laptop-device}{
+           height: 639px;
+        }
+        @media #{$desktop-device}{
+           height: 480px;
+        }
+        @media #{$tablet-device}{
+            height: 380px;
+            background-position: 55%;
+        }
+        @media #{$large-mobile}{
+           background-position: 10%;
+            height: 280px;
+        }
+    }
+    & .owl-nav{
+        & div{
+            &:hover{
+                color: $secondary_color6;
+                border-color: $secondary_color6;
+            }
+        }
+    }
+}
+
+.slider_c_seven{
+    @media #{$mini-laptop-device}{
+        padding-left: 50px;
+    }
+    @media #{$desktop-device}{
+       padding-left: 60px;
+    }
+    & a{
+        &:hover{
+            background: $secondary_color6;
+            border-color: $secondary_color6;
+        }
+    }
+    &.style1{
+        & h1{
+            font-size: 72px;
+            line-height: 72px;
+            font-weight: 600;
+            letter-spacing: 12px;
+            @media #{$desktop-device}{
+               font-size: 50px;
+                line-height: 50px;
+                letter-spacing: 6px;
+            }
+            @media #{$tablet-device}{
+                font-size: 35px;
+                line-height: 35px;
+                letter-spacing: 5px;
+                margin-bottom: 6px;
+            }
+             @media #{$large-mobile}{
+               font-size: 18px;
+                line-height: 22px;
+                margin-bottom: 5px;
+                letter-spacing: 2px;
+            }
+        } 
+        & h2{
+            font-size: 44px;
+            line-height: 44px;
+            letter-spacing: 3px;
+            font-weight: 500;
+            @media #{$desktop-device}{
+               font-size: 28px;
+                line-height: 30px;
+                letter-spacing: 2px;
+            }
+            @media #{$tablet-device}{
+                font-size: 20px;
+                line-height: 25px;
+                letter-spacing: 1px;
+            }
+            @media #{$large-mobile}{
+                font-size: 13px;
+                line-height: 18px;
+                letter-spacing: 1px;
+            }
+        }
+        & p{
+            font-size: 18px;
+            line-height: 38px;
+            font-weight: 500;
+            font-style: italic;
+            @media #{$desktop-device}{
+                font-size: 17px;
+                line-height: 26px;
+                max-width: 409px;
+            }
+            @media #{$tablet-device}{
+                font-size: 15px;
+                line-height: 24px;
+            }
+            @media #{$large-mobile}{
+                font-size: 13px;
+                line-height: 19px;
+                max-width: 280px;
+                margin: 12px auto 20px;
+            }
+        }
+    }
+    &.style2{
+        & h1{
+            font-size: 32px;
+            line-height: 32px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            @media #{$desktop-device}{
+               font-size: 30px;
+            }
+            @media #{$tablet-device}{
+                font-size: 18px;
+                line-height: 20px;
+            }
+             @media #{$large-mobile}{
+               font-size: 13px;
+                line-height: 18px;
+                 letter-spacing: 1px;
+            }
+        } 
+        & h2{
+            font-size: 72px;
+            line-height: 72px;
+            font-weight: 600;
+            letter-spacing: 12px;
+            @media #{$desktop-device}{
+               font-size: 50px;
+                line-height: 50px;
+                letter-spacing: 7px;
+            }
+            @media #{$tablet-device}{
+                font-size: 35px;
+                line-height: 35px;
+                letter-spacing: 3px;
+            }
+            @media #{$large-mobile}{
+                font-size: 20px;
+                line-height: 22px;
+                letter-spacing: 2px;
+            }
+        }
+        & p{
+            font-size: 28px;
+            line-height: 38px;
+            font-weight: 500;
+            max-width: 530px;
+            @media #{$desktop-device}{
+                    font-size: 16px;
+                    line-height: 25px;
+                    max-width: 430px;
+            }
+            @media #{$tablet-device}{
+                font-size: 16px;
+                line-height: 24px;
+            }
+            @media #{$large-mobile}{
+                font-size: 13px;
+                line-height: 21px;
+                max-width: 280px;
+                margin: 12px auto 20px;
+            }
+        }
+    }
+    
+}
+
+
+
+
+
+/*home eight css here*/
+.slider_s_eight{
+    & .single_slider{
+        height: 990px;
+        @media #{$laptop-device}{
+           height: 696px;
+        }
+        @media #{$desktop-device}{
+           height: 480px;
+        }
+        @media #{$tablet-device}{
+            height: 380px;
+            background-position: 55%;
+        }
+        @media #{$large-mobile}{
+           background-position: 10%;
+            height: 280px;
+        }
+    }
+    & .owl-nav{
+        & div{
+            &:hover{
+                color: $secondary_color7;
+                border-color: $secondary_color7;
+            }
+        }
+    }
+}
+
+
+.slider_c_eight{
+    @media #{$mini-laptop-device}{
+        padding-left: 50px;
+    }
+    @media #{$tablet-device}{
+        padding-left: 40px;
+    }
+    & h1{
+        font-size: 135px;
+        line-height: 106px;
+        letter-spacing: 0;
+        text-transform: lowercase;
+        font-family: $Lato;
+        margin-bottom: 5px;
+        & span{
+            color: $secondary_color7;
+        }
+        @media #{$desktop-device}{
+           font-size: 100px;
+            line-height: 90px;
+        }
+        @media #{$tablet-device}{
+            font-size: 80px;
+            line-height: 70px;
+        }
+        @media #{$large-mobile}{
+            font-size: 31px;
+            line-height: 33px;
+        }
+    }
+    & h2{
+        font-size: 60px;
+        line-height: 60px;
+        letter-spacing: 6px;
+        text-transform: capitalize;
+        font-family: $Lato;
+        @media #{$desktop-device}{
+           font-size: 40px;
+            line-height: 40px;
+        }
+        @media #{$tablet-device}{
+            font-size: 35px;
+            line-height: 35px;
+            letter-spacing: 4px;
+        }
+        @media #{$large-mobile}{
+            font-size: 18px;
+            line-height: 20px;
+            letter-spacing: 3px;
+        }
+    }
+    & p{
+        font-size: 24px;
+        line-height: 38px;
+        letter-spacing: 2px;
+        margin: 28px 0 36px;
+        @media #{$desktop-device}{
+            font-size: 20px;
+            line-height: 30px;
+        }
+        @media #{$tablet-device}{
+            font-size: 17px;
+            line-height: 22px;
+            margin: 20px 0 28px;
+        }
+        @media #{$large-mobile}{
+            font-size: 13px;
+            line-height: 20px;
+            letter-spacing: 1px;
+            margin: 13px auto 18px;
+        }
+    }
+    & a{
+        background: $secondary_color7;
+        border: 1px solid $secondary_color7;
+        &:hover{
+            background: $secondary_color6;
+            border-color: $secondary_color6;
+        }
+    }
+}
+
+
+
+
+
+
+
+

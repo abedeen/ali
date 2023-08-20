@@ -1,0 +1,152 @@
+/*brand css here*/
+
+.brand_container{
+    border-top: 1px solid $grey_color;
+    padding: 40px 0;
+    @media #{$large-mobile}{
+        padding: 20px 0;
+    }
+    & .single_brand{
+        & img{
+            width: inherit;
+            margin: 0 auto;
+        }
+    }
+    &:hover{
+        & .owl-nav{
+            & div{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    & .owl-nav{
+        &.disabled{
+            display: block;
+        }
+        & div{
+            position: absolute;
+            top: 50%;
+            transform: translatey(-50%);
+            left: 0;
+            font-size: 18px;
+            width: 45px;
+            height: 45px;
+            line-height: 43px;
+            text-align: center;
+            border: 1px solid #a2a2a2;
+            @include transition(.3s);
+            opacity: 0;
+            visibility: hidden;
+            background: $white;
+            @media #{$large-mobile}{
+               display: none;
+            }
+            &:hover{
+                color: $white;
+                background: $fonts_color;
+                border-color: $fonts_color;
+            }
+            &.owl-next{
+                right: 0;
+                left: auto;
+            }
+        }
+    }
+}
+
+
+
+/*home two css here*/
+.brand_two{
+    & .brand_container{
+        border: 0;
+    }
+    & .owl-nav{
+        & div{
+            &:hover{
+                background: $secondary_color2;
+                border-color: $secondary_color2;
+            }
+        }
+    }
+}
+
+
+/*home three css here*/
+.color_three{
+    & .owl-nav{
+        & div{
+            &:hover{
+                background: $secondary_color3;
+                border-color: $secondary_color3;
+            }
+        }
+    }
+}
+
+
+
+/*home five css here*/
+.color_five{
+    & .owl-nav{
+        & div{
+            &:hover{
+                background: $secondary_color4;
+                border-color: $secondary_color4;
+            }
+        }
+    }
+}
+
+
+
+/*home six css here*/
+.brand_six{
+    & .brand_container{
+        border-top: 0;
+    }
+}
+.color_six{
+    & .owl-nav{
+        & div{
+            &:hover{
+                background: $secondary_color5;
+                border-color: $secondary_color5;
+            }
+        }
+    }
+}
+
+/*home seven css here*/
+.color_seven{
+    & .owl-nav{
+        & div{
+            &:hover{
+                background: $secondary_color6;
+                border-color: $secondary_color6;
+            }
+        }
+    }
+}
+
+
+/*home eight css here*/
+.color_eight{
+    & .owl-nav{
+        & div{
+            &:hover{
+                background: $secondary_color7;
+                border-color: $secondary_color7;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+

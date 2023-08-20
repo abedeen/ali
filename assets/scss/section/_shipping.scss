@@ -1,0 +1,115 @@
+/* 21. shipping css here */
+.shipping_area{
+    @media #{$large-mobile}{
+        margin-bottom: 57px;
+    }
+}
+.shipping_container{
+    padding: 70px 0;
+    border-bottom: 1px solid #dadada;
+    @media #{$large-mobile}{
+        padding: 60px 0 28px;
+    }
+}
+.single_shipping{
+    text-align: center;
+    @media #{$large-mobile}{
+        margin-bottom: 29px;
+    }
+    
+}
+
+.shipping_icone{
+    & img{
+        border: 1px solid #dadada;
+    }
+}
+.shipping_content{
+    margin-top: 28px;
+    @media #{$large-mobile}{
+        margin-top: 17px;
+    }
+    & h4{
+        font-size: 14px;
+        line-height: 14px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 0;
+        @media #{$desktop-device}{
+           letter-spacing: 0;
+        }
+        @media #{$tablet-device}{
+            font-size: 13px;
+            line-height: 16px;
+        }
+        @media #{$large-mobile}{
+            font-size: 13px;
+            letter-spacing: 0;
+        }
+    }
+}
+
+
+
+/*home seven css here*/
+.shipping_seven{
+    background: #15161b;
+    padding: 55px 0;
+    @media #{$desktop-device}{
+        margin-bottom: 30px;
+    }
+    @media #{$tablet-device}{
+        margin-bottom: 30px;
+        padding: 55px 0 25px;
+        margin-top: 30px;
+    }
+    @media #{$large-mobile}{
+        padding: 60px 0 30px;
+        margin-top: 30px;
+    }
+    & .single_shipping {
+        display: flex;
+        align-items: center;
+        @media #{$tablet-device}{
+            margin-bottom: 30px;
+        }
+    }
+    & .shipping_content{
+        margin-top: 0;
+        margin-left: 6px;
+        & h4{
+            text-transform: capitalize;
+            color: $white;
+            font-size: 14px;
+            line-height: 32px;
+            font-weight: 400;
+            @media #{$desktop-device}{
+                font-size: 12px;
+            }
+        }
+    }
+    & .shipping_icone{
+        width: 32px;
+        height: 32px;
+        line-height: 30px;
+        border: 1px solid $secondary_color6;
+        text-align: center;
+        & i{
+            font-size: 16px;
+            color: $secondary_color6;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
