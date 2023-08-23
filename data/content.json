@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "text1": "We provide best",
+    "text2": "get the best price",
+    "text3": "looks good with ...",
+    "url": "assets/img/slider/slider1.png"
+  },
+  {
+    "id": 2,
+    "text1": "Fashion sale preview",
+    "text2": "50% off",
+    "text3": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "url": "assets/img/slider/slider2.webp"
+  },
+  {"id":3, "text1":"", "text2":"", "text3":"", "url":"C:\Users\HP EliteBook\Desktop\ali\assets\img\slider\slider2.webp"},
+  {"id":4, "text1":"", "text2":"", "text3":"", "url":"C:\Users\HP EliteBook\Desktop\ali\assets\img\slider\slider3.webp"},
+  {"id":5, "text1":"", "text2":"", "text3":"", "url":"C:\Users\HP EliteBook\Desktop\ali\assets\img\slider\slider4.webp"}
+]
