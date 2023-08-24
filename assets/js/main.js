@@ -877,7 +877,7 @@ function pullIndex(){
             '                    <h1> '+item['Text1']+' </h1>'+
             '                     <h2>'+item['Text2']+'</h2>'+
             '                     <p>  '+item['Text3']+' </p>'+                                   
-            '                     <a class="button" href="shop.html">shop Now <i class="zmdi zmdi-long-arrow-right"></i></a>'+
+            '                     <a class="button" href="shop.html?itemId='+item['ObjetId']+' ">shop Now <i class="zmdi zmdi-long-arrow-right"></i></a>'+
             '                             </div>'+
             '            </div>'+
             '       </div>'+
