@@ -47,6 +47,7 @@ function activateTestimonial(){
         dots: true,
         navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'], 
     })
+    dataBackgroundImage();
 }
 (function ($) {
     "use strict";
