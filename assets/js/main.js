@@ -23,20 +23,74 @@ function activateSlide(){
     dataBackgroundImage();
 }
 function activateBanner() {
-    $(document).ready(function() {
-        // JavaScript to initialize Owl Carousel on the banner area
-        $('.banner_area').owlCarousel({
-            animateOut: 'fadeOut',
-            autoplay: true,
-            loop: true,
-            nav: true,
-            autoplayTimeout: 8000,
-            items: 1,
-            dots: false,
-            navText: ['<i class="zmdi zmdi-long-arrow-left zmdi-hc-fw"></i>', '<i class="zmdi zmdi-long-arrow-right zmdi-hc-fw"></i>']
-        });
-    });
+    // CSS styles for the banner and its content
+    const styles = `
+        /* Styles for the banner area */
+        .banner_area {
+            margin-bottom: 66px; /* You can adjust this value as needed */
+        }
+
+        /* Style for the banner images and content */
+        .single_banner {
+            margin-bottom: 30px;
+        }
+
+        .banner_thumb {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner_thumb img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .banner_conent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .banner_conent h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .banner_conent h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .banner_conent p {
+            font-size: 14px;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .banner_conent span {
+            font-weight: bold;
+        }
+    `;
+
+    // Create a <style> element and append the styles to it
+    const styleElement = document.createElement('style');
+    styleElement.textContent = styles;
+
+    // Append the <style> element to the <head> of the document
+    document.head.appendChild(styleElement);
+
+    // Your JavaScript logic here
 }
+
 
 function activateTestimonial(){
     
@@ -937,12 +991,12 @@ function fetchBannerData(obj) {
 
     for (var i = 0; i < obj.length; i++) {
         var item = obj[i];
-        if (item["Type"] === 2) {
+        if (item["Type"] == 2) {
             var banner = '<div class="col-lg-4 col-md-4">' +
                          '    <figure class="single_banner">' +
                          '        <div class="banner_thumb">' +
                          '            <a href="shop.html">' +
-                         '                <img src="' + item['url1'] + '" alt="" width="300" height="400">' +
+                         '                <img src="' + item['url1'] + '" alt="" width="370" height="430">' +
                          '            </a>' +
                          '            <div class="banner_conent">' +
                          '                <h3>' + item['Text1'] + '</h3>' +
@@ -959,7 +1013,7 @@ function fetchBannerData(obj) {
     var finalHTML = preText + bannerHTML + postText;
     container.innerHTML = finalHTML;
 
-    activateBanner(); // Assuming this is a function to initialize the banner behavior
+    //activateBanner(); // Assuming this is a function to initialize the banner behavior
 }
 
 
