@@ -855,7 +855,32 @@ function fetchDate(obj){
           // code block
       }
 }
-
+function fetchSliderData(obj) {
+    var dataList = $("#container1")[0];
+    itl = "";
+    for (var i = 0; i < data.length; i++) {
+        var item = data[i];
+        if (item["Type"] == 1) {
+            var txt = '<div class="single_slider d-flex align-items-center" data-bgimg="' + item['url1'] + '">' +
+                '    <div class="container">' +
+                '        <div class="row">' +
+                '            <div class="col-lg-6 col-md-7">' +
+                '                <div class="slider_content content_left">' +
+                '                    <h1> ' + item['Text1'] + ' </h1>' +
+                '                     <h2>' + item['Text2'] + '</h2>' +
+                '                     <p>  ' + item['Text3'] + ' </p>' +
+                '                     <a class="button" href="shop.html?itemId=' + item['ObjetId'] + ' ">shop Now <i class="zmdi zmdi-long-arrow-right"></i></a>' +
+                '                             </div>' +
+                '            </div>' +
+                '       </div>' +
+                '   </div>' +
+                '</div>'
+            itl += txt;
+        }
+    }
+    dataList.innerHTML = itl;
+    activateSlide();
+}
 function pullIndex(){
     $.ajax({
         url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/index", // Replace with your API endpoint
@@ -863,28 +888,30 @@ function pullIndex(){
         dataType: "json",
         success: function(data) {
             // Assuming the API response is an array of objects
+            fetchSliderData(data);
             var dataList = $("#container1")[0];  
             itl="";        
             
             for (var i = 0; i < data.length; i++) {
                 var item = data[i];
                 if(item["Type"]==1){
-                var txt='<div class="single_slider d-flex align-items-center" data-bgimg="'+item['url1']+'">'+
-            '    <div class="container">'+
-            '        <div class="row">'+
-            '            <div class="col-lg-6 col-md-7">'+
-            '                <div class="slider_content content_left">'+
-            '                    <h1> '+item['Text1']+' </h1>'+
-            '                     <h2>'+item['Text2']+'</h2>'+
-            '                     <p>  '+item['Text3']+' </p>'+                                   
-            '                     <a class="button" href="shop.html?itemId='+item['ObjetId']+' ">shop Now <i class="zmdi zmdi-long-arrow-right"></i></a>'+
-            '                             </div>'+
-            '            </div>'+
-            '       </div>'+
-             '   </div>'+                 
-             '</div>'
-              itl+=txt;
-            }}
+                    var txt='<div class="single_slider d-flex align-items-center" data-bgimg="'+item['url1']+'">'+
+                '    <div class="container">'+
+                '        <div class="row">'+
+                '            <div class="col-lg-6 col-md-7">'+
+                '                <div class="slider_content content_left">'+
+                '                    <h1> '+item['Text1']+' </h1>'+
+                '                     <h2>'+item['Text2']+'</h2>'+
+                '                     <p>  '+item['Text3']+' </p>'+                                   
+                '                     <a class="button" href="shop.html?itemId='+item['ObjetId']+' ">shop Now <i class="zmdi zmdi-long-arrow-right"></i></a>'+
+                '                             </div>'+
+                '            </div>'+
+                '       </div>'+
+                '   </div>'+                 
+                '</div>'
+                itl+=txt;
+                }
+            }
             dataList.innerHTML=itl;
             activateSlide();
         
