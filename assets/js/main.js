@@ -913,7 +913,7 @@ function fetchTestimonialContainerData(obj) {
     itl = "";
     for (var i = 0; i < obj.length; i++) {
         var item = obj[i];
-        if (item["Type"] == 2) {
+        if (item["Type"] == 3) {
             var txt = '<div class="single_testimonial">'+
                     '       <div class="testimonial_img">'+
                     '            <a href="#"><img src="'+item['url1'] + '" alt=""></a>'+
