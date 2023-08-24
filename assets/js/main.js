@@ -977,6 +977,7 @@ function pullIndex(){
             // Assuming the API response is an array of objects
             fetchSliderData(data);
             fetchTestimonialContainerData(data);
+            fetchBannerData(data);
             // var dataList = $("#container1")[0];  
             // itl="";        
             
