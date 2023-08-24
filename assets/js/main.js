@@ -22,20 +22,22 @@ function activateSlide(){
     });
     dataBackgroundImage();
 }
-function activateBanner(){
-   // JavaScript to initialize Owl Carousel on the banner area
-    $('.banner_area').owlCarousel({
-        animateOut: 'fadeOut',
-        autoplay: true,
-        loop: true,
-        nav: true,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots: false,
-        navText: ['<i class="zmdi zmdi-long-arrow-left zmdi-hc-fw"></i>', '<i class="zmdi zmdi-long-arrow-right zmdi-hc-fw"></i>']
+function activateBanner() {
+    $(document).ready(function() {
+        // JavaScript to initialize Owl Carousel on the banner area
+        $('.banner_area').owlCarousel({
+            animateOut: 'fadeOut',
+            autoplay: true,
+            loop: true,
+            nav: true,
+            autoplayTimeout: 8000,
+            items: 1,
+            dots: false,
+            navText: ['<i class="zmdi zmdi-long-arrow-left zmdi-hc-fw"></i>', '<i class="zmdi zmdi-long-arrow-right zmdi-hc-fw"></i>']
+        });
     });
-  
 }
+
 function activateTestimonial(){
     
     /*---testimonial active activation---*/
@@ -923,33 +925,41 @@ function fetchSliderData(obj) {
     activateSlide();
 }
 function fetchBannerData(obj) {
-    var dataList = $("#container3")[0];
-    itl = "";
-    var preText = '<div class="container">'+
-                  '    <div  class="row">';
-    var lastTesxt = '      </div>'+
-                    '   </div>';
+    var container = $("#container3")[0];
+    var bannerHTML = "";
+
+    var preText = '<div class="container">' +
+                  '    <div class="row">';
+    var postText = '    </div>' +
+                   '</div>';
+
     for (var i = 0; i < obj.length; i++) {
         var item = obj[i];
-        if (item["Type"] == 2) {
-            var txt = '<div class="col-lg-4 col-md-4">'+
-                      '     <figure class="single_banner">'+
-                      '         <div class="banner_thumb">' +
-                      '             <a href="shop.html"><img src="'+item['url1'] + '" alt=""></a>'+
-                      '                 <div class="banner_conent">'+
-                      '                     <h3>' + item['Text1'] + '</h3>'+
-                      '                     <h2>' + item['Text2'] + '</h2>'+
-                      '                     <p>' + item['Text3'] + '</p>'+
-                      '                 </div>'+
-                      '          </div>'+
-                      '     </figure>'+
-                      '</div>'
-            itl += txt;
+        if (item["Type"] === 2) {
+            var banner = '<div class="col-lg-4 col-md-4">' +
+                         '    <figure class="single_banner">' +
+                         '        <div class="banner_thumb">' +
+                         '            <a href="shop.html">' +
+                         '                <img src="' + item['url1'] + '" alt="" width="300" height="400">' +
+                         '            </a>' +
+                         '            <div class="banner_conent">' +
+                         '                <h3>' + item['Text1'] + '</h3>' +
+                         '                <h2>' + item['Text2'] + '</h2>' +
+                         '                <p>' + item['Text3'] + '</p>' +
+                         '            </div>' +
+                         '        </div>' +
+                         '    </figure>' +
+                         '</div>';
+            bannerHTML += banner;
         }
     }
-    dataList.innerHTML = preText+itl+lastTesxt;
-    activateBanner();
+
+    var finalHTML = preText + bannerHTML + postText;
+    container.innerHTML = finalHTML;
+
+    activateBanner(); // Assuming this is a function to initialize the banner behavior
 }
+
 
 function fetchTestimonialContainerData(obj) {
     var dataList = $("#container2")[0];
