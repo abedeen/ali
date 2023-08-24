@@ -22,6 +22,20 @@ function activateSlide(){
     });
     dataBackgroundImage();
 }
+function activateBanner(){
+   // JavaScript to initialize Owl Carousel on the banner area
+    $('.banner_area').owlCarousel({
+        animateOut: 'fadeOut',
+        autoplay: true,
+        loop: true,
+        nav: true,
+        autoplayTimeout: 8000,
+        items: 1,
+        dots: false,
+        navText: ['<i class="zmdi zmdi-long-arrow-left zmdi-hc-fw"></i>', '<i class="zmdi zmdi-long-arrow-right zmdi-hc-fw"></i>']
+    });
+  
+}
 function activateTestimonial(){
     
     /*---testimonial active activation---*/
@@ -908,6 +922,31 @@ function fetchSliderData(obj) {
     dataList.innerHTML = itl;
     activateSlide();
 }
+function fetchBannerData(obj) {
+    var dataList = $("#container3")[0];
+    itl = "";
+    for (var i = 0; i < obj.length; i++) {
+        var item = obj[i];
+        if (item["Type"] == 2) {
+            var txt = '<div class="col-lg-4 col-md-4">'+
+                      '     <figure class="single_banner">'+
+                      '         <div class="banner_thumb">' +
+                      '             <a href="shop.html"><img src="'+item['url1'] + '" alt=""></a>'+
+                      '                 <div class="banner_conent">'+
+                      '                     <h3>' + item['Text1'] + '</h3>'+
+                      '                     <h2>' + item['Text2'] + '</h2>'+
+                      '                     <p>' + item['Text3'] + '</p>'+
+                      '                 </div>'+
+                      '          </div>'+
+                      '     </figure>'+
+                      '</div>'
+            itl += txt;
+        }
+    }
+    dataList.innerHTML = itl;
+    activateBanner();
+}
+
 function fetchTestimonialContainerData(obj) {
     var dataList = $("#container2")[0];
     itl = "";
