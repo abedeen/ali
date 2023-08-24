@@ -928,9 +928,11 @@ function fetchBannerData(obj) {
     var container = $("#container3")[0];
     var bannerHTML = "";
 
-    var preText = '<div class="container">' +
+    var preText = '<div class="banner_area mb-66">'+
+                  '   <div class="container">' +
                   '    <div class="row">';
-    var postText = '    </div>' +
+    var postText = '         </div>' +
+                    '    </div>' +
                    '</div>';
 
     for (var i = 0; i < obj.length; i++) {
