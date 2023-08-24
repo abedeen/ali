@@ -925,6 +925,10 @@ function fetchSliderData(obj) {
 function fetchBannerData(obj) {
     var dataList = $("#container3")[0];
     itl = "";
+    var preText = '<div class="container">'+
+                  '    <div  class="row">';
+    var lastTesxt = '      </div>'+
+                    '   </div>';
     for (var i = 0; i < obj.length; i++) {
         var item = obj[i];
         if (item["Type"] == 2) {
@@ -943,7 +947,7 @@ function fetchBannerData(obj) {
             itl += txt;
         }
     }
-    dataList.innerHTML = itl;
+    dataList.innerHTML = preText+itl+lastTesxt;
     activateBanner();
 }
 
