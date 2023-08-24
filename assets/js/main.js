@@ -1,17 +1,32 @@
+/*---background image---*/
+function dataBackgroundImage() {
+    $('[data-bgimg]').each(function () {
+        var bgImgUrl = $(this).data('bgimg');
+        $(this).css({
+            'background-image': 'url(' + bgImgUrl + ')', // + meaning concat
+        });
+    });
+}
+function activateSlide(){
+    /*---slider activation---*/
+    $('.slider_area').owlCarousel({
+        animateOut: 'fadeOut',
+        autoplay: true,
+		loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        items: 1,
+        dots:false,
+        navText: ['<i class="zmdi zmdi-long-arrow-left zmdi-hc-fw"></i>','<i class="zmdi zmdi-long-arrow-right zmdi-hc-fw"></i>'],
+    });
+    dataBackgroundImage();
+}
 (function ($) {
     "use strict";
 
     new WOW().init();  
-
-    /*---background image---*/
-	function dataBackgroundImage() {
-		$('[data-bgimg]').each(function () {
-			var bgImgUrl = $(this).data('bgimg');
-			$(this).css({
-				'background-image': 'url(' + bgImgUrl + ')', // + meaning concat
-			});
-		});
-    }
+    
     
     $(window).on('load', function () {
         dataBackgroundImage();
@@ -34,18 +49,7 @@
         onePage: true,
     });
 
-    /*---slider activation---*/
-    $('.slider_area').owlCarousel({
-        animateOut: 'fadeOut',
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots:false,
-        navText: ['<i class="zmdi zmdi-long-arrow-left zmdi-hc-fw"></i>','<i class="zmdi zmdi-long-arrow-right zmdi-hc-fw"></i>'],
-    });
+    
     
     /*---product column4 activation---*/
        $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -837,3 +841,61 @@
     
     
 })(jQuery);	
+
+function fetchDate(obj){
+    switch(obj) {
+        case 'index':
+          pullIndex();
+          break;
+        case '/':
+            pullIndex();
+            break;
+          break;
+        default:
+          // code block
+      }
+}
+
+function pullIndex(){
+    $.ajax({
+        url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/index", // Replace with your API endpoint
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            // Assuming the API response is an array of objects
+            var dataList = $("#container1")[0];  
+            itl="";        
+            
+            for (var i = 0; i < data.length; i++) {
+                var item = data[i];
+                if(item["Type"]==1){
+                var txt='<div class="single_slider d-flex align-items-center" data-bgimg="'+item['url1']+'">'+
+            '    <div class="container">'+
+            '        <div class="row">'+
+            '            <div class="col-lg-6 col-md-7">'+
+            '                <div class="slider_content content_left">'+
+            '                    <h1> '+item['Text1']+' </h1>'+
+            '                     <h2>'+item['Text2']+'</h2>'+
+            '                     <p>  '+item['Text3']+' </p>'+                                   
+            '                     <a class="button" href="shop.html">shop Now <i class="zmdi zmdi-long-arrow-right"></i></a>'+
+            '                             </div>'+
+            '            </div>'+
+            '       </div>'+
+             '   </div>'+                 
+             '</div>'
+              itl+=txt;
+            }}
+            dataList.innerHTML=itl;
+            activateSlide();
+        
+        },
+        error: function(xhr, status, error) {
+            console.error("Error:", status, error);
+            //$("#dataList").html("An error occurred while fetching data.");
+        }
+    });    
+
+}
+document.addEventListener("DOMContentLoaded", function(event) { 
+    fetchDate(window.location.pathname);
+  });
