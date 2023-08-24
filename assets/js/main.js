@@ -914,20 +914,15 @@ function fetchTestimonialContainerData(obj) {
     for (var i = 0; i < obj.length; i++) {
         var item = obj[i];
         if (item["Type"] == 2) {
-            var txt = '<div class="single_slider d-flex align-items-center" data-bgimg="' + item['url1'] + '">' +
-                '    <div class="container">' +
-                '        <div class="row">' +
-                '            <div class="col-lg-6 col-md-7">' +
-                '                <div class="slider_content content_left">' +
-                '                    <h1> ' + item['Text1'] + ' </h1>' +
-                '                     <h2>' + item['Text2'] + '</h2>' +
-                '                     <p>  ' + item['Text3'] + ' </p>' +
-                '                     <a class="button" href="shop.html?itemId=' + item['ObjetId'] + ' ">shop Now <i class="zmdi zmdi-long-arrow-right"></i></a>' +
-                '                             </div>' +
-                '            </div>' +
-                '       </div>' +
-                '   </div>' +
-                '</div>'
+            var txt = '<div class="single_testimonial">'+
+                    '       <div class="testimonial_img">'+
+                    '            <a href="#"><img src="'+item['url1'] + '" alt=""></a>'+
+                    '      </div>'+
+                    '       <div class="testimonial_content">'+
+                    '           <h4><a href="#">' + item['Text2'] + '</a></h4>'+
+                    '           <p>' + item['Text3'] + ' </p>'+
+                    '       </div>'+
+                    '   </div>'
             itl += txt;
         }
     }
