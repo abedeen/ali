@@ -908,7 +908,7 @@ function fetchSliderData(obj) {
     activateSlide();
 }
 function fetchTestimonialContainerData(obj) {
-    var dataList = $("#container")[0];
+    var dataList = $("#container2")[0];
     itl = "";
     for (var i = 0; i < obj.length; i++) {
         var item = obj[i];
