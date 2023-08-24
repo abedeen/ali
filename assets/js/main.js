@@ -22,6 +22,32 @@ function activateSlide(){
     });
     dataBackgroundImage();
 }
+function activateTestimonial(){
+    
+    /*---testimonial active activation---*/
+    $('.testimonial_carousel').owlCarousel({
+        autoplay: true,
+		loop: true,
+        nav: false,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        items: 1,
+        dots: true,
+        
+    })
+    
+    /*---testimonial sidebar carousel activation---*/
+    $('.testimonial_sidebar_carousel').owlCarousel({
+        autoplay: true,
+		loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        items: 1,
+        dots: true,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'], 
+    })
+}
 (function ($) {
     "use strict";
 
@@ -331,29 +357,29 @@ function activateSlide(){
 		  }
     });
     
-    /*---testimonial active activation---*/
-    $('.testimonial_carousel').owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: false,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots: true,
+    // /*---testimonial active activation---*/
+    // $('.testimonial_carousel').owlCarousel({
+    //     autoplay: true,
+	// 	loop: true,
+    //     nav: false,
+    //     autoplay: false,
+    //     autoplayTimeout: 8000,
+    //     items: 1,
+    //     dots: true,
         
-    })
+    // })
     
-    /*---testimonial sidebar carousel activation---*/
-    $('.testimonial_sidebar_carousel').owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots: true,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'], 
-    })
+    // /*---testimonial sidebar carousel activation---*/
+    // $('.testimonial_sidebar_carousel').owlCarousel({
+    //     autoplay: true,
+	// 	loop: true,
+    //     nav: true,
+    //     autoplay: false,
+    //     autoplayTimeout: 8000,
+    //     items: 1,
+    //     dots: true,
+    //     navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'], 
+    // })
     
     /*---blog column3 activation---*/
     $('.blog_column3').owlCarousel({
@@ -881,6 +907,32 @@ function fetchSliderData(obj) {
     dataList.innerHTML = itl;
     activateSlide();
 }
+function fetchTestimonialContainerData(obj) {
+    var dataList = $("#container")[0];
+    itl = "";
+    for (var i = 0; i < obj.length; i++) {
+        var item = obj[i];
+        if (item["Type"] == 2) {
+            var txt = '<div class="single_slider d-flex align-items-center" data-bgimg="' + item['url1'] + '">' +
+                '    <div class="container">' +
+                '        <div class="row">' +
+                '            <div class="col-lg-6 col-md-7">' +
+                '                <div class="slider_content content_left">' +
+                '                    <h1> ' + item['Text1'] + ' </h1>' +
+                '                     <h2>' + item['Text2'] + '</h2>' +
+                '                     <p>  ' + item['Text3'] + ' </p>' +
+                '                     <a class="button" href="shop.html?itemId=' + item['ObjetId'] + ' ">shop Now <i class="zmdi zmdi-long-arrow-right"></i></a>' +
+                '                             </div>' +
+                '            </div>' +
+                '       </div>' +
+                '   </div>' +
+                '</div>'
+            itl += txt;
+        }
+    }
+    dataList.innerHTML = itl;
+    activateTestimonial();
+}
 function pullIndex(){
     $.ajax({
         url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/index", // Replace with your API endpoint
@@ -889,7 +941,7 @@ function pullIndex(){
         success: function(data) {
             // Assuming the API response is an array of objects
             fetchSliderData(data);
-            fetchBannerData(data);
+            fetchTestimonialContainerData(data);
             // var dataList = $("#container1")[0];  
             // itl="";        
             
