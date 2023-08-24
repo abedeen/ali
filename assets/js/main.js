@@ -969,7 +969,7 @@ function fetchTestimonialContainerData(obj) {
         if (item["Type"] == 3) {
             var txt = '<div class="single_testimonial">'+
                     '       <div class="testimonial_img">'+
-                    '            <a href="#"><img src="'+item['url1'] + '" alt=""></a>'+
+                    '            <a href="#"><img src="'+item['url1'] + '" alt="" width="263" height="360"></a>'+
                     '      </div>'+
                     '       <div class="testimonial_content">'+
                     '           <h4><a href="#">' + item['Text2'] + '</a></h4>'+
