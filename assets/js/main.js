@@ -119,6 +119,48 @@ function activateTestimonial(){
     })
     dataBackgroundImage();
 }
+function activateProducts(){
+    $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 4,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		
+        responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:4,			},		  }
+    });
+    
+    /*---product column3 activation---*/
+       $('.product_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		
+        responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:3,			},		  }
+    });
+    
+     /*---product seven column3 activation---*/
+       $('.product_seven_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		
+        responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:2,			},            1200:{				items:3,			},		  }
+    });
+    
+    
+    /*---product column6 activation---*/
+       $('.product_column6').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        margin: 10,        items: 6,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		
+        responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:4,			},            1200:{				items:6,			},		  }
+    });
+    
+    /*---product tab column3 activation---*/
+       $('.product_tab_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		
+        responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:3,			},		  }    
+    });    
+    /*---product column1 activation---*/
+       $('.product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],       responsiveClass:true,
+        responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:1,			},		  }    
+    });
+}
 (function ($) {
     "use strict";
 
@@ -1038,6 +1080,7 @@ function fetchTestimonialContainerData(obj) {
     dataList.innerHTML = itl;
     activateTestimonial();
 }
+
 function pullIndex(){
     $.ajax({
         url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/index", // Replace with your API endpoint
@@ -1079,9 +1122,114 @@ function pullIndex(){
             console.error("Error:", status, error);
             //$("#dataList").html("An error occurred while fetching data.");
         }
-    });    
+    });
+    $.ajax({
+        url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/products", // Replace with your API endpoint
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            GProduct=data
+            getProduct("Men");
+        },
+        error: function(xhr, status, error) {
+            console.error("Error:", status, error);
+            //$("#dataList").html("An error occurred while fetching data.");
+        }
+    });   
 
 }
+var GProduct=[];
+function getProduct(obj) {
+    $("#products").html("");
+    var categoryProducts = GProduct.filter(product => product.id === obj);
+    var productContainer = $("#products"); 
+            var getHtml = generateProductHTML(categoryProducts);
+            productContainer.append(getHtml);
+        
+            activateProducts();
+            generateProductHTML
+    
+}
+
+// Generate HTML for each product in a category
+function generateProductHTML(products) {
+    var productHTML = '';
+    var productHTMLStart =  '<div class="tab-pane fade show active" id="'+products[0]["id"]+'" role="tabpanel">'+
+                            '   <div class="row">'+
+                            '       <div class="product_carousel product_column4 owl-carousel">';
+
+    var productHTMLEnd ='       </div>'+
+                        '   </div>'+
+                        '</div>';
+    for (var i = 0; i < products.length; i += 2) {
+        var currentElement = products[i];
+        var postElement = products[i+1];
+        productHTML += 
+                '<div class="col-lg-3">'+
+                '   <div class="product_items">'+
+                '        <article class="single_product">' +
+                '            <figure>' +
+                '                <div class="product_thumb">' +
+                '                               <a class="primary_img" href="product-details.html"><img src="' + currentElement.url1 + '" alt=""></a>' +
+                '                               <a class="secondary_img" href="product-details.html"><img src="' + currentElement.url2 + '" alt=""></a>' +
+                '                               <div class="action_links">' +
+                '                                   <ul>' +
+                '                                        <li class="add_to_cart"><a href="' + currentElement.addToCart + '" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>' +
+                '                                        <li class="wishlist"><a href="' + currentElement.wishlist + '"  title="Add to Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a></li>' +
+                '                                        <li class="compare"><a href="' + currentElement.compare + '" title="Add to Compare"><i class="zmdi zmdi-shuffle"></i></a></li>' +
+                '                                        <li class="quick_button"><a href="' + currentElement.quickView + '" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>' +
+                '                                   </ul>' +
+                '                                </div>' +
+                '                </div>' +
+                '                <figcaption class="product_content">' +
+                '                    <h4 class="product_name"><a href="product-details.html">' + currentElement.products_title + '</a></h4>' +
+                '                    <div class="price_box">' +
+                '                        <span class="old_price">' + currentElement.old_price + '</span>' +
+                '                        <span class="current_price">' + currentElement.current_price + '</span>' +
+                '                    </div>' +
+                '                    <div class="product_rating">' +
+                '                        <ul>' +
+                '                            ' + '<li><i class="fa fa-star" aria-hidden="true"></i></li>'.repeat(currentElement.rating) +
+                '                        </ul>' +
+                '                    </div>' +
+                '                </figcaption>' +
+                '            </figure>' +
+                '        </article>' +
+                '        <article class="single_product">' +
+                '            <figure>' +
+                '                <div class="product_thumb">' +
+                '                               <a class="primary_img" href="product-details.html"><img src="' + postElement.url1 + '" alt=""></a>' +
+                '                               <a class="secondary_img" href="product-details.html"><img src="' + postElement.url2 + '" alt=""></a>' +
+                '                               <div class="action_links">' +
+                '                                   <ul>' +
+                '                                        <li class="add_to_cart"><a href="' + postElement.addToCart + '" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>' +
+                '                                        <li class="wishlist"><a href="' + postElement.wishlist + '"  title="Add to Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a></li>' +
+                '                                        <li class="compare"><a href="' + postElement.compare + '" title="Add to Compare"><i class="zmdi zmdi-shuffle"></i></a></li>' +
+                '                                        <li class="quick_button"><a href="' + postElement.quickView + '" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>' +
+                '                                   </ul>' +
+                '                                </div>' +
+                '                </div>' +
+                '                <figcaption class="product_content">' +
+                '                    <h4 class="product_name"><a href="product-details.html">' + postElement.products_title + '</a></h4>' +
+                '                    <div class="price_box">' +
+                '                        <span class="old_price">' + postElement.old_price + '</span>' +
+                '                        <span class="current_price">' + postElement.current_price + '</span>' +
+                '                    </div>' +
+                '                    <div class="product_rating">' +
+                '                        <ul>' +
+                '                            ' + '<li><i class="fa fa-star" aria-hidden="true"></i></li>'.repeat(postElement.rating) +
+                '                        </ul>' +
+                '                    </div>' +
+                '                </figcaption>' +
+                '            </figure>' +
+                '        </article>' +
+                '    </div>'+
+                '</div>';        
+    };
+    productHTML1 = productHTMLStart+productHTML+productHTMLEnd;
+    return productHTML1;
+}
+
 document.addEventListener("DOMContentLoaded", function(event) { 
     fetchDate(window.location.pathname);
   });
