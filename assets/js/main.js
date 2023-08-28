@@ -235,6 +235,7 @@ function activateNewsLetter() {
         $('#subscribe_pname').val(name);
     });
 }
+
 function activateBlogs() {
     /*---blog column3 activation---*/
     $('.blog_column3').owlCarousel({
@@ -286,6 +287,9 @@ function activateBlogs() {
         }
 
     });
+}
+function activateFooter(){
+    
 }
 
 (function ($) {
@@ -1360,6 +1364,117 @@ function fetchBlogs(obj) {
     dataList.innerHTML = itl;
     activateBlogs();
 }
+function fetchAddress(obj) {
+    var dataList = $("#footer_address")[0];
+    itl = "";
+    for (var i = 0; i < obj.length; i++) {
+        var item = obj[i];
+        if (item["Type"] == 8) {
+            //console.log("Processing item", item);
+            var txt =   '<div class="widgets_container contact_us">'+
+                        '   <div class="footer_logo">'+
+                        '       <a href="index.html"><img src="'+item["url1"]+'" alt=""></a>'+
+                        '   </div>'+
+                        '   <div class="footer_desc">'+
+                        '       <p>'+item["Text1"]+'</p>'+
+                        '   </div>'+
+                        '   <p><span>Address:</span>'+item["Text2"]+'</p>'+
+                        '   <p><span>Email:</span> <a href="#">'+item["Text3"]+'</a></p>'+
+                        '   <p><span>Phone:</span> <a href="cel:+91'+item["Text4"]+'">+91 '+item["Text4"]+'/'+item["Text5"]+'</a></p>'+
+                        '</div>';
+            itl = txt;
+            
+        }
+    }
+    //itl = preText+itl+postText;
+    //console.log(itl);
+    dataList.innerHTML = itl;
+}
+function fetchInformation(obj) {
+    var dataList = $("#footer_information")[0];
+    itl = "";
+    for (var i = 0; i < obj.length; i++) {
+        var item = obj[i];
+        if (item["Type"] == 8) {
+            //console.log("Processing item", item);
+            var txt =   '<div class="widgets_container contact_us">'+
+                        '   <div class="footer_logo">'+
+                        '       <a href="index.html"><img src="'+item["url1"]+'" alt=""></a>'+
+                        '   </div>'+
+                        '   <div class="footer_desc">'+
+                        '       <p>'+item["Text1"]+'</p>'+
+                        '   </div>'+
+                        '   <p><span>Address:</span>'+item["Text2"]+'</p>'+
+                        '   <p><span>Email:</span> <a href="#">'+item["Text3"]+'</a></p>'+
+                        '   <p><span>Phone:</span> <a href="cel:+91'+item["Text4"]+'">+91 '+item["Text4"]+'/'+item["Text5"]+'</a></p>'+
+                        '</div>';
+            itl = txt;
+            
+        }
+    }
+    //itl = preText+itl+postText;
+    //console.log(itl);
+    dataList.innerHTML = itl;
+}
+function fetchFeaturedProducts(obj) {
+    var dataList = $("#footer_featured_products")[0];
+    itl = "";
+    for (var i = 0; i < obj.length; i++) {
+        var item = obj[i];
+        if (item["Type"] == 8) {
+            //console.log("Processing item", item);
+            var txt =   '<div class="widgets_container contact_us">'+
+                        '   <div class="footer_logo">'+
+                        '       <a href="index.html"><img src="'+item["url1"]+'" alt=""></a>'+
+                        '   </div>'+
+                        '   <div class="footer_desc">'+
+                        '       <p>'+item["Text1"]+'</p>'+
+                        '   </div>'+
+                        '   <p><span>Address:</span>'+item["Text2"]+'</p>'+
+                        '   <p><span>Email:</span> <a href="#">'+item["Text3"]+'</a></p>'+
+                        '   <p><span>Phone:</span> <a href="cel:+91'+item["Text4"]+'">+91 '+item["Text4"]+'/'+item["Text5"]+'</a></p>'+
+                        '</div>';
+            itl = txt;
+            
+        }
+    }
+    //itl = preText+itl+postText;
+    //console.log(itl);
+    dataList.innerHTML = itl;
+}
+function fetchMostViewedProducts(obj) {
+    var dataList = $("#footer_mostviewed_products")[0];
+    itl = "";
+    for (var i = 0; i < obj.length; i++) {
+        var item = obj[i];
+        if (item["Type"] == 8) {
+            //console.log("Processing item", item);
+            var txt =   '<div class="widgets_container contact_us">'+
+                        '   <div class="footer_logo">'+
+                        '       <a href="index.html"><img src="'+item["url1"]+'" alt=""></a>'+
+                        '   </div>'+
+                        '   <div class="footer_desc">'+
+                        '       <p>'+item["Text1"]+'</p>'+
+                        '   </div>'+
+                        '   <p><span>Address:</span>'+item["Text2"]+'</p>'+
+                        '   <p><span>Email:</span> <a href="#">'+item["Text3"]+'</a></p>'+
+                        '   <p><span>Phone:</span> <a href="cel:+91'+item["Text4"]+'">+91 '+item["Text4"]+'/'+item["Text5"]+'</a></p>'+
+                        '</div>';
+            itl = txt;
+            
+        }
+    }
+    //itl = preText+itl+postText;
+    //console.log(itl);
+    dataList.innerHTML = itl;
+}
+function fetchFooter(obj) {
+    fetchAddress(obj);
+    fetchInformation(obj);
+    //fetchFeaturedProducts(obj);
+    //fetchMostViewedProducts(obj);
+    activateFooter();
+}
 
 function pullIndex(){
     $.ajax({
@@ -1373,7 +1488,8 @@ function pullIndex(){
             fetchBannerData(data);
             fetchProductAreaData(data);  
             fetchNewsLetterData(data);  
-            fetchBlogs(data);    
+            fetchBlogs(data);   
+            fetchFooter(data); 
         },
         error: function(xhr, status, error) {
             console.error("Error:", status, error);
