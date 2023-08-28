@@ -90,7 +90,67 @@ function activateBanner() {
 
     // Your JavaScript logic here
 }
+function activateBestSeller(){
+    /*---product column4 activation---*/
+    $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,
+		loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        items: 4,
+        margin: 26,
+        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
+        responsiveClass:true,
+		responsive:{
+				0:{
+				items:1,
+			},
+            576:{
+				items:2,
+			},
+            768:{
+				items:3,
+			},
+            992:{
+				items:4,
+			},
 
+		  }
+    });
+    
+    /*---product column3 activation---*/
+       $('.product_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,
+		loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        items: 3,
+        margin: 26,
+        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
+        responsiveClass:true,
+		responsive:{
+				0:{
+				items:1,
+			},
+            576:{
+				items:2,
+			},
+            768:{
+				items:3,
+			},
+            992:{
+				items:3,
+			},
+
+		  }
+    });
+}
 
 function activateTestimonial(){
     
@@ -190,65 +250,65 @@ function activateProducts(){
 
     
     
-    /*---product column4 activation---*/
-       $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
-        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 4,
-        margin: 26,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            576:{
-				items:2,
-			},
-            768:{
-				items:3,
-			},
-            992:{
-				items:4,
-			},
+    // /*---product column4 activation---*/
+    //    $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+    //     $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+    //     autoplay: true,
+	// 	loop: true,
+    //     nav: true,
+    //     autoplay: false,
+    //     autoplayTimeout: 8000,
+    //     items: 4,
+    //     margin: 26,
+    //     dots:false,
+    //     navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
+    //     responsiveClass:true,
+	// 	responsive:{
+	// 			0:{
+	// 			items:1,
+	// 		},
+    //         576:{
+	// 			items:2,
+	// 		},
+    //         768:{
+	// 			items:3,
+	// 		},
+    //         992:{
+	// 			items:4,
+	// 		},
 
-		  }
-    });
+	// 	  }
+    // });
     
-    /*---product column3 activation---*/
-       $('.product_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
-        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 3,
-        margin: 26,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            576:{
-				items:2,
-			},
-            768:{
-				items:3,
-			},
-            992:{
-				items:3,
-			},
+    // /*---product column3 activation---*/
+    //    $('.product_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+    //     $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+    //     autoplay: true,
+	// 	loop: true,
+    //     nav: true,
+    //     autoplay: false,
+    //     autoplayTimeout: 8000,
+    //     items: 3,
+    //     margin: 26,
+    //     dots:false,
+    //     navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
+    //     responsiveClass:true,
+	// 	responsive:{
+	// 			0:{
+	// 			items:1,
+	// 		},
+    //         576:{
+	// 			items:2,
+	// 		},
+    //         768:{
+	// 			items:3,
+	// 		},
+    //         992:{
+	// 			items:3,
+	// 		},
 
-		  }
-    });
+	// 	  }
+    // });
     
      /*---product seven column3 activation---*/
        $('.product_seven_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -1054,10 +1114,100 @@ function fetchBannerData(obj) {
 
     var finalHTML = preText + bannerHTML + postText;
     container.innerHTML = finalHTML;
+}    
+        
 
-    //activateBanner(); // Assuming this is a function to initialize the banner behavior
+function fetchProductAreaData(obj) {
+    var products = obj;
+    var productContainer = $("#best_seller")[0];
+    var bannerHTML = "";
+    var preText = "";
+    var postText = '            </div>' +
+                   '         </div>' +
+                   '    </div>' +
+                   '</div>';
+    // Loop through the products and generate HTML for each product
+    for (var i = 0; i < products.length; i += 2) {
+        var currentElement = products[i];
+        //var postElement = products[i+1];
+        var postElement = (i + 1 < products.length) ? products[i + 1] : null;
+        var item = products[i];
+        if(item["Text1"] != '' && item["Text2"] != '' && item["Text3"] != '') {
+            if (item["Type"] == 4) {
+                preText = '<div class="row" >'+
+                        '   <div class="col-lg-4 col-md-4">'+
+                        '       <div class="product_left">'+
+                        '           <article class="single_product">'+
+                        '               <figure>'+
+                        '                   <div class="product_thumb">'+
+                        '                       <a class="primary_img" href="product-details.html">'+
+                        '                           <img src="'+item.url1+'" alt="">'+
+                        '                        </a>'+
+                        '                       <a class="secondary_img" href="product-details.html">'+
+                        '                           <img src="'+item.url2+'" alt="">'+
+                        '                       </a>'+
+                        '                       <div class="action_links">'+
+                        '                           <ul>'+
+                        '                               <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+                        '                           </ul>'+
+                        '                       </div>'+
+                        '                       <div class="product_content">'+
+                        '                           <h4 class="product_name"><a href="product-details.html">'+item.Text1+'</a></h4>'+
+                        '                           <div class="price_box"> '+
+                        '                               <span class="old_price">'+item.Text2+'</span> '+
+                        '                               <span class="current_price">'+item.Text3+'</span>'+
+                        '                           </div>'+
+                        '                       </div>'+
+                        '                   </div>'+
+                        '               </figure>'+
+                        '           </article>'+
+                        '        </div>'+
+                        '    </div>'+
+                        '<div class="col-lg-8 col-md-8">'+
+                        '   <div class="product_right">'+
+                        '    <div class="row">'+
+                        '        <div class="product_carousel product_column4 owl-carousel">';
+            }
+        }
+        if (postElement != null && item["Text1"] != '' && item["Text2"] != '' && item["Text3"] != '') {
+            if (item["Type"] == 4) {
+                bannerHTML +=   '<div class="col-lg-3">'+
+                                '     <div class="product_items">'+
+                                '         <div class="single_product">'+
+                                '             <figure>'+
+                                '                  <div class="product_thumb">'+
+                                '                        <a class="primary_img" href="product-details.html"><img src="'+currentElement.url1+'" alt=""></a>'+
+                                '                        <a class="secondary_img" href="product-details.html"><img src="'+currentElement.url2+'" alt=""></a>'+
+                                '                        <div class="action_links">'+
+                                '                            <ul>'+
+                                '                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                                '                            </ul>'+
+                                '                        </div>'+
+                                '                    </div>'+
+                                '                </figure>'+
+                                '            </div>'+
+                                '            <div class="single_product">'+
+                                '                <figure>'+
+                                '                    <div class="product_thumb">'+
+                                '                        <a class="primary_img" href="product-details.html"><img src="'+postElement.url1+'" alt=""></a>'+
+                                '                        <a class="secondary_img" href="product-details.html"><img src="'+postElement.url2+'" alt=""></a>'+
+                                '                        <div class="action_links">'+
+                                '                            <ul>'+
+                                '                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                                '                            </ul>'+
+                                '                        </div>'+
+                                '                    </div>'+
+                                '                </figure>'+
+                                '            </div>'+
+                                '        </div>'+
+                                '    </div>';
+            }
+        }
+        // Append the product HTML to the container        
+    }
+    productContainer.innerHTML = preText + bannerHTML + postText;
+    activateBestSeller(); // Assuming this is a function to initialize the banner behavior
 }
-
 
 function fetchTestimonialContainerData(obj) {
     var dataList = $("#container2")[0];
@@ -1091,32 +1241,7 @@ function pullIndex(){
             fetchSliderData(data);
             fetchTestimonialContainerData(data);
             fetchBannerData(data);
-            // var dataList = $("#container1")[0];  
-            // itl="";        
-            
-            // for (var i = 0; i < data.length; i++) {
-            //     var item = data[i];
-            //     if(item["Type"]==1){
-            //         var txt='<div class="single_slider d-flex align-items-center" data-bgimg="'+item['url1']+'">'+
-            //     '    <div class="container">'+
-            //     '        <div class="row">'+
-            //     '            <div class="col-lg-6 col-md-7">'+
-            //     '                <div class="slider_content content_left">'+
-            //     '                    <h1> '+item['Text1']+' </h1>'+
-            //     '                     <h2>'+item['Text2']+'</h2>'+
-            //     '                     <p>  '+item['Text3']+' </p>'+                                   
-            //     '                     <a class="button" href="shop.html?itemId='+item['ObjetId']+' ">shop Now <i class="zmdi zmdi-long-arrow-right"></i></a>'+
-            //     '                             </div>'+
-            //     '            </div>'+
-            //     '       </div>'+
-            //     '   </div>'+                 
-            //     '</div>'
-            //     itl+=txt;
-            //     }
-            // }
-            // dataList.innerHTML=itl;
-            // activateSlide();
-        
+            fetchProductAreaData(data);        
         },
         error: function(xhr, status, error) {
             console.error("Error:", status, error);
@@ -1144,8 +1269,7 @@ function getProduct(obj) {
     var categoryProducts = GProduct.filter(product => product.id === obj);
     var productContainer = $("#products"); 
             var getHtml = generateProductHTML(categoryProducts);
-            productContainer.append(getHtml);
-        
+            productContainer.append(getHtml);        
             activateProducts();
             generateProductHTML
     
