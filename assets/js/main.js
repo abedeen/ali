@@ -221,6 +221,21 @@ function activateProducts(){
         responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:1,			},		  }    
     });
 }
+function activateNewsLetter() {
+    $('#subscribe_pemail').keypress(function(e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            email_subscribepopup();
+        }
+        var name = $(this).val();
+        $('#subscribe_pname').val(name);
+    });
+    $('#subscribe_pemail').change(function() {
+        var name = $(this).val();
+        $('#subscribe_pname').val(name);
+    });
+}
+
 (function ($) {
     "use strict";
 
@@ -1230,6 +1245,33 @@ function fetchTestimonialContainerData(obj) {
     dataList.innerHTML = itl;
     activateTestimonial();
 }
+function fetchNewsLetterData(obj) {
+    var dataList = $("#newsletter_area")[0];
+    itl = "";
+    for (var i = 0; i < obj.length; i++) {
+        var item = obj[i];
+        if (item["Type"] == 5) {
+            var txt = '<div class="newsletter_title">'+
+                      '     <h3>'+item['Text1']+'</h3>'+
+                      '     <p>'+item['Text2']+'</p>'+
+                      '</div>'+
+                      '<div class="subscribe_form">'+
+                      '     <form id="mc-form" class="mc-form footer-newsletter" >'+
+                      '         <input id="mc-email" type="email" autocomplete="off" placeholder="'+item['Text3']+'" />'+
+                      '         <button id="mc-submit">Subscribe</button>'+
+                      '     </form>'+
+                      '     <div class="mailchimp-alerts text-centre">'+
+                      '         <div class="mailchimp-submitting"></div>'+
+                      '         <div class="mailchimp-success"></div>'+
+                      '         <div class="mailchimp-error"></div>'+
+                      '     </div>'+
+                      '</div>';
+            itl = txt;
+        }
+    }
+    dataList.innerHTML = itl;
+    activateNewsLetter();
+}
 
 function pullIndex(){
     $.ajax({
@@ -1241,7 +1283,8 @@ function pullIndex(){
             fetchSliderData(data);
             fetchTestimonialContainerData(data);
             fetchBannerData(data);
-            fetchProductAreaData(data);        
+            fetchProductAreaData(data);  
+            fetchNewsLetterData(data);      
         },
         error: function(xhr, status, error) {
             console.error("Error:", status, error);
