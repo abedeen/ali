@@ -235,6 +235,58 @@ function activateNewsLetter() {
         $('#subscribe_pname').val(name);
     });
 }
+function activateBlogs() {
+    /*---blog column3 activation---*/
+    $('.blog_column3').owlCarousel({
+        autoplay: true,
+		loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        items: 3,
+        margin: 26,
+        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
+        responsiveClass:true,
+		responsive:{
+				0:{
+				items:1,
+			},
+            768:{
+				items:2,
+			},
+             992:{
+				items:3,
+			}, 
+		  }
+    });
+    
+    /*---blog column1 activation---*/
+    $('.blog_column1').owlCarousel({
+        autoplay: true,
+		loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        items: 1,
+        dots:false,
+        navText: ['<i class="fa fa-caret-left"></i>','<i class="fa fa-caret-right"></i>'],
+        responsiveClass:true,
+		responsive:{
+				0:{
+				items:1,
+			},
+            768:{
+				items:2,
+                margin:30,
+			},
+             992:{
+				items:1,
+			}, 
+        }
+
+    });
+}
 
 (function ($) {
     "use strict";
@@ -1273,6 +1325,42 @@ function fetchNewsLetterData(obj) {
     activateNewsLetter();
 }
 
+
+function fetchBlogs(obj) {
+    var dataList = $("#blog_area")[0];
+    itl = "";
+    var preText = '<div  class="blog_carousel blog_column3 owl-carousel">';
+    var postText = '</div>';
+    for (var i = 0; i < obj.length; i++) {
+        var item = obj[i];
+        if (item["Type"] == 6) {
+            //console.log("Processing item", item);
+            var txt =   '<div class="col-lg-3">'+
+                        '   <article class="single_blog">'+
+                        '       <figure>'+
+                        '           <div class="blog_thumb">'+
+                        '               <a href="blog-details.html"><img src="'+item["url1"]+'" alt=""></a>'+
+                        '           </div>'+
+                        '           <figcaption class="blog_content">'+
+                        '               <h4 class="post_title"><a href="blog-details.html">'+item["Text1"]+'</a></h4>'+
+                        '               <p class="post_desc">'+item["Text2"]+'</p>'+
+                        '               <footer class="btn_more">'+
+                        '                   <a href="blog-details.html"> Read more <i class="zmdi zmdi-long-arrow-right"></i></a>'+
+                        '               </footer>'+
+                        '           </figcaption>'+
+                        '        </figure>'+
+                        '   </article>'+
+                        '</div>';
+            itl += txt;
+            
+        }
+    }
+    itl = preText+itl+postText;
+    //console.log(itl);
+    dataList.innerHTML = itl;
+    activateBlogs();
+}
+
 function pullIndex(){
     $.ajax({
         url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/index", // Replace with your API endpoint
@@ -1284,7 +1372,8 @@ function pullIndex(){
             fetchTestimonialContainerData(data);
             fetchBannerData(data);
             fetchProductAreaData(data);  
-            fetchNewsLetterData(data);      
+            fetchNewsLetterData(data);  
+            fetchBlogs(data);    
         },
         error: function(xhr, status, error) {
             console.error("Error:", status, error);
