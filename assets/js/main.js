@@ -22,6 +22,17 @@ function activateSlide(){
     });
     dataBackgroundImage();
 }
+function activateFooter(){
+    /*---slider activation---*/
+    .featured-product {
+        border: 1px solid #ccc;
+        background-color: #f7f7f7;
+        /* Add more styles as needed */
+    }
+    
+}
+
+
 function activateBanner() {
     // CSS styles for the banner and its content
     const styles = `
@@ -288,10 +299,6 @@ function activateBlogs() {
 
     });
 }
-function activateFooter(){
-    
-}
-
 (function ($) {
     "use strict";
 
@@ -626,55 +633,55 @@ function activateFooter(){
     // })
     
     /*---blog column3 activation---*/
-    $('.blog_column3').owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 3,
-        margin: 26,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            768:{
-				items:2,
-			},
-             992:{
-				items:3,
-			}, 
-		  }
-    });
+    // $('.blog_column3').owlCarousel({
+    //     autoplay: true,
+	// 	loop: true,
+    //     nav: true,
+    //     autoplay: false,
+    //     autoplayTimeout: 8000,
+    //     items: 3,
+    //     margin: 26,
+    //     dots:false,
+    //     navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
+    //     responsiveClass:true,
+	// 	responsive:{
+	// 			0:{
+	// 			items:1,
+	// 		},
+    //         768:{
+	// 			items:2,
+	// 		},
+    //          992:{
+	// 			items:3,
+	// 		}, 
+	// 	  }
+    // });
     
-    /*---blog column1 activation---*/
-    $('.blog_column1').owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots:false,
-        navText: ['<i class="fa fa-caret-left"></i>','<i class="fa fa-caret-right"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            768:{
-				items:2,
-                margin:30,
-			},
-             992:{
-				items:1,
-			}, 
-        }
+    // /*---blog column1 activation---*/
+    // $('.blog_column1').owlCarousel({
+    //     autoplay: true,
+	// 	loop: true,
+    //     nav: true,
+    //     autoplay: false,
+    //     autoplayTimeout: 8000,
+    //     items: 1,
+    //     dots:false,
+    //     navText: ['<i class="fa fa-caret-left"></i>','<i class="fa fa-caret-right"></i>'],
+    //     responsiveClass:true,
+	// 	responsive:{
+	// 			0:{
+	// 			items:1,
+	// 		},
+    //         768:{
+	// 			items:2,
+    //             margin:30,
+	// 		},
+    //          992:{
+	// 			items:1,
+	// 		}, 
+    //     }
 
-    });
+    // });
         
     /*---brand container activation---*/
      $('.brand_container').on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -1397,16 +1404,22 @@ function fetchInformation(obj) {
         var item = obj[i];
         if (item["Type"] == 8) {
             //console.log("Processing item", item);
-            var txt =   '<div class="widgets_container contact_us">'+
-                        '   <div class="footer_logo">'+
-                        '       <a href="index.html"><img src="'+item["url1"]+'" alt=""></a>'+
+            var txt =   '<div class="widgets_container widget_menu">'+
+                        '   <h3>Information</h3>'+
+                        '   <div class="footer_menu">'+
+                        '       <ul>'+
+                        '           <li><a href="about.html">About Us</a></li>'+
+                        '           <li><a href="#">Prices drop</a></li>'+
+                        '           <li><a href="#">New products</a></li>'+
+                        '           <li><a href="#">Best sales</a></li>'+
+                        '           <li><a href="#">Terms & Conditions</a></li>'+
+                        '           <li><a href="#">Gift Certificates</a></li>'+
+                        '           <li><a href="my-account.html">My Account</a></li>'+
+                        '           <li><a href="#">Order History</a></li>'+
+                        '           <li><a href="wishlist.html">Wish List</a></li>'+
+                        '           <li><a href="#">Specials</a></li>'+
+                        '       </ul>'+
                         '   </div>'+
-                        '   <div class="footer_desc">'+
-                        '       <p>'+item["Text1"]+'</p>'+
-                        '   </div>'+
-                        '   <p><span>Address:</span>'+item["Text2"]+'</p>'+
-                        '   <p><span>Email:</span> <a href="#">'+item["Text3"]+'</a></p>'+
-                        '   <p><span>Phone:</span> <a href="cel:+91'+item["Text4"]+'">+91 '+item["Text4"]+'/'+item["Text5"]+'</a></p>'+
                         '</div>';
             itl = txt;
             
@@ -1419,49 +1432,91 @@ function fetchInformation(obj) {
 function fetchFeaturedProducts(obj) {
     var dataList = $("#footer_featured_products")[0];
     itl = "";
+    var postText =   '       </div>'+
+                        '   </div>'+
+                        '</div>';
+    var preText =   '<div class="widgets_container widgets_p_product">'+
+                            '   <h3>Featured Products</h3>'+
+                            '   <div class="small_product_container small_product_column1 owl-carousel">'+
+                            '       <div class="small_product_list">';
     for (var i = 0; i < obj.length; i++) {
         var item = obj[i];
-        if (item["Type"] == 8) {
+        if (item["Type"] == 10) {
             //console.log("Processing item", item);
-            var txt =   '<div class="widgets_container contact_us">'+
-                        '   <div class="footer_logo">'+
-                        '       <a href="index.html"><img src="'+item["url1"]+'" alt=""></a>'+
-                        '   </div>'+
-                        '   <div class="footer_desc">'+
-                        '       <p>'+item["Text1"]+'</p>'+
-                        '   </div>'+
-                        '   <p><span>Address:</span>'+item["Text2"]+'</p>'+
-                        '   <p><span>Email:</span> <a href="#">'+item["Text3"]+'</a></p>'+
-                        '   <p><span>Phone:</span> <a href="cel:+91'+item["Text4"]+'">+91 '+item["Text4"]+'/'+item["Text5"]+'</a></p>'+
-                        '</div>';
-            itl = txt;
+            var txt    ='           <article class="single_product">'+
+                        '               <figure>'+
+                        '                   <div class="product_thumb">'+
+                        '                       <a class="primary_img" href="product-details.html"><img src="'+item["url1"]+'" alt=""></a>'+
+                        '                       <a class="secondary_img" href="product-details.html"><img src="'+item["url2"]+'" alt=""></a>'+
+                        '                   </div>'+
+                        '                   <figcaption class="product_content">'+
+                        '                       <h4 class="product_name"><a href="product-details.html">'+item["Text1"]+'</a></h4>'+
+                        '                       <div class="product_rating">'+
+                        '                           <ul>'+
+                        '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                           </ul>'+
+                        '                       </div>'+
+                        '                       <div class="price_box"> '+
+                        '                           <span class="old_price">'+item["Text2"]+'</span> '+
+                        '                           <span class="current_price">'+item["Text3"]+'</span>'+
+                        '                       </div>'+
+                        '                   </figcaption>'+
+                        '               </figure>'+
+                        '           </article>';
+            
+            itl += txt;
             
         }
     }
-    //itl = preText+itl+postText;
+    //console.log("Processing item", itl);
+    itl = preText+itl+postText;
     //console.log(itl);
     dataList.innerHTML = itl;
+    //activateFeaturedProducts();
 }
 function fetchMostViewedProducts(obj) {
     var dataList = $("#footer_mostviewed_products")[0];
     itl = "";
     for (var i = 0; i < obj.length; i++) {
         var item = obj[i];
-        if (item["Type"] == 8) {
+        if (item["Type"] == 11) {
             //console.log("Processing item", item);
-            var txt =   '<div class="widgets_container contact_us">'+
-                        '   <div class="footer_logo">'+
-                        '       <a href="index.html"><img src="'+item["url1"]+'" alt=""></a>'+
+            var txt =   '<div class="widgets_container widgets_p_product">'+
+                        '   <h3>Mostview Products</h3>'+
+                        '   <div class="small_product_container small_product_column1 owl-carousel">'+
+                        '       <div class="small_product_list">'+
+                        '           <article class="single_product">'+
+                        '               <figure>'+
+                        '                   <div class="product_thumb">'+
+                        '                       <a class="primary_img" href="product-details.html"><img src="assets/img/product/product5.webp" alt=""></a>'+
+                        '                       <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product6.webp" alt=""></a>'+
+                        '                   </div>'+
+                        '                   <figcaption class="product_content">'+
+                        '                       <h4 class="product_name"><a href="product-details.html">Donec Non Est</a></h4>'+
+                        '                       <div class="product_rating">'+
+                        '                           <ul>'+
+                        '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                           </ul>'+
+                        '                       </div>'+
+                        '                       <div class="price_box"> '+
+                        '                           <span class="old_price">$420.00</span> '+
+                        '                           <span class="current_price">$180.00</span>'+
+                        '                       </div>'+
+                        '                   </figcaption>'+
+                        '               </figure>'+
+                        '          </article>'+
+                        '       </div>'+
                         '   </div>'+
-                        '   <div class="footer_desc">'+
-                        '       <p>'+item["Text1"]+'</p>'+
-                        '   </div>'+
-                        '   <p><span>Address:</span>'+item["Text2"]+'</p>'+
-                        '   <p><span>Email:</span> <a href="#">'+item["Text3"]+'</a></p>'+
-                        '   <p><span>Phone:</span> <a href="cel:+91'+item["Text4"]+'">+91 '+item["Text4"]+'/'+item["Text5"]+'</a></p>'+
                         '</div>';
-            itl = txt;
-            
+            itl = txt;            
         }
     }
     //itl = preText+itl+postText;
@@ -1471,8 +1526,8 @@ function fetchMostViewedProducts(obj) {
 function fetchFooter(obj) {
     fetchAddress(obj);
     fetchInformation(obj);
-    //fetchFeaturedProducts(obj);
-    //fetchMostViewedProducts(obj);
+    fetchFeaturedProducts(obj);
+    fetchMostViewedProducts(obj);
     activateFooter();
 }
 
