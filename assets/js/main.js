@@ -1518,12 +1518,9 @@ function fetchInformation(obj) {
                         '   <div class="footer_menu">'+
                         '       <ul>'+
                         '           <li><a href="about.html">About Us</a></li>'+
-                        '           <li><a href="#">Prices drop</a></li>'+
                         '           <li><a href="#">New products</a></li>'+
                         '           <li><a href="#">Best sales</a></li>'+
                         '           <li><a href="#">Terms & Conditions</a></li>'+
-                        '           <li><a href="#">Gift Certificates</a></li>'+
-                        '           <li><a href="my-account.html">My Account</a></li>'+
                         '           <li><a href="#">Order History</a></li>'+
                         '           <li><a href="wishlist.html">Wish List</a></li>'+
                         '           <li><a href="#">Specials</a></li>'+
