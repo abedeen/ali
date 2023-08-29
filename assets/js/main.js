@@ -236,7 +236,126 @@ function activateNewsLetter() {
         $('#subscribe_pname').val(name);
     });
 }
+function activateFeaturedProducts(){
+    /*---product seven column3 activation---*/
+    $('.product_seven_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,
+		loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        items: 3,
+        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
+        responsiveClass:true,
+		responsive:{
+				0:{
+				items:1,
+			},
+            576:{
+				items:2,
+			},
+            768:{
+				items:3,
+			},
+            992:{
+				items:2,
+			},
+            1200:{
+				items:3,
+			},
 
+		  }
+    });
+    
+    
+    /*---product column6 activation---*/
+       $('.product_column6').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,
+		loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        margin: 10,
+        items: 6,
+        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
+        responsiveClass:true,
+		responsive:{
+				0:{
+				items:1,
+			},
+            576:{
+				items:2,
+			},
+            768:{
+				items:3,
+			},
+            992:{
+				items:4,
+			},
+            1200:{
+				items:6,
+			},
+
+		  }
+    });
+    
+    /*---product tab column3 activation---*/
+       $('.product_tab_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,
+		loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        items: 3,
+        margin: 26,
+        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
+        responsiveClass:true,
+		responsive:{
+				0:{
+				items:1,
+			},
+            768:{
+				items:2,
+			},
+            992:{
+				items:3,
+			},
+
+		  }
+    });
+    
+    /*---product column1 activation---*/
+       $('.product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
+        autoplay: true,
+		loop: true,
+        nav: true,
+        autoplay: false,
+        autoplayTimeout: 8000,
+        items: 1,
+        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
+        responsiveClass:true,
+		responsive:{
+				0:{
+				items:1,
+			},
+            768:{
+				items:2,
+			},
+            992:{
+				items:1,
+			},
+
+		  }
+    });
+}
 function activateBlogs() {
     /*---blog column3 activation---*/
     $('.blog_column3').owlCarousel({
@@ -1506,9 +1625,10 @@ function fetchMostViewedProducts(obj) {
             var preTxtEnd1 ='       </div>';
             var preTxtEnd ='   </div>'+
                            '</div>';
-            itl = txt;            
+            itl += txt;            
         }
     }
+    itl = preTxt+preTxt1+itl+preTxtEnd1+preTxtEnd
     //itl = preText+itl+postText;
     //console.log(itl);
     dataList.innerHTML = itl;
@@ -1516,8 +1636,8 @@ function fetchMostViewedProducts(obj) {
 function fetchFooter(obj) {
     fetchAddress(obj);
     fetchInformation(obj);
-    fetchFeaturedProducts(obj);
-    fetchMostViewedProducts(obj);
+    // fetchFeaturedProducts(obj);
+    // fetchMostViewedProducts(obj);
     //activateFooter();
 }
 
