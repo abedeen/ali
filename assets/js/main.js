@@ -22,16 +22,6 @@ function activateSlide(){
     });
     dataBackgroundImage();
 }
-function activateFooter(){
-    /*---slider activation---*/
-    .featured-product {
-        border: 1px solid #ccc;
-        background-color: #f7f7f7;
-        /* Add more styles as needed */
-    }
-    
-}
-
 
 function activateBanner() {
     // CSS styles for the banner and its content
@@ -1485,11 +1475,11 @@ function fetchMostViewedProducts(obj) {
         var item = obj[i];
         if (item["Type"] == 11) {
             //console.log("Processing item", item);
-            var txt =   '<div class="widgets_container widgets_p_product">'+
+            var preTxt =   '<div class="widgets_container widgets_p_product">'+
                         '   <h3>Mostview Products</h3>'+
-                        '   <div class="small_product_container small_product_column1 owl-carousel">'+
-                        '       <div class="small_product_list">'+
-                        '           <article class="single_product">'+
+                        '   <div class="small_product_container small_product_column1 owl-carousel">';
+            var preTxt1 ='       <div class="small_product_list">';
+            var txt =   '           <article class="single_product">'+
                         '               <figure>'+
                         '                   <div class="product_thumb">'+
                         '                       <a class="primary_img" href="product-details.html"><img src="assets/img/product/product5.webp" alt=""></a>'+
@@ -1512,10 +1502,10 @@ function fetchMostViewedProducts(obj) {
                         '                       </div>'+
                         '                   </figcaption>'+
                         '               </figure>'+
-                        '          </article>'+
-                        '       </div>'+
-                        '   </div>'+
-                        '</div>';
+                        '          </article>';
+            var preTxtEnd1 ='       </div>';
+            var preTxtEnd ='   </div>'+
+                           '</div>';
             itl = txt;            
         }
     }
@@ -1528,7 +1518,7 @@ function fetchFooter(obj) {
     fetchInformation(obj);
     fetchFeaturedProducts(obj);
     fetchMostViewedProducts(obj);
-    activateFooter();
+    //activateFooter();
 }
 
 function pullIndex(){
