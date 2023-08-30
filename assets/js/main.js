@@ -1356,7 +1356,7 @@ function fetchProductAreaData(obj) {
                         '        <div class="product_carousel product_column4 owl-carousel">';
             }
         }
-        if (postElement != null && item["Text1"] != '' && item["Text2"] != '' && item["Text3"] != '') {
+        if (postElement != null && item["Text1"] == '' && item["Text2"] == '' && item["Text3"] == '') {
             if (item["Type"] == 4) {
                 bannerHTML +=   '<div class="col-lg-3">'+
                                 '     <div class="product_items">'+
