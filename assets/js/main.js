@@ -152,9 +152,25 @@ function activateBestSeller(){
 		  }
     });
 }
+function dataBackgroundImageTestinomial(obj){
+    $('.testimonial_area').css({
+        'background-image': 'url("'+obj+'")',
+        'background-size': 'cover',
+        'background-repeat': 'no-repeat',
+        'background-position': 'center center',
+        'min-height': '400px',
+        'width': '100%',
+        'padding': '20px',
+        'display': 'flex',
+        'justify-content': 'center',
+        'align-items': 'center'
+    });
 
-function activateTestimonial(){
-    
+    // Add the inline style to the .testimonial_carousel element
+    $('.testimonial_carousel').attr('style', 'transform: translate3d(-2292px, 0px, 0px); transition: all 0s ease 0s; width: 8022px;');
+}
+
+function activateTestimonial(){    
     /*---testimonial active activation---*/
     $('.testimonial_carousel').owlCarousel({
         autoplay: true,
@@ -178,7 +194,6 @@ function activateTestimonial(){
         dots: true,
         navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'], 
     })
-    dataBackgroundImage();
 }
 function activateProducts(){
     $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
@@ -1402,6 +1417,7 @@ function fetchTestimonialContainerData(obj) {
     for (var i = 0; i < obj.length; i++) {
         var item = obj[i];
         if (item["Type"] == 3) {
+            var obj1 = item["bgimg"];
             var txt = '<div class="single_testimonial">'+
                     '       <div class="testimonial_img">'+
                     '            <a href="#"><img src="'+item['url1'] + '" alt="" width="263" height="360"></a>'+
@@ -1415,6 +1431,8 @@ function fetchTestimonialContainerData(obj) {
         }
     }
     dataList.innerHTML = itl;
+    // dataBackgroundImageTestinomial(obj1)
+    //dataBackgroundImage();
     activateTestimonial();
 }
 function fetchNewsLetterData(obj) {
