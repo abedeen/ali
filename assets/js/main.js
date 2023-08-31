@@ -1347,12 +1347,7 @@ function fetchProductAreaData(obj) {
                         '                        </a>'+
                         '                       <a class="secondary_img" href="product-details.html">'+
                         '                           <img src="'+item.url2+'" alt="">'+
-                        '                       </a>'+
-                        '                       <div class="action_links">'+
-                        '                           <ul>'+
-                        '                               <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
-                        '                           </ul>'+
-                        '                       </div>'+
+                        '                       </a>'+                        '
                         '                       <div class="product_content">'+
                         '                           <h4 class="product_name"><a href="product-details.html">'+item.Text1+'</a></h4>'+
                         '                           <div class="price_box"> '+
