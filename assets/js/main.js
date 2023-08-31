@@ -1505,7 +1505,7 @@ function fetchAddress(obj) {
             //console.log("Processing item", item);
             var txt =   '<div class="widgets_container contact_us">'+
                         '   <div class="footer_logo">'+
-                        '       <a href="index.html"><img src="'+item["url1"]+'" alt=""></a>'+
+                        '       <a href="index.html"><img src="assets/img/logo/logo1.png" alt=""></a>'+
                         '   </div>'+
                         '   <div class="footer_desc">'+
                         '       <p>'+item["Text1"]+'</p>'+
