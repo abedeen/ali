@@ -1263,11 +1263,17 @@ subtotal=0;
        // existing = getCheckOutDetails();
         $(".cart_gallery").html("");
         for (i=0;i<globalCookie.length;i++){
-        obj=existing[i];
+        obj=globalCookie[i];
         url='assets/img/s-product/product.webp';
         name='Quisque In Arcu';
         price=65.00;
         quantity=1;
+         if(obj['url']) url=obj['url']
+
+        if(obj['name']) name=obj['name']
+        if(obj['price']) price=obj['price']
+        subtotal+=price;
+        if(obj['quantity']) quantity=obj['quantity'];
          var cartText='<div class="cart_item">'+
                      '                          <div class="cart_img">'+
                      '                              <a href="#"><img src="'+url+'" alt=""></a>'+
@@ -1280,14 +1286,6 @@ subtotal=0;
                      '                               <a href="#" onclick="removeItem('+i+')"><i class="ion-android-close"></i></a>'+
                      '                           </div>'+
                      '                       </div>';
-       /* if(obj['url']) url=obj['url']
-
-        if(obj['name']) name=obj['name']
-        if(obj['price']) price=obj['price']
-        subtotal+=price;
-        if(obj['quantity']) quantity=obj['quantity'];
-
-*/
 $(".cart_gallery").append(cartText);
         }
 
@@ -1741,8 +1739,8 @@ sp = GProduct[id];
 cp=0;
 if (sp['current_price']!='')
 cp = sp['current_price']
-selPrd = {"id":sp['id'],"name":sp['products_title'],"url":sp['url1']}
-globalCookie.append(selPrd)
+selPrd = {"id":sp['id'],"name":sp['products_title'],"url":sp['url1'],"price":cp}
+globalCookie.push(selPrd)
 updateCookie(globalCookie);
 populateCheckOut();
 }
