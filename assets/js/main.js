@@ -1242,13 +1242,61 @@ function activateBlogs() {
 
 
 })(jQuery);
-function populateCheckOut(){
-dummyData=[{},{},{},{},{}];
-$.cookie('checkOut', JSON.stringify(dummyData), {});
+function getCheckOutDetails(){
 var k = $.cookie('checkOut');
 var l = JSON.parse(k)
-$(".item_count").text(""+l.length);
-console.log()
+return l;
+}
+function initital(){
+
+dummyData=[];
+$.cookie('checkOut', JSON.stringify(dummyData), {});
+}
+function updateCookie(data){
+$.cookie('checkOut', JSON.stringify(data), {});
+}
+globalCookie=[]
+function populateCheckOut(){
+
+$(".item_count").text(""+globalCookie.length);
+subtotal=0;
+        existing = getCheckOutDetails();
+        $(".cart_gallery").html("");
+        for (i=0;i<globalCookie.length;i++){
+        obj=existing[i];
+        url='assets/img/s-product/product.webp';
+        name='Quisque In Arcu';
+        price=65.00;
+        quantity=1;
+         var cartText='<div class="cart_item">'+
+                     '                          <div class="cart_img">'+
+                     '                              <a href="#"><img src="'+url+'" alt=""></a>'+
+                     '                          </div>'+
+                     '                           <div class="cart_info">'+
+                     '                               <a href="#">'+name+'</a>'+
+                     '                               <p><span> '+price+' </span> X '+quantity+'</p>'+
+                     '                           </div>'+
+                     '                           <div class="cart_remove">'+
+                     '                               <a href="#" onclick="removeItem('+i+')"><i class="ion-android-close"></i></a>'+
+                     '                           </div>'+
+                     '                       </div>';
+       /* if(obj['url']) url=obj['url']
+
+        if(obj['name']) name=obj['name']
+        if(obj['price']) price=obj['price']
+        subtotal+=price;
+        if(obj['quantity']) quantity=obj['quantity'];
+
+*/
+$(".cart_gallery").append(cartText);
+        }
+
+
+}
+function removeItem(index){
+globalCookie.splice(index, 1);
+updateCookie(globalCookie);
+populateCheckOut();
 }
 function fetchDate(obj){
     switch(obj) {
@@ -1675,6 +1723,11 @@ function generateProductHTML(products) {
     return productHTML1;
 }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function(event) {
+    k=''
+    k = $.cookie('checkOut');
+
+    if(k==undefined) {initital(); k = $.cookie('checkOut');}
+    globalCookie = JSON.parse(k)
     fetchDate(window.location.pathname);
   });
