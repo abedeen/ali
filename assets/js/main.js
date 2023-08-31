@@ -1242,10 +1242,17 @@ function activateBlogs() {
 
 
 })(jQuery);
-
+function populateCheckOut(){
+dummyData=[{},{},{},{},{}];
+$.cookie('checkOut', JSON.stringify(dummyData), {});
+var k = $.cookie('checkOut');
+var l = JSON.parse(k)
+$(".item_count").text(""+l.length);
+console.log()
+}
 function fetchDate(obj){
     switch(obj) {
-        case 'index':
+        case 'index.html':
           pullIndex();
           break;
         case '/':
@@ -1255,6 +1262,7 @@ function fetchDate(obj){
         default:
           // code block
       }
+      populateCheckOut();
 }
 function fetchSliderData(obj) {
     var dataList = $("#container1")[0];
@@ -1317,8 +1325,6 @@ function fetchBannerData(obj) {
     var finalHTML = preText + bannerHTML + postText;
     container.innerHTML = finalHTML;
 }
-
-
 function fetchProductAreaData(obj) {
     var products = obj;
     var productContainer = $("#best_seller")[0];
@@ -1405,7 +1411,6 @@ function fetchProductAreaData(obj) {
     productContainer.innerHTML = preText + bannerHTML + postText;
     activateBestSeller(); // Assuming this is a function to initialize the banner behavior
 }
-
 function fetchTestimonialContainerData(obj) {
     var dataList = $("#container2")[0];
     itl = "";
@@ -1457,8 +1462,6 @@ function fetchNewsLetterData(obj) {
     dataList.innerHTML = itl;
     activateNewsLetter();
 }
-
-
 function fetchBlogs(obj) {
     var dataList = $("#blog_area")[0];
     itl = "";
@@ -1547,107 +1550,10 @@ function fetchInformation(obj) {
     //console.log(itl);
     dataList.innerHTML = itl;
 }
-// function fetchFeaturedProducts(obj) {
-//     var dataList = $("#footer_featured_products")[0];
-//     itl = "";
-//     var postText =   '       </div>'+
-//                         '   </div>'+
-//                         '</div>';
-//     var preText =   '<div class="widgets_container widgets_p_product">'+
-//                             '   <h3>Featured Products</h3>'+
-//                             '   <div class="small_product_container small_product_column1 owl-carousel">'+
-//                             '       <div class="small_product_list">';
-//     for (var i = 0; i < obj.length; i++) {
-//         var item = obj[i];
-//         if (item["Type"] == 10) {
-//             //console.log("Processing item", item);
-//             var txt    ='           <article class="single_product">'+
-//                         '               <figure>'+
-//                         '                   <div class="product_thumb">'+
-//                         '                       <a class="primary_img" href1="product-details.html"><img src="'+item["url1"]+'" alt=""></a>'+
-//                         '                       <a class="secondary_img" href1="product-details.html"><img src="'+item["url2"]+'" alt=""></a>'+
-//                         '                   </div>'+
-//                         '                   <figcaption class="product_content">'+
-//                         '                       <h4 class="product_name"><a href1="product-details.html">'+item["Text1"]+'</a></h4>'+
-//                         '                       <div class="product_rating">'+
-//                         '                           <ul>'+
-//                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
-//                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
-//                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
-//                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
-//                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
-//                         '                           </ul>'+
-//                         '                       </div>'+
-//                         '                       <div class="price_box"> '+
-//                         '                           <span class="old_price">'+item["Text2"]+'</span> '+
-//                         '                           <span class="current_price">'+item["Text3"]+'</span>'+
-//                         '                       </div>'+
-//                         '                   </figcaption>'+
-//                         '               </figure>'+
-//                         '           </article>';
 
-//             itl += txt;
-
-//         }
-//     }
-//     //console.log("Processing item", itl);
-//     itl = preText+itl+postText;
-//     //console.log(itl);
-//     dataList.innerHTML = itl;
-//     //activateFeaturedProducts();
-// }
-// function fetchMostViewedProducts(obj) {
-//     var dataList = $("#footer_mostviewed_products")[0];
-//     itl = "";
-//     for (var i = 0; i < obj.length; i++) {
-//         var item = obj[i];
-//         if (item["Type"] == 11) {
-//             //console.log("Processing item", item);
-//             var preTxt =   '<div class="widgets_container widgets_p_product">'+
-//                         '   <h3>Mostview Products</h3>'+
-//                         '   <div class="small_product_container small_product_column1 owl-carousel">';
-//             var preTxt1 ='       <div class="small_product_list">';
-//             var txt =   '           <article class="single_product">'+
-//                         '               <figure>'+
-//                         '                   <div class="product_thumb">'+
-//                         '                       <a class="primary_img" href1="product-details.html"><img src="assets/img/product/product5.webp" alt=""></a>'+
-//                         '                       <a class="secondary_img" href1="product-details.html"><img src="assets/img/product/product6.webp" alt=""></a>'+
-//                         '                   </div>'+
-//                         '                   <figcaption class="product_content">'+
-//                         '                       <h4 class="product_name"><a href1="product-details.html">Donec Non Est</a></h4>'+
-//                         '                       <div class="product_rating">'+
-//                         '                           <ul>'+
-//                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
-//                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
-//                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
-//                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
-//                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
-//                         '                           </ul>'+
-//                         '                       </div>'+
-//                         '                       <div class="price_box"> '+
-//                         '                           <span class="old_price">$420.00</span> '+
-//                         '                           <span class="current_price">$180.00</span>'+
-//                         '                       </div>'+
-//                         '                   </figcaption>'+
-//                         '               </figure>'+
-//                         '          </article>';
-//             var preTxtEnd1 ='       </div>';
-//             var preTxtEnd ='   </div>'+
-//                            '</div>';
-//             itl += txt;
-//         }
-//     }
-//     itl = preTxt+preTxt1+itl+preTxtEnd1+preTxtEnd
-//     //itl = preText+itl+postText;
-//     //console.log(itl);
-//     dataList.innerHTML = itl;
-// }
 function fetchFooter(obj) {
     fetchAddress(obj);
     fetchInformation(obj);
-    // fetchFeaturedProducts(obj);
-    // fetchMostViewedProducts(obj);
-    //activateFooter();
 }
 
 function pullIndex(){
@@ -1696,7 +1602,6 @@ function getProduct(obj) {
             generateProductHTML
 
 }
-
 // Generate HTML for each product in a category
 function generateProductHTML(products) {
     var productHTML = '';
