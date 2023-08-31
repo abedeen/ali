@@ -1342,14 +1342,14 @@ function fetchProductAreaData(obj) {
                         '           <article class="single_product">'+
                         '               <figure>'+
                         '                   <div class="product_thumb">'+
-                        '                       <a class="primary_img" href="product-details.html">'+
+                        '                       <a class="primary_img" href1="product-details.html">'+
                         '                           <img src="'+item.url1+'" alt="">'+
                         '                        </a>'+
-                        '                       <a class="secondary_img" href="product-details.html">'+
+                        '                       <a class="secondary_img" href1="product-details.html">'+
                         '                           <img src="'+item.url2+'" alt="">'+
                         '                       </a>'+
                         '                       <div class="product_content">'+
-                        '                           <h4 class="product_name"><a href="product-details.html">'+item.Text1+'</a></h4>'+
+                        '                           <h4 class="product_name"><a href1="product-details.html">'+item.Text1+'</a></h4>'+
                         '                           <div class="price_box"> '+
                         '                               <span class="old_price">'+item.Text2+'</span> '+
                         '                               <span class="current_price">'+item.Text3+'</span>'+
@@ -1373,8 +1373,8 @@ function fetchProductAreaData(obj) {
                                 '         <div class="single_product">'+
                                 '             <figure>'+
                                 '                  <div class="product_thumb">'+
-                                '                        <a class="primary_img" href="product-details.html"><img src="'+currentElement.url1+'" alt=""></a>'+
-                                '                        <a class="secondary_img" href="product-details.html"><img src="'+currentElement.url2+'" alt=""></a>'+
+                                '                        <a class="primary_img" href1="product-details.html"><img src="'+currentElement.url1+'" alt=""></a>'+
+                                '                        <a class="secondary_img" href1="product-details.html"><img src="'+currentElement.url2+'" alt=""></a>'+
                                 '                        <div class="action_links">'+
                                 '                            <ul>'+
                                 '                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
@@ -1386,8 +1386,8 @@ function fetchProductAreaData(obj) {
                                 '            <div class="single_product">'+
                                 '                <figure>'+
                                 '                    <div class="product_thumb">'+
-                                '                        <a class="primary_img" href="product-details.html"><img src="'+postElement.url1+'" alt=""></a>'+
-                                '                        <a class="secondary_img" href="product-details.html"><img src="'+postElement.url2+'" alt=""></a>'+
+                                '                        <a class="primary_img" href1="product-details.html"><img src="'+postElement.url1+'" alt=""></a>'+
+                                '                        <a class="secondary_img" href1="product-details.html"><img src="'+postElement.url2+'" alt=""></a>'+
                                 '                        <div class="action_links">'+
                                 '                            <ul>'+
                                 '                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
@@ -1564,11 +1564,11 @@ function fetchInformation(obj) {
 //             var txt    ='           <article class="single_product">'+
 //                         '               <figure>'+
 //                         '                   <div class="product_thumb">'+
-//                         '                       <a class="primary_img" href="product-details.html"><img src="'+item["url1"]+'" alt=""></a>'+
-//                         '                       <a class="secondary_img" href="product-details.html"><img src="'+item["url2"]+'" alt=""></a>'+
+//                         '                       <a class="primary_img" href1="product-details.html"><img src="'+item["url1"]+'" alt=""></a>'+
+//                         '                       <a class="secondary_img" href1="product-details.html"><img src="'+item["url2"]+'" alt=""></a>'+
 //                         '                   </div>'+
 //                         '                   <figcaption class="product_content">'+
-//                         '                       <h4 class="product_name"><a href="product-details.html">'+item["Text1"]+'</a></h4>'+
+//                         '                       <h4 class="product_name"><a href1="product-details.html">'+item["Text1"]+'</a></h4>'+
 //                         '                       <div class="product_rating">'+
 //                         '                           <ul>'+
 //                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
@@ -1610,11 +1610,11 @@ function fetchInformation(obj) {
 //             var txt =   '           <article class="single_product">'+
 //                         '               <figure>'+
 //                         '                   <div class="product_thumb">'+
-//                         '                       <a class="primary_img" href="product-details.html"><img src="assets/img/product/product5.webp" alt=""></a>'+
-//                         '                       <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product6.webp" alt=""></a>'+
+//                         '                       <a class="primary_img" href1="product-details.html"><img src="assets/img/product/product5.webp" alt=""></a>'+
+//                         '                       <a class="secondary_img" href1="product-details.html"><img src="assets/img/product/product6.webp" alt=""></a>'+
 //                         '                   </div>'+
 //                         '                   <figcaption class="product_content">'+
-//                         '                       <h4 class="product_name"><a href="product-details.html">Donec Non Est</a></h4>'+
+//                         '                       <h4 class="product_name"><a href1="product-details.html">Donec Non Est</a></h4>'+
 //                         '                       <div class="product_rating">'+
 //                         '                           <ul>'+
 //                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
@@ -1716,8 +1716,8 @@ function generateProductHTML(products) {
                 '        <article class="single_product">' +
                 '            <figure>' +
                 '                <div class="product_thumb">' +
-                '                               <a class="primary_img" href="product-details.html"><img src="' + currentElement.url1 + '" alt=""></a>' +
-                '                               <a class="secondary_img" href="product-details.html"><img src="' + currentElement.url2 + '" alt=""></a>' +
+                '                               <a class="primary_img" href1="product-details.html"><img src="' + currentElement.url1 + '" alt=""></a>' +
+                '                               <a class="secondary_img" href1="product-details.html"><img src="' + currentElement.url2 + '" alt=""></a>' +
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
                 '                                        <li class="quick_button"><a href="' + currentElement.quickView + '" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>' +
@@ -1725,7 +1725,7 @@ function generateProductHTML(products) {
                 '                                </div>' +
                 '                </div>' +
                 '                <figcaption class="product_content">' +
-                '                    <h4 class="product_name"><a href="product-details.html">' + currentElement.products_title + '</a></h4>' +
+                '                    <h4 class="product_name"><a href1="product-details.html">' + currentElement.products_title + '</a></h4>' +
                 '                    <div class="price_box">' +
                 '                        <span class="old_price">' + currentElement.old_price + '</span>' +
                 '                        <span class="current_price">' + currentElement.current_price + '</span>' +
@@ -1741,8 +1741,8 @@ function generateProductHTML(products) {
                 '        <article class="single_product">' +
                 '            <figure>' +
                 '                <div class="product_thumb">' +
-                '                               <a class="primary_img" href="product-details.html"><img src="' + postElement.url1 + '" alt=""></a>' +
-                '                               <a class="secondary_img" href="product-details.html"><img src="' + postElement.url2 + '" alt=""></a>' +
+                '                               <a class="primary_img" href1="product-details.html"><img src="' + postElement.url1 + '" alt=""></a>' +
+                '                               <a class="secondary_img" href1="product-details.html"><img src="' + postElement.url2 + '" alt=""></a>' +
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
                 '                                        <li class="quick_button"><a href="' + postElement.quickView + '" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>' +
@@ -1750,7 +1750,7 @@ function generateProductHTML(products) {
                 '                                </div>' +
                 '                </div>' +
                 '                <figcaption class="product_content">' +
-                '                    <h4 class="product_name"><a href="product-details.html">' + postElement.products_title + '</a></h4>' +
+                '                    <h4 class="product_name"><a href1="product-details.html">' + postElement.products_title + '</a></h4>' +
                 '                    <div class="price_box">' +
                 '                        <span class="old_price">' + postElement.old_price + '</span>' +
                 '                        <span class="current_price">' + postElement.current_price + '</span>' +
