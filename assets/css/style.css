@@ -5123,6 +5123,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .single_product:hover .action_links {
   opacity: 1;
   visibility: visible;
+  left: 40%;
+  top: 40%;
 }
 .single_product:hover .action_links ul li a {
   -webkit-transform: translateX(0);
