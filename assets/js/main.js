@@ -1348,11 +1348,6 @@ function fetchProductAreaData(obj) {
                         '                       <a class="secondary_img" href="product-details.html">'+
                         '                           <img src="'+item.url2+'" alt="">'+
                         '                       </a>'+
-                        '                       <div class="action_links">'+
-                        '                           <ul>'+
-                        '                               <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
-                        '                           </ul>'+
-                        '                       </div>'+
                         '                       <div class="product_content">'+
                         '                           <h4 class="product_name"><a href="product-details.html">'+item.Text1+'</a></h4>'+
                         '                           <div class="price_box"> '+
@@ -1726,7 +1721,6 @@ function generateProductHTML(products) {
                 '                               <a class="secondary_img" href="product-details.html"><img src="' + currentElement.url2 + '" alt=""></a>' +
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
-                '                                        <li class="add_to_cart"><a href="' + currentElement.addToCart + '" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>' +
                 '                                        <li class="wishlist"><a href="' + currentElement.wishlist + '"  title="Add to Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a></li>' +
                 '                                        <li class="compare"><a href="' + currentElement.compare + '" title="Add to Compare"><i class="zmdi zmdi-shuffle"></i></a></li>' +
                 '                                        <li class="quick_button"><a href="' + currentElement.quickView + '" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>' +
@@ -1754,7 +1748,6 @@ function generateProductHTML(products) {
                 '                               <a class="secondary_img" href="product-details.html"><img src="' + postElement.url2 + '" alt=""></a>' +
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
-                '                                        <li class="add_to_cart"><a href="' + postElement.addToCart + '" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>' +
                 '                                        <li class="wishlist"><a href="' + postElement.wishlist + '"  title="Add to Wishlist"><i class="zmdi zmdi-favorite-outline"></i></a></li>' +
                 '                                        <li class="compare"><a href="' + postElement.compare + '" title="Add to Compare"><i class="zmdi zmdi-shuffle"></i></a></li>' +
                 '                                        <li class="quick_button"><a href="' + postElement.quickView + '" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>' +
