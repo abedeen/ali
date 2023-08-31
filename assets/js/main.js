@@ -7,7 +7,6 @@ function dataBackgroundImage() {
         });
     });
 }
-
 function activateSlide(){
     /*---slider activation---*/
     $('.slider_area').owlCarousel({
@@ -122,7 +121,7 @@ function activateBestSeller(){
 
 		  }
     });
-    
+
     /*---product column3 activation---*/
        $('.product_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -171,7 +170,7 @@ function dataBackgroundImageTestinomial(obj){
     $('.testimonial_carousel').attr('style', 'transform: translate3d(-2292px, 0px, 0px); transition: all 0s ease 0s; width: 8022px;');
 }
 
-function activateTestimonial(){    
+function activateTestimonial(){
     /*---testimonial active activation---*/
     $('.testimonial_carousel').owlCarousel({
         autoplay: true,
@@ -181,9 +180,9 @@ function activateTestimonial(){
         autoplayTimeout: 8000,
         items: 1,
         dots: true,
-        
+
     })
-    
+
     /*---testimonial sidebar carousel activation---*/
     $('.testimonial_sidebar_carousel').owlCarousel({
         autoplay: true,
@@ -193,49 +192,49 @@ function activateTestimonial(){
         autoplayTimeout: 8000,
         items: 1,
         dots: true,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'], 
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
     })
 }
 function activateProducts(){
     $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 4,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 4,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,
         responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:4,			},		  }
     });
-    
+
     /*---product column3 activation---*/
        $('.product_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,
         responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:3,			},		  }
     });
-    
+
      /*---product seven column3 activation---*/
        $('.product_seven_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,
         responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:2,			},            1200:{				items:3,			},		  }
     });
-    
-    
+
+
     /*---product column6 activation---*/
        $('.product_column6').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        margin: 10,        items: 6,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        margin: 10,        items: 6,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,
         responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:4,			},            1200:{				items:6,			},		  }
     });
-    
+
     /*---product tab column3 activation---*/
        $('.product_tab_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		
-        responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:3,			},		  }    
-    });    
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,
+        responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:3,			},		  }
+    });
     /*---product column1 activation---*/
        $('.product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
         autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],       responsiveClass:true,
-        responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:1,			},		  }    
+        responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:1,			},		  }
     });
 }
 function activateNewsLetter() {
@@ -284,8 +283,8 @@ function activateFeaturedProducts(){
 
 		  }
     });
-    
-    
+
+
     /*---product column6 activation---*/
        $('.product_column6').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -318,7 +317,7 @@ function activateFeaturedProducts(){
 
 		  }
     });
-    
+
     /*---product tab column3 activation---*/
        $('.product_tab_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -345,7 +344,7 @@ function activateFeaturedProducts(){
 
 		  }
     });
-    
+
     /*---product column1 activation---*/
        $('.product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -394,10 +393,10 @@ function activateBlogs() {
 			},
              992:{
 				items:3,
-			}, 
+			},
 		  }
     });
-    
+
     /*---blog column1 activation---*/
     $('.blog_column1').owlCarousel({
         autoplay: true,
@@ -419,7 +418,7 @@ function activateBlogs() {
 			},
              992:{
 				items:1,
-			}, 
+			},
         }
 
     });
@@ -427,15 +426,15 @@ function activateBlogs() {
 (function ($) {
     "use strict";
 
-    new WOW().init();  
-    
-    
+    new WOW().init();
+
+
     $(window).on('load', function () {
         dataBackgroundImage();
     });
-    
+
     /*---stickey menu---*/
-    $(window).on('scroll',function() {    
+    $(window).on('scroll',function() {
            var scroll = $(window).scrollTop();
            if (scroll < 100) {
             $(".sticky-header").removeClass("sticky");
@@ -443,7 +442,7 @@ function activateBlogs() {
             $(".sticky-header").addClass("sticky");
            }
     });
-    
+
     /*---jQuery MeanMenu---*/
     $('.mobile-menu nav').meanmenu({
         meanScreenWidth: "9901",
@@ -451,8 +450,8 @@ function activateBlogs() {
         onePage: true,
     });
 
-    
-    
+
+
     // /*---product column4 activation---*/
     //    $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
     //     $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -482,7 +481,7 @@ function activateBlogs() {
 
 	// 	  }
     // });
-    
+
     // /*---product column3 activation---*/
     //    $('.product_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
     //     $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -512,7 +511,7 @@ function activateBlogs() {
 
 	// 	  }
     // });
-    
+
      /*---product seven column3 activation---*/
        $('.product_seven_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -544,8 +543,8 @@ function activateBlogs() {
 
 		  }
     });
-    
-    
+
+
     /*---product column6 activation---*/
        $('.product_column6').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -578,7 +577,7 @@ function activateBlogs() {
 
 		  }
     });
-    
+
     /*---product tab column3 activation---*/
        $('.product_tab_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -605,7 +604,7 @@ function activateBlogs() {
 
 		  }
     });
-    
+
     /*---product column1 activation---*/
        $('.product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -631,7 +630,7 @@ function activateBlogs() {
 
 		  }
     });
-    
+
      /*---deals product column1 activation---*/
        $('.deals_product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -651,7 +650,7 @@ function activateBlogs() {
 
 		  }
     });
-    
+
     /*---small product column1 activation---*/
        $('.small_product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -677,8 +676,8 @@ function activateBlogs() {
 
 		  }
     });
-    
-    
+
+
     /*---sidebar product column1 activation---*/
        $('.sidebar_product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -689,7 +688,7 @@ function activateBlogs() {
         autoplayTimeout: 8000,
         items: 1,
         dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],   
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
         responsiveClass:true,
 		responsive:{
                 0:{
@@ -705,8 +704,8 @@ function activateBlogs() {
 
 		  }
     });
-    
-    
+
+
      /*---categories column2 activation---*/
        $('.categories_column2').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -732,7 +731,7 @@ function activateBlogs() {
 
 		  }
     });
-    
+
     // /*---testimonial active activation---*/
     // $('.testimonial_carousel').owlCarousel({
     //     autoplay: true,
@@ -742,9 +741,9 @@ function activateBlogs() {
     //     autoplayTimeout: 8000,
     //     items: 1,
     //     dots: true,
-        
+
     // })
-    
+
     // /*---testimonial sidebar carousel activation---*/
     // $('.testimonial_sidebar_carousel').owlCarousel({
     //     autoplay: true,
@@ -754,9 +753,9 @@ function activateBlogs() {
     //     autoplayTimeout: 8000,
     //     items: 1,
     //     dots: true,
-    //     navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'], 
+    //     navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
     // })
-    
+
     /*---blog column3 activation---*/
     // $('.blog_column3').owlCarousel({
     //     autoplay: true,
@@ -778,10 +777,10 @@ function activateBlogs() {
 	// 		},
     //          992:{
 	// 			items:3,
-	// 		}, 
+	// 		},
 	// 	  }
     // });
-    
+
     // /*---blog column1 activation---*/
     // $('.blog_column1').owlCarousel({
     //     autoplay: true,
@@ -803,11 +802,11 @@ function activateBlogs() {
 	// 		},
     //          992:{
 	// 			items:1,
-	// 		}, 
+	// 		},
     //     }
 
     // });
-        
+
     /*---brand container activation---*/
      $('.brand_container').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -818,7 +817,7 @@ function activateBlogs() {
         autoplayTimeout: 8000,
         items: 6,
         dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'], 
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
         responsiveClass:true,
 		responsive:{
 				0:{
@@ -839,9 +838,9 @@ function activateBlogs() {
 
 		  }
     });
-    
-    
-    
+
+
+
      /*---instagram column6 activation---*/
      $('.instagram_column7').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -872,7 +871,7 @@ function activateBlogs() {
 
 		  }
     });
-    
+
     /*---blog thumb activation---*/
     $('.blog_thumb_active').owlCarousel({
         autoplay: true,
@@ -883,9 +882,9 @@ function activateBlogs() {
         items: 1,
         navText: ['<i class="ion-ios-arrow-left"></i>','<i class="ion-ios-arrow-right"></i>'],
     });
-    
-    
-    
+
+
+
     /*---single product activation---*/
     $('.single-product-active').owlCarousel({
         autoplay: true,
@@ -915,8 +914,8 @@ function activateBlogs() {
 
 		  }
     });
- 
-   
+
+
     /*---product navactive activation---*/
     $('.product_navactive').owlCarousel({
         autoplay: true,
@@ -941,7 +940,7 @@ function activateBlogs() {
             768:{
 				items:4,
 			},
-		  
+
         }
     });
 
@@ -961,14 +960,14 @@ function activateBlogs() {
       $('.product-details-large '+ $href ).addClass('active show');
 
     })
-       
+
     /*--- video Popup---*/
     $('.video_popup').magnificPopup({
         type: 'iframe',
         removalDelay: 300,
         mainClass: 'mfp-fade'
     });
-    
+
     /*--- Magnific Popup Video---*/
     $('.port_popup').magnificPopup({
         type: 'image',
@@ -976,11 +975,11 @@ function activateBlogs() {
             enabled: true
         }
     });
-    
-    
+
+
     /*--- niceSelect---*/
      $('.select_option').niceSelect();
-    
+
 
     /*--- counterup activation ---*/
     $('.counter_number').counterUp({
@@ -994,18 +993,18 @@ function activateBlogs() {
         easingType: 'linear',
         scrollSpeed: 900,
         animation: 'fade'
-    });   
-    
+    });
+
     /*---countdown activation---*/
-		
+
 	 $('[data-countdown]').each(function() {
 		var $this = $(this), finalDate = $(this).data('countdown');
 		$this.countdown(finalDate, function(event) {
-		$this.html(event.strftime('<div class="countdown_area"><div class="single_countdown"><div class="countdown_number">%D</div><div class="countdown_title">days</div></div><div class="single_countdown"><div class="countdown_number">%H</div><div class="countdown_title">hours</div></div><div class="single_countdown"><div class="countdown_number">%M</div><div class="countdown_title">mins</div></div><div class="single_countdown"><div class="countdown_number">%S</div><div class="countdown_title">secs</div></div></div>'));     
-               
+		$this.html(event.strftime('<div class="countdown_area"><div class="single_countdown"><div class="countdown_number">%D</div><div class="countdown_title">days</div></div><div class="single_countdown"><div class="countdown_number">%H</div><div class="countdown_title">hours</div></div><div class="single_countdown"><div class="countdown_number">%M</div><div class="countdown_title">mins</div></div><div class="single_countdown"><div class="countdown_number">%S</div><div class="countdown_title">secs</div></div></div>'));
+
        });
-	});	
-    
+	});
+
     /*---slider-range here---*/
     $( "#slider-range" ).slider({
         range: true,
@@ -1018,19 +1017,19 @@ function activateBlogs() {
     });
     $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
        " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-    
+
     /*---niceSelect---*/
      $('.niceselect_option').niceSelect();
-    
+
     /*---elevateZoom---*/
     $("#zoom1").elevateZoom({
-        gallery:'gallery_01', 
+        gallery:'gallery_01',
         responsive : true,
         cursor: 'crosshair',
         zoomType : 'inner'
-    
-    });  
-    
+
+    });
+
     /*---portfolio Isotope activation---*/
       $('.portfolio_gallery').imagesLoaded( function() {
 
@@ -1046,46 +1045,46 @@ function activateBlogs() {
         $('.portfolio_button').on( 'click', 'button', function() {
            var filterValue = $(this).attr('data-filter');
            $grid.isotope({ filter: filterValue });
-            
+
            $(this).siblings('.active').removeClass('active');
            $(this).addClass('active');
         });
-       
+
     });
-    
-    
+
+
     /*---categories slideToggle---*/
     $(".categories_title").on("click", function() {
         $(this).toggleClass('active');
         $('.categories_menu_toggle').slideToggle('medium');
-    }); 
+    });
 
     /*---widget sub categories---*/
     $(".sub_categories1 > a").on("click", function() {
         $(this).toggleClass('active');
         $('.dropdown_categories1').slideToggle('medium');
-    }); 
-    
+    });
+
     /*---widget sub categories---*/
     $(".sub_categories2 > a").on("click", function() {
         $(this).toggleClass('active');
         $('.dropdown_categories2').slideToggle('medium');
-    }); 
-    
+    });
+
     /*---widget sub categories---*/
     $(".sub_categories3 > a").on("click", function() {
         $(this).toggleClass('active');
         $('.dropdown_categories3').slideToggle('medium');
-    }); 
-    
+    });
+
     /*---addClass/removeClass categories---*/
    $("#cat_toggle.has-sub > a").on("click", function() {
             $(this).removeAttr('href');
             $(this).toggleClass('open').next('.categorie_sub').toggleClass('open');
             $(this).parents().siblings().find('#cat_toggle.has-sub > a').removeClass('open');
     });
-    
-    
+
+
     /*---MailChimp---*/
     $('#mc-form').ajaxChimp({
         language: 'en',
@@ -1103,9 +1102,9 @@ function activateBlogs() {
 
         } else if(resp.result === 'error') {
             $('.mailchimp-error').html('' + resp.msg).fadeIn(900);
-        }  
+        }
     }
-    
+
     /*---Category menu---*/
     function categorySubMenuToggle(){
         $('.categories_menu_toggle li.menu_item_children > a').on('click', function(){
@@ -1134,34 +1133,34 @@ function activateBlogs() {
 
     /*---shop grid activation---*/
     $('.shop_toolbar_btn > button').on('click', function (e) {
-        
+
 		e.preventDefault();
-        
+
         $('.shop_toolbar_btn > button').removeClass('active');
 		$(this).addClass('active');
-        
+
 		var parentsDiv = $('.shop_wrapper');
 		var viewMode = $(this).data('role');
-        
-        
+
+
 		parentsDiv.removeClass('grid_3 grid_4 grid_5 grid_list').addClass(viewMode);
 
 		if(viewMode == 'grid_3'){
 			parentsDiv.children().addClass('col-lg-4 col-md-4 col-sm-6').removeClass('col-lg-3 col-cust-5 col-12');
-            
+
 		}
 
 		if(viewMode == 'grid_4'){
 			parentsDiv.children().addClass('col-lg-3 col-md-4 col-sm-6').removeClass('col-lg-4 col-cust-5 col-12');
 		}
-        
+
         if(viewMode == 'grid_list'){
 			parentsDiv.children().addClass('col-12').removeClass('col-lg-3 col-lg-4 col-md-4 col-sm-6 col-cust-5');
 		}
-            
+
 	});
-  
-    
+
+
    /*---Newsletter Popup activation---*/
    /*
        setTimeout(function() {
@@ -1183,22 +1182,22 @@ function activateBlogs() {
                 $('.newletter-popup').bPopup();
             }
             $('#newsletter_popup_dont_show_again').on('change', function(){
-                if($.cookie("shownewsletter") != 1){   
+                if($.cookie("shownewsletter") != 1){
                     $.cookie("shownewsletter",'1')
                 }else{
                     $.cookie("shownewsletter",'0')
                 }
-            }); 
+            });
         }, 2500);
-*/    
-    
+*/
+
     /*---search box slideToggle---*/
     $(".search_box > a").on("click", function() {
         $(this).toggleClass('active');
         $('.search_widget').slideToggle('medium');
-    }); 
-    
-    
+    });
+
+
     /*---slide toggle activation---*/
     $('.mini_cart_wrapper > a').on('click', function(event){
         if($(window).width() < 991){
@@ -1210,19 +1209,19 @@ function activateBlogs() {
     $('.canvas_open').on('click', function(){
         $('.Offcanvas_menu_wrapper,.off_canvars_overlay').addClass('active')
     });
-    
+
     $('.canvas_close,.off_canvars_overlay').on('click', function(){
         $('.Offcanvas_menu_wrapper,.off_canvars_overlay').removeClass('active')
     });
-    
-    
+
+
     /*---Off Canvas Menu---*/
     var $offcanvasNav = $('.offcanvas_main_menu'),
         $offcanvasNavSubMenu = $offcanvasNav.find('.sub-menu');
     $offcanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i class="fa fa-angle-down"></i></span>');
-    
+
     $offcanvasNavSubMenu.slideUp();
-    
+
     $offcanvasNav.on('click', 'li a, li .menu-expand', function(e) {
         var $this = $(this);
         if ( ($this.parent().attr('class').match(/\b(menu-item-has-children|has-children|has-sub-menu)\b/)) && ($this.attr('href') === '#' || $this.hasClass('menu-expand')) ) {
@@ -1240,9 +1239,9 @@ function activateBlogs() {
         	$this.toggleClass('menu-open');
         }
     });
-    
-    
-})(jQuery);	
+
+
+})(jQuery);
 
 function fetchDate(obj){
     switch(obj) {
@@ -1317,8 +1316,8 @@ function fetchBannerData(obj) {
 
     var finalHTML = preText + bannerHTML + postText;
     container.innerHTML = finalHTML;
-}    
-        
+}
+
 
 function fetchProductAreaData(obj) {
     var products = obj;
@@ -1343,14 +1342,19 @@ function fetchProductAreaData(obj) {
                         '           <article class="single_product">'+
                         '               <figure>'+
                         '                   <div class="product_thumb">'+
-                        '                       <a class="primary_img" href1="product-details.html" >'+
+                        '                       <a class="primary_img" href="product-details.html">'+
                         '                           <img src="'+item.url1+'" alt="">'+
                         '                        </a>'+
-                        '                       <a class="secondary_img" href1="product-details.html" >'+
+                        '                       <a class="secondary_img" href="product-details.html">'+
                         '                           <img src="'+item.url2+'" alt="">'+
                         '                       </a>'+
+                        '                       <div class="action_links">'+
+                        '                           <ul>'+
+                        '                               <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+                        '                           </ul>'+
+                        '                       </div>'+
                         '                       <div class="product_content">'+
-                        '                           <h4 class="product_name"><a href1="product-details.html" >'+item.Text1+'</a></h4>'+
+                        '                           <h4 class="product_name"><a href="product-details.html">'+item.Text1+'</a></h4>'+
                         '                           <div class="price_box"> '+
                         '                               <span class="old_price">'+item.Text2+'</span> '+
                         '                               <span class="current_price">'+item.Text3+'</span>'+
@@ -1374,8 +1378,8 @@ function fetchProductAreaData(obj) {
                                 '         <div class="single_product">'+
                                 '             <figure>'+
                                 '                  <div class="product_thumb">'+
-                                '                        <a class="primary_img" href1="product-details.html" ><img src="'+currentElement.url1+'" alt=""></a>'+
-                                '                        <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
+                                '                        <a class="primary_img" href="product-details.html"><img src="'+currentElement.url1+'" alt=""></a>'+
+                                '                        <a class="secondary_img" href="product-details.html"><img src="'+currentElement.url2+'" alt=""></a>'+
                                 '                        <div class="action_links">'+
                                 '                            <ul>'+
                                 '                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
@@ -1387,8 +1391,8 @@ function fetchProductAreaData(obj) {
                                 '            <div class="single_product">'+
                                 '                <figure>'+
                                 '                    <div class="product_thumb">'+
-                                '                        <a class="primary_img" href1="product-details.html" ><img src="'+postElement.url1+'" alt=""></a>'+
-                                '                        <a class="secondary_img" href1="product-details.html" ><img src="'+postElement.url2+'" alt=""></a>'+
+                                '                        <a class="primary_img" href="product-details.html"><img src="'+postElement.url1+'" alt=""></a>'+
+                                '                        <a class="secondary_img" href="product-details.html"><img src="'+postElement.url2+'" alt=""></a>'+
                                 '                        <div class="action_links">'+
                                 '                            <ul>'+
                                 '                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
@@ -1401,7 +1405,7 @@ function fetchProductAreaData(obj) {
                                 '    </div>';
             }
         }
-        // Append the product HTML to the container        
+        // Append the product HTML to the container
     }
     productContainer.innerHTML = preText + bannerHTML + postText;
     activateBestSeller(); // Assuming this is a function to initialize the banner behavior
@@ -1486,7 +1490,7 @@ function fetchBlogs(obj) {
                         '   </article>'+
                         '</div>';
             itl += txt;
-            
+
         }
     }
     itl = preText+itl+postText;
@@ -1513,7 +1517,7 @@ function fetchAddress(obj) {
                         '   <p><span>Phone:</span> <a href="cel:+91'+item["Text4"]+'">+91 '+item["Text4"]+'/+91 '+item["Text5"]+'</a></p>'+
                         '</div>';
             itl = txt;
-            
+
         }
     }
     //itl = preText+itl+postText;
@@ -1542,7 +1546,7 @@ function fetchInformation(obj) {
                         '   </div>'+
                         '</div>';
             itl = txt;
-            
+
         }
     }
     //itl = preText+itl+postText;
@@ -1566,11 +1570,11 @@ function fetchInformation(obj) {
 //             var txt    ='           <article class="single_product">'+
 //                         '               <figure>'+
 //                         '                   <div class="product_thumb">'+
-//                         '                       <a class="primary_img" href1="product-details.html" ><img src="'+item["url1"]+'" alt=""></a>'+
-//                         '                       <a class="secondary_img" href1="product-details.html" ><img src="'+item["url2"]+'" alt=""></a>'+
+//                         '                       <a class="primary_img" href="product-details.html"><img src="'+item["url1"]+'" alt=""></a>'+
+//                         '                       <a class="secondary_img" href="product-details.html"><img src="'+item["url2"]+'" alt=""></a>'+
 //                         '                   </div>'+
 //                         '                   <figcaption class="product_content">'+
-//                         '                       <h4 class="product_name"><a href1="product-details.html" >'+item["Text1"]+'</a></h4>'+
+//                         '                       <h4 class="product_name"><a href="product-details.html">'+item["Text1"]+'</a></h4>'+
 //                         '                       <div class="product_rating">'+
 //                         '                           <ul>'+
 //                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
@@ -1587,9 +1591,9 @@ function fetchInformation(obj) {
 //                         '                   </figcaption>'+
 //                         '               </figure>'+
 //                         '           </article>';
-            
+
 //             itl += txt;
-            
+
 //         }
 //     }
 //     //console.log("Processing item", itl);
@@ -1612,11 +1616,11 @@ function fetchInformation(obj) {
 //             var txt =   '           <article class="single_product">'+
 //                         '               <figure>'+
 //                         '                   <div class="product_thumb">'+
-//                         '                       <a class="primary_img" href1="product-details.html" ><img src="assets/img/product/product5.webp" alt=""></a>'+
-//                         '                       <a class="secondary_img" href1="product-details.html" ><img src="assets/img/product/product6.webp" alt=""></a>'+
+//                         '                       <a class="primary_img" href="product-details.html"><img src="assets/img/product/product5.webp" alt=""></a>'+
+//                         '                       <a class="secondary_img" href="product-details.html"><img src="assets/img/product/product6.webp" alt=""></a>'+
 //                         '                   </div>'+
 //                         '                   <figcaption class="product_content">'+
-//                         '                       <h4 class="product_name"><a href1="product-details.html" >Donec Non Est</a></h4>'+
+//                         '                       <h4 class="product_name"><a href="product-details.html">Donec Non Est</a></h4>'+
 //                         '                       <div class="product_rating">'+
 //                         '                           <ul>'+
 //                         '                               <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
@@ -1636,7 +1640,7 @@ function fetchInformation(obj) {
 //             var preTxtEnd1 ='       </div>';
 //             var preTxtEnd ='   </div>'+
 //                            '</div>';
-//             itl += txt;            
+//             itl += txt;
 //         }
 //     }
 //     itl = preTxt+preTxt1+itl+preTxtEnd1+preTxtEnd
@@ -1662,10 +1666,10 @@ function pullIndex(){
             fetchSliderData(data);
             fetchTestimonialContainerData(data);
             fetchBannerData(data);
-            fetchProductAreaData(data);  
-            fetchNewsLetterData(data);  
-            fetchBlogs(data);   
-            fetchFooter(data); 
+            fetchProductAreaData(data);
+            fetchNewsLetterData(data);
+            fetchBlogs(data);
+            fetchFooter(data);
         },
         error: function(xhr, status, error) {
             console.error("Error:", status, error);
@@ -1684,19 +1688,19 @@ function pullIndex(){
             console.error("Error:", status, error);
             //$("#dataList").html("An error occurred while fetching data.");
         }
-    });   
+    });
 
 }
 var GProduct=[];
 function getProduct(obj) {
     $("#products").html("");
     var categoryProducts = GProduct.filter(product => product.id === obj);
-    var productContainer = $("#products"); 
+    var productContainer = $("#products");
             var getHtml = generateProductHTML(categoryProducts);
-            productContainer.append(getHtml);        
+            productContainer.append(getHtml);
             activateProducts();
             generateProductHTML
-    
+
 }
 
 // Generate HTML for each product in a category
@@ -1712,14 +1716,14 @@ function generateProductHTML(products) {
     for (var i = 0; i < products.length; i += 2) {
         var currentElement = products[i];
         var postElement = products[i+1];
-        productHTML += 
+        productHTML +=
                 '<div class="col-lg-3">'+
                 '   <div class="product_items">'+
                 '        <article class="single_product">' +
                 '            <figure>' +
                 '                <div class="product_thumb">' +
-                '                               <a class="primary_img" href1="product-details.html" ><img src="' + currentElement.url1 + '" alt=""></a>' +
-                '                               <a class="secondary_img" href1="product-details.html" ><img src="' + currentElement.url2 + '" alt=""></a>' +
+                '                               <a class="primary_img" href="product-details.html"><img src="' + currentElement.url1 + '" alt=""></a>' +
+                '                               <a class="secondary_img" href="product-details.html"><img src="' + currentElement.url2 + '" alt=""></a>' +
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
                 '                                        <li class="add_to_cart"><a href="' + currentElement.addToCart + '" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>' +
@@ -1730,7 +1734,7 @@ function generateProductHTML(products) {
                 '                                </div>' +
                 '                </div>' +
                 '                <figcaption class="product_content">' +
-                '                    <h4 class="product_name"><a href1="product-details.html" >' + currentElement.products_title + '</a></h4>' +
+                '                    <h4 class="product_name"><a href="product-details.html">' + currentElement.products_title + '</a></h4>' +
                 '                    <div class="price_box">' +
                 '                        <span class="old_price">' + currentElement.old_price + '</span>' +
                 '                        <span class="current_price">' + currentElement.current_price + '</span>' +
@@ -1746,8 +1750,8 @@ function generateProductHTML(products) {
                 '        <article class="single_product">' +
                 '            <figure>' +
                 '                <div class="product_thumb">' +
-                '                               <a class="primary_img" href1="product-details.html" ><img src="' + postElement.url1 + '" alt=""></a>' +
-                '                               <a class="secondary_img" href1="product-details.html" ><img src="' + postElement.url2 + '" alt=""></a>' +
+                '                               <a class="primary_img" href="product-details.html"><img src="' + postElement.url1 + '" alt=""></a>' +
+                '                               <a class="secondary_img" href="product-details.html"><img src="' + postElement.url2 + '" alt=""></a>' +
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
                 '                                        <li class="add_to_cart"><a href="' + postElement.addToCart + '" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>' +
@@ -1758,7 +1762,7 @@ function generateProductHTML(products) {
                 '                                </div>' +
                 '                </div>' +
                 '                <figcaption class="product_content">' +
-                '                    <h4 class="product_name"><a href1="product-details.html" >' + postElement.products_title + '</a></h4>' +
+                '                    <h4 class="product_name"><a href="product-details.html">' + postElement.products_title + '</a></h4>' +
                 '                    <div class="price_box">' +
                 '                        <span class="old_price">' + postElement.old_price + '</span>' +
                 '                        <span class="current_price">' + postElement.current_price + '</span>' +
