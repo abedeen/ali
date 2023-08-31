@@ -1260,7 +1260,7 @@ function populateCheckOut(){
 
 $(".item_count").text(""+globalCookie.length);
 subtotal=0;
-        existing = getCheckOutDetails();
+       // existing = getCheckOutDetails();
         $(".cart_gallery").html("");
         for (i=0;i<globalCookie.length;i++){
         obj=existing[i];
@@ -1432,6 +1432,7 @@ function fetchProductAreaData(obj) {
                                 '                        <div class="action_links">'+
                                 '                            <ul>'+
                                 '                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                                '                                <li class="add_to_cart"><a href=""  onclick="addToCart('+(i)+')" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                                 '                            </ul>'+
                                 '                        </div>'+
                                 '                    </div>'+
@@ -1444,7 +1445,8 @@ function fetchProductAreaData(obj) {
                                 '                        <a class="secondary_img" href1="product-details.html"><img src="'+postElement.url2+'" alt=""></a>'+
                                 '                        <div class="action_links">'+
                                 '                            <ul>'+
-                                '                                <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                                '                                <li class="quick_button"><a href="#"   data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                                '                                <li class="add_to_cart"><a href=""  onclick="addToCart('+(i+1)+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                                 '                            </ul>'+
                                 '                        </div>'+
                                 '                    </div>'+
@@ -1674,6 +1676,7 @@ function generateProductHTML(products) {
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
                 '                                        <li class="quick_button"><a href="' + currentElement.quickView + '" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>' +
+                '                                        <li class="add_to_cart"><a href=""  onclick="addToCart('+i+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                 '                                   </ul>' +
                 '                                </div>' +
                 '                </div>' +
@@ -1699,6 +1702,7 @@ function generateProductHTML(products) {
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
                 '                                        <li class="quick_button"><a href="' + postElement.quickView + '" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>' +
+                '                                        <li class="add_to_cart"><a href=""  onclick="addToCart('+(i+1)+')" onclick("'+(i+1)+'")" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                 '                                   </ul>' +
                 '                                </div>' +
                 '                </div>' +
@@ -1731,3 +1735,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     globalCookie = JSON.parse(k)
     fetchDate(window.location.pathname);
   });
+function addToCart(id){
+console.log("ok"+globalCookie.length)
+sp = GProduct[id];
+cp=0;
+if (sp['current_price']!='')
+cp = sp['current_price']
+selPrd = {"id":sp['id'],"name":sp['products_title'],"url":sp['url1']}
+globalCookie.append(selPrd)
+updateCookie(globalCookie);
+populateCheckOut();
+}
