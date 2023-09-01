@@ -1290,7 +1290,7 @@ subtotal=0;
         obj=globalCookie[i];
         url='assets/img/s-product/product.webp';
         name='Quisque In Arcu';
-        price=65.00;
+        price=0.00;
         quantity=1;
          if(obj['url']) url=obj['url']
 
@@ -1322,12 +1322,15 @@ populateCheckOut();
 }
 function fetchDate(obj){
     switch(obj) {
-        case 'index.html':
+        case "/index.html":
           pullIndex();
           break;
         case '/':
             pullIndex();
             break;
+        case "/cart.html":
+          products = getCheckOutDetails();
+          pullCart();
           break;
         default:
           // code block
@@ -1855,7 +1858,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     fetchDate(window.location.pathname);
   });
 function addToCart(id){
-console.log("ok"+globalCookie.length)
 sp = GProduct[id];
 cp=0;
 if (sp['current_price']!='')
@@ -1863,5 +1865,35 @@ cp = sp['current_price']
 selPrd = {"id":sp['id'],"name":sp['products_title'],"url":sp['url1'],"price":cp}
 globalCookie.push(selPrd)
 updateCookie(globalCookie);
+populateCheckOut();
+}
+function pullCart(){
+
+$('.cart-body').html('');
+for (i=0;i<products.length;i++){
+var total=0;
+if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['price'] * products[i]['quantity']);
+    txt =   '                    <tr>'+
+        '                           <td class="product_remove"><a href="#"  onclick="removeProductItem('+i+')"><i class="fa fa-trash-o"></i></a></td>'+
+            '                            <td class="product_thumb"><a href="#"><img src="'+products[i]['url']+'" alt=""></a></td>'+
+            '                            <td class="product_name"><a href="#">'+products[i]['name']+'</a></td>'+
+            '                            <td class="product-price">₹ '+products[i]['price']+'</td>'+
+            '                            <td class="product_quantity"><label>Quantity</label> <input min="0" max="100" onChange="updateProduct('+i+',this);" value="'+products[i]['quantity']+'" type="number"></td>'+
+            '                            <td class="product_total">₹ '+total+'</td>'+
+            '                    </tr>';
+    $('.cart-body').append(txt);
+    }
+}
+function updateProduct(ind,quantity){
+products[ind]['quantity']=parseInt(quantity.value);
+globalCookie=products;
+updateCookie(products);
+populateCheckOut();
+}
+function removeProductItem(index){
+products.splice(index, 1);
+globalCookie=products;
+pullCart()
+updateCookie(products);
 populateCheckOut();
 }
