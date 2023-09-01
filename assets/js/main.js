@@ -1295,8 +1295,8 @@ subtotal=0;
          if(obj['url']) url=obj['url']
 
         if(obj['name']) name=obj['name']
-        //if(obj['price']) price=obj['price']
-        if (obj['price']) price = parseFloat(obj['price']);
+        if(obj['price']) price=obj['price']
+        //if (obj['price']) price = parseFloat(obj['price']);
         subtotal+=price;
         if(obj['quantity']) quantity=obj['quantity'];
          var cartText='<div class="cart_item">'+
@@ -1435,8 +1435,8 @@ function fetchProductAreaData(obj) {
                         '                       <div class="product_content">'+
                         '                           <h4 class="product_name"><a href1="product-details.html">'+item.Text1+'</a></h4>'+
                         '                           <div class="price_box"> '+
-                        '                               <span class="old_price">'+item.Text2+'</span> '+
-                        '                               <span class="current_price">'+item.Text3+'</span>'+
+                        '                               <span class="old_price">₹'+item.Text2+'</span> '+
+                        '                               <span class="current_price">₹'+item.Text3+'</span>'+
                         '                           </div>'+
                         '                       </div>'+
                         '                   </div>'+
