@@ -1290,15 +1290,13 @@ subtotal=0;
         obj=globalCookie[i];
         url='assets/img/s-product/product.webp';
         name='Quisque In Arcu';
-        price=0.00;
+        price=0;
         quantity=1;
-         if(obj['url']) url=obj['url']
-
-        if(obj['name']) name=obj['name']
-        //if(obj['price']) price=obj['price'].replace('₹', '')
-        if (obj['price']) price = parseFloat(obj['price'].replace('₹', ''));
-        subtotal+=parseInt(price);
-        if(obj['quantity']) quantity=obj['quantity'];
+        url=obj['url']
+        name=obj['name']
+        price=obj['price']
+        subtotal+=price;
+        quantity=obj['quantity'];
          var cartText='<div class="cart_item">'+
                      '                          <div class="cart_img">'+
                      '                              <a href="#"><img src="'+url+'" alt=""></a>'+
@@ -1864,10 +1862,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 function addToCart(id){
 sp = GProduct[id];
-cp=0;
-if (sp['current_price']!='')
-cp = sp['current_price']
-selPrd = {"id":sp['id'],"name":sp['products_title'],"url":sp['url1'],"price":cp}
+cp=Number(sp['current_price']);
+if (!Number.isInteger(cp))
+cp = 300;
+selPrd = {"id":sp['id'],"name":sp['products_title'],"url":sp['url1'],"price":cp,"quantity":1}
+addJsonToCart(selPrd,0)
+}
+function addJsonToCart(selPrd,type){
 globalCookie.push(selPrd)
 updateCookie(globalCookie);
 populateCheckOut();
@@ -1911,10 +1912,11 @@ populateCheckOut();
 function pullCart(){
 
 $('.cart-body').html('');
-gtotal="";
+gtotal=0;
 for (i=0;i<products.length;i++){
-var total=0;
-if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['price'] * products[i]['quantity']);
+
+var total = products[i]['price']*products[i]['quantity'];
+
     txt =   '                    <tr>'+
         '                           <td class="product_remove"><a href="#"  onclick="removeProductItem('+i+')"><i class="fa fa-trash-o"></i></a></td>'+
             '                            <td class="product_thumb"><a href="#"><img src="'+products[i]['url']+'" alt=""></a></td>'+
@@ -1923,7 +1925,7 @@ if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['pric
             '                            <td class="product_quantity"><label>Quantity</label> <input min="0" max="100" onChange="updateProduct('+i+',this);" value="'+products[i]['quantity']+'" type="number"></td>'+
             '                            <td class="product_total">₹ '+total+'</td>'+
             '                    </tr>';
-            $('.cart-body').html(txt);
+            $('.cart-body').append(txt);
     gtotal+=total;
 
     }
@@ -1942,10 +1944,26 @@ if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['pric
             '                                <td> '+products[i]['name']+' <strong> × '+products[i]['quantity']+'</strong></td>'+
             '                               <td> ₹ '+total+'</td>'+
             '                            </tr>';
-            $('.confirm-checkout').html(txt);
-    gtotal+=total;
+            $('.confirm-checkout').append(txt);
+    gtotal+=parseInt(total);
 
     }
     $('.cart_amount').html('₹ '+gtotal);
     $('.price').html('₹ '+gtotal);
+}
+function sendToServer(){
+k = JSON.stringify(getCheckOutDetails())
+m = encodeURIComponent(k);
+var request = new XMLHttpRequest()
+
+// Open a new connection, using the GET request on the URL endpoint
+request.open('GET', 'http://117.221.27.74:5000?body='+m, true)
+
+request.onload = function () {
+  // Begin accessing JSON data here
+}
+
+// Send request
+request.send()
+
 }
