@@ -981,7 +981,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   white-space: nowrap;
   padding: 8px 8px 8px 20px;
   line-height: 20px;
-  color: #000000;
+  color: #a19a9a;
 }
 .dropdown_currency li a:hover, .dropdown_links li a:hover, .dropdown_language li a:hover {
   background: #f2f2f2;
