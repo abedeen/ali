@@ -7,6 +7,30 @@ function dataBackgroundImage() {
         });
     });
 }
+function activateModalBox(){
+    $('.modal').on('shown.bs.modal', function (e) {
+        $('.product_navactive').resize();
+    })
+    /*---product navactive activation---*/
+    $('.product_navactive').owlCarousel({
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,
+        items: 4,        dots:false,        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],        responsiveClass:true,
+		responsive:{				0:{				items:1,			},            250:{				items:2,			},
+            480:{				items:3,			},            768:{				items:4,			},        }
+    });
+    $('.product_navactive a').on('click',function(e){
+      e.preventDefault();
+
+      var $href = $(this).attr('href');
+
+      $('.product_navactive a').removeClass('active');
+      $(this).addClass('active');
+
+      $('.product-details-large .tab-pane').removeClass('active show');
+      $('.product-details-large '+ $href ).addClass('active show');
+
+    })
+}
 function activateSlide(){
     /*---slider activation---*/
     $('.slider_area').owlCarousel({
@@ -1647,8 +1671,105 @@ function getProduct(obj) {
             var getHtml = generateProductHTML(categoryProducts);
             productContainer.append(getHtml);
             activateProducts();
-            generateProductHTML
+            //generateProductHTML
 
+}
+function openModal(productId, indexNumber) {
+    var modal = new bootstrap.Modal(document.getElementById('modal_box'));
+    var categoryProducts = GProduct.filter(product => product.kId === String(productId));
+    var dataList = $("#modal_box_item")[0];
+    itl = "";
+    for (var i = 0; i < categoryProducts.length; i++) {
+    //console.log("Processing item", item);
+        var detailsHtml3 =  '                   <div class="col-lg-5 col-md-5 col-sm-12">'+
+                                    '                        <div class="modal_tab">'+
+                                    '                           <div class="tab-content product-details-large">'+
+                                    '                               <div class="tab-pane fade show active" id="tab1" role="tabpanel" >'+
+                                    '                                   <div class="modal_tab_img">'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url2+'" alt=""></a>'+
+                                    '                                   </div>'+
+                                    '                               </div>'+
+                                    '                               <div class="tab-pane fade" id="tab2" role="tabpanel">'+
+                                    '                                   <div class="modal_tab_img">'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url3+'" alt=""></a>'+
+                                    '                                   </div>'+
+                                    '                               </div>'+
+                                    '                               <div class="tab-pane fade" id="tab3" role="tabpanel">'+
+                                    '                                   <div class="modal_tab_img">'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url4+'" alt=""></a>'+
+                                    '                                   </div>'+
+                                    '                               </div>'+
+                                    '                               <div class="tab-pane fade" id="tab4" role="tabpanel">'+
+                                    '                                   <div class="modal_tab_img">'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url5+'" alt=""></a>'+
+                                    '                                   </div>'+
+                                    '                               </div>'+
+                                    '                           </div>'+
+                                    '                           <div class="modal_tab_button">'+
+                                    '                               <ul class="nav product_navactive owl-carousel" role="tablist">'+
+                                    '                                   <li ><a class="nav-link active" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="'+categoryProducts[0].url2+'" alt=""></a></li>'+
+                                    '                                   <li><a class="nav-link" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="'+categoryProducts[0].url3+'" alt=""></a></li>'+
+                                    '                                   <li><a class="nav-link button_three" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="'+categoryProducts[0].url4+'" alt=""></a></li>'+
+                                    '                                   <li><a class="nav-link" data-bs-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="'+categoryProducts[0].url5+'" alt=""></a></li>'+
+                                    '                               </ul>'+
+                                    '                           </div>'+
+                                    '                       </div>'+
+                                    '                    </div>';
+        var detailsHtml4 =  '<div class="col-lg-7 col-md-7 col-sm-12">'+
+                                    '   <div class="modal_right">'+
+                                    '       <div class="modal_title mb-10">'+
+                                    '           <h2>Donec Ac Tempu8s</h2>'+
+                                    '       </div>'+
+                                    '       <div class="modal_price mb-10">'+
+                                    '           <span class="new_price">$64.99</span>'+
+                                    '           <span class="old_price" >$78.99</span>'+
+                                    '       </div>'+
+                                    '       <div class="modal_description mb-15">'+
+                                    '           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel recusandae </p>'+
+                                    '       </div>'+
+                                    '       <div class="variants_selects">'+
+                                    '           <div class="variants_size">'+
+                                    '               <h2>size</h2>'+
+                                    '               <select class="select_option">'+
+                                    '                   <option selected value="1">30ml</option>'+
+                                    '                   <option value="2">60ml</option>'+
+                                    '                   <option value="3">100ml</option>'+
+                                    '               </select>'+
+                                    '           </div>'+
+                                    '           <div class="variants_color">'+
+                                    '               <h2>Material</h2>'+
+                                    '               <select class="select_option">'+
+                                    '                   <option selected value="1">Plastic</option>'+
+                                    '                   <option value="2">Glass</option>'+
+                                    '                   <option value="3">Fancy With Box</option>'+
+                                    '               </select>'+
+                                    '           </div>'+
+                                    '           <div class="modal_add_to_cart">'+
+                                    '               <form action="#">'+
+                                    '                   <input min="1" max="100" step="2" value="1" type="number">'+
+                                    '                   <button type="submit">add to cart</button>'+
+                                    '               </form>'+
+                                    '           </div>'+
+                                    '       </div>'+
+                                    '       <div class="modal_social">'+
+                                    '           <h2>Share this product</h2>'+
+                                    '           <ul>'+
+                                    '               <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>'+
+                                    '               <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>'+
+                                    '               <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>'+
+                                    '               <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>'+
+                                    '               <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>'+
+                                    '           </ul>'+
+                                    '       </div>'+
+                                    '   </div>'+
+                                    '</div>';
+        itl = detailsHtml3+detailsHtml4;
+    }
+    dataList.innerHTML = itl;
+    //console.log(modal);
+    modal.show();
+    activateModalBox();
+    // Prevent the default link behavior
 }
 // Generate HTML for each product in a category
 function generateProductHTML(products) {
@@ -1673,7 +1794,7 @@ function generateProductHTML(products) {
                 '                               <a class="secondary_img" href1="product-details.html"><img src="' + currentElement.url2 + '" alt=""></a>' +
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
-                '                                        <li class="quick_button"><a href="' + currentElement.quickView + '" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>' +
+                '                                        <li class="quick_button" ><a href="#" onclick="openModal('+currentElement.kId+','+i+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
                 '                                        <li class="add_to_cart"><a href=""  onclick="addToCart('+i+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                 '                                   </ul>' +
                 '                                </div>' +
@@ -1699,7 +1820,7 @@ function generateProductHTML(products) {
                 '                               <a class="secondary_img" href1="product-details.html"><img src="' + postElement.url2 + '" alt=""></a>' +
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
-                '                                        <li class="quick_button"><a href="' + postElement.quickView + '" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>' +
+                '                                        <li class="quick_button" ><a href="#" onclick="openModal('+postElement.kId+','+i+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
                 '                                        <li class="add_to_cart"><a href=""  onclick="addToCart('+(i+1)+')" onclick("'+(i+1)+'")" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                 '                                   </ul>' +
                 '                                </div>' +
