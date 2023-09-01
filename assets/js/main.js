@@ -1775,79 +1775,7 @@ function openModal(productId, indexNumber) {
     // Prevent the default link behavior
 }
 // Generate HTML for each product in a category
-function generateProductHTML(products) {
-    var productHTML = '';
-    var productHTMLStart =  '<div class="tab-pane fade show active" id="'+products[0]["id"]+'" role="tabpanel">'+
-                            '   <div class="row">'+
-                            '       <div class="product_carousel product_column4 owl-carousel">';
 
-    var productHTMLEnd ='       </div>'+
-                        '   </div>'+
-                        '</div>';
-    for (var i = 0; i < products.length; i += 2) {
-        var currentElement = products[i];
-        var postElement = products[i+1];
-        productHTML +=
-                '<div class="col-lg-3">'+
-                '   <div class="product_items">'+
-                '        <article class="single_product">' +
-                '            <figure>' +
-                '                <div class="product_thumb">' +
-                '                               <a class="primary_img" href1="product-details.html"><img src="' + currentElement.url1 + '" alt=""></a>' +
-                '                               <a class="secondary_img" href1="product-details.html"><img src="' + currentElement.url2 + '" alt=""></a>' +
-                '                               <div class="action_links">' +
-                '                                   <ul>' +
-                '                                        <li class="quick_button" ><a href="#" onclick="openModal('+currentElement.kId+','+i+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
-                '                                        <li class="add_to_cart"><a href=""  onclick="addToCart('+i+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
-                '                                   </ul>' +
-                '                                </div>' +
-                '                </div>' +
-                '                <figcaption class="product_content">' +
-                '                    <h4 class="product_name"><a href1="product-details.html">' + currentElement.products_title + '</a></h4>' +
-                '                    <div class="price_box">' +
-                '                        <span class="old_price">' + currentElement.old_price + '</span>' +
-                '                        <span class="current_price">' + currentElement.current_price + '</span>' +
-                '                    </div>' +
-                '                    <div class="product_rating">' +
-                '                        <ul>' +
-                '                            ' + '<li><i class="fa fa-star" aria-hidden="true"></i></li>'.repeat(currentElement.rating) +
-                '                        </ul>' +
-                '                    </div>' +
-                '                </figcaption>' +
-                '            </figure>' +
-                '        </article>' +
-                '        <article class="single_product">' +
-                '            <figure>' +
-                '                <div class="product_thumb">' +
-                '                               <a class="primary_img" href1="product-details.html"><img src="' + postElement.url1 + '" alt=""></a>' +
-                '                               <a class="secondary_img" href1="product-details.html"><img src="' + postElement.url2 + '" alt=""></a>' +
-                '                               <div class="action_links">' +
-                '                                   <ul>' +
-                '                                        <li class="quick_button" ><a href="#" onclick="openModal('+postElement.kId+','+i+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
-                '                                        <li class="add_to_cart"><a href=""  onclick="addToCart('+(i+1)+')" onclick("'+(i+1)+'")" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
-                '                                   </ul>' +
-                '                                </div>' +
-                '                </div>' +
-                '                <figcaption class="product_content">' +
-                '                    <h4 class="product_name"><a href1="product-details.html">' + postElement.products_title + '</a></h4>' +
-                '                    <div class="price_box">' +
-                '                        <span class="old_price">' + postElement.old_price + '</span>' +
-                '                        <span class="current_price">' + postElement.current_price + '</span>' +
-                '                    </div>' +
-                '                    <div class="product_rating">' +
-                '                        <ul>' +
-                '                            ' + '<li><i class="fa fa-star" aria-hidden="true"></i></li>'.repeat(postElement.rating) +
-                '                        </ul>' +
-                '                    </div>' +
-                '                </figcaption>' +
-                '            </figure>' +
-                '        </article>' +
-                '    </div>'+
-                '</div>';        
-    };
-    productHTML1 = productHTMLStart+productHTML+productHTMLEnd;
-    return productHTML1;
-}
 
 document.addEventListener("DOMContentLoaded", function(event) {
     k=''
