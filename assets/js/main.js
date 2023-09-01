@@ -1736,7 +1736,7 @@ function openModal(productId, indexNumber) {
                                     '       <div class="variants_selects">'+
                                     '           <div class="variants_size">'+
                                     '               <h2>size</h2>'+
-                                    '               <select class="select_option">'+
+                                    '               <select class="size_select_option" onchange="updateValue('+indexNumber+')">'+
                                     '                   <option selected value="1">30ml</option>'+
                                     '                   <option value="2">60ml</option>'+
                                     '                   <option value="3">100ml</option>'+
@@ -1744,7 +1744,7 @@ function openModal(productId, indexNumber) {
                                     '           </div>'+
                                     '           <div class="variants_color">'+
                                     '               <h2>Material</h2>'+
-                                    '               <select class="select_option">'+
+                                    '               <select class="material_select_option" onchange="updateValue('+indexNumber+')">'+
                                     '                   <option selected value="1">Plastic</option>'+
                                     '                   <option value="2">Glass</option>'+
                                     '                   <option value="3">Fancy With Box</option>'+
@@ -1775,10 +1775,30 @@ function openModal(productId, indexNumber) {
     //console.log(modal);
     modal.show();
     activateModalBox();
+
     // Prevent the default link behavior
 }
 // Generate HTML for each product in a category
-
+function updateValue(id){
+console.log(id)
+ var material = parseInt($(".material_select_option")[0].value);
+  var size = parseInt($(".size_select_option")[0].value);
+  $(".material_select_option")[0][2].disabled=false
+  if (size ==1 || size==3)
+ $(".material_select_option")[0][2].disabled=true
+var lprd = GProduct[id]
+var unitPrice =parseInt(lprd['current_price'])/3;
+qsize=3
+if (size==1) qsize=3
+if (size==2) qsize=6
+if (size==3) qsize=10
+bprice=0
+if(material==1) bprice=0;
+if(material==2) bprice=50;
+if(material==3) bprice=300;
+lprice  = (unitPrice*qsize)+bprice
+$(".new_price").html(lprice)
+}
 function generateProductHTML(products) {
     var productHTML = '';
     var productHTMLStart =  '<div class="tab-pane fade show active" id="'+products[0]["id"]+'" role="tabpanel">'+
