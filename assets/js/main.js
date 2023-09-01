@@ -1332,6 +1332,10 @@ function fetchDate(obj){
           products = getCheckOutDetails();
           pullCart();
           break;
+        case "/checkout.html":
+          products = getCheckOutDetails();
+          genCheckout();
+          break;
         default:
           // code block
       }
@@ -1925,4 +1929,22 @@ if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['pric
     $('.cart_amount').html('₹ '+gtotal);
     $('.price').html('₹ '+gtotal);
     $(".item_count").text(""+globalCookie.length);
+}
+function genCheckout(){
+
+$('.confirm-checkout').html('');
+gtotal="";
+for (i=0;i<products.length;i++){
+var total=0;
+if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['price'] * products[i]['quantity']);
+    txt =   '                    <tr>'+
+            '                                <td> '+products[i]['name']+' <strong> × '+products[i]['quantity']+'</strong></td>'+
+            '                               <td> ₹ '+total+'</td>'+
+            '                            </tr>';
+            $('.confirm-checkout').html(txt);
+    gtotal+=total;
+
+    }
+    $('.cart_amount').html('₹ '+gtotal);
+    $('.price').html('₹ '+gtotal);
 }
