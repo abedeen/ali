@@ -1312,7 +1312,7 @@ subtotal=0;
                      '                       </div>';
 $(".cart_gallery").append(cartText);
         }
-
+$(".price").html('₹ '+subtotal);
 
 }
 function removeItem(index){
@@ -1870,6 +1870,7 @@ populateCheckOut();
 function pullCart(){
 
 $('.cart-body').html('');
+gtotal="";
 for (i=0;i<products.length;i++){
 var total=0;
 if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['price'] * products[i]['quantity']);
@@ -1881,8 +1882,13 @@ if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['pric
             '                            <td class="product_quantity"><label>Quantity</label> <input min="0" max="100" onChange="updateProduct('+i+',this);" value="'+products[i]['quantity']+'" type="number"></td>'+
             '                            <td class="product_total">₹ '+total+'</td>'+
             '                    </tr>';
-    $('.cart-body').append(txt);
+            $('.cart-body').html(txt);
+    gtotal+=total;
+
     }
+    $('.cart_amount').html('₹ '+gtotal);
+    $('.price').html('₹ '+gtotal);
+    $(".item_count").text(""+globalCookie.length);
 }
 function updateProduct(ind,quantity){
 products[ind]['quantity']=parseInt(quantity.value);
@@ -1896,4 +1902,27 @@ globalCookie=products;
 pullCart()
 updateCookie(products);
 populateCheckOut();
+}
+function pullCart(){
+
+$('.cart-body').html('');
+gtotal="";
+for (i=0;i<products.length;i++){
+var total=0;
+if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['price'] * products[i]['quantity']);
+    txt =   '                    <tr>'+
+        '                           <td class="product_remove"><a href="#"  onclick="removeProductItem('+i+')"><i class="fa fa-trash-o"></i></a></td>'+
+            '                            <td class="product_thumb"><a href="#"><img src="'+products[i]['url']+'" alt=""></a></td>'+
+            '                            <td class="product_name"><a href="#">'+products[i]['name']+'</a></td>'+
+            '                            <td class="product-price">₹ '+products[i]['price']+'</td>'+
+            '                            <td class="product_quantity"><label>Quantity</label> <input min="0" max="100" onChange="updateProduct('+i+',this);" value="'+products[i]['quantity']+'" type="number"></td>'+
+            '                            <td class="product_total">₹ '+total+'</td>'+
+            '                    </tr>';
+            $('.cart-body').html(txt);
+    gtotal+=total;
+
+    }
+    $('.cart_amount').html('₹ '+gtotal);
+    $('.price').html('₹ '+gtotal);
+    $(".item_count").text(""+globalCookie.length);
 }
