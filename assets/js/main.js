@@ -1297,7 +1297,7 @@ subtotal=0;
         if(obj['name']) name=obj['name']
         //if(obj['price']) price=obj['price'].replace('₹', '')
         if (obj['price']) price = parseFloat(obj['price'].replace('₹', ''));
-        subtotal+=price;
+        subtotal+=parseInt(price);
         if(obj['quantity']) quantity=obj['quantity'];
          var cartText='<div class="cart_item">'+
                      '                          <div class="cart_img">'+
