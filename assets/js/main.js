@@ -1314,8 +1314,8 @@ subtotal=0;
         url=obj['url']
         name=obj['name']
         price=obj['price']
-        subtotal+=price;
         quantity=obj['quantity'];
+        subtotal+=(price*quantity);
          var cartText='<div class="cart_item">'+
                      '                          <div class="cart_img">'+
                      '                              <a href="#"><img src="'+url+'" alt=""></a>'+
@@ -1938,7 +1938,7 @@ populateCheckOut();
 }
 function pullCart(){
 $('.cart-body').html('');
-gtotal="";
+gtotal=0;
 for (i=0;i<products.length;i++){
 var total=0;
 if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['price'] * products[i]['quantity']);
@@ -1958,28 +1958,6 @@ if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['pric
     $('.price').html('₹ '+gtotal);
     $(".item_count").text(""+globalCookie.length);
 }
-//function pullCart(){
-//$('.cart-body').html('');
-//gtotal=0;
-//for (i=0;i<products.length;i++){
-//var total = products[i]['price']*products[i]['quantity'];
-//
-//    txt =   '                    <tr>'+
-//        '                           <td class="product_remove"><a href="#"  onclick="removeProductItem('+i+')"><i class="fa fa-trash-o"></i></a></td>'+
-//            '                            <td class="product_thumb"><a href="#"><img src="'+products[i]['url']+'" alt=""></a></td>'+
-//            '                            <td class="product_name"><a href="#">'+products[i]['name']+'</a></td>'+
-//            '                            <td class="product-price">₹ '+products[i]['price']+'</td>'+
-//            '                            <td class="product_quantity"><label>Quantity</label> <input min="0" max="100" onChange="updateProduct('+i+',this);" value="'+products[i]['quantity']+'" type="number"></td>'+
-//            '                            <td class="product_total">₹ '+total+'</td>'+
-//            '                    </tr>';
-//            $('.cart-body').append(txt);
-//    gtotal+=total;
-//
-//    }
-//    $('.cart_amount').html('₹ '+gtotal);
-//    $('.price').html('₹ '+gtotal);
-//    $(".item_count").text(""+globalCookie.length);
-//}
 function updateProduct(ind,quantity){
 products[ind]['quantity']=parseInt(quantity.value);
 globalCookie=products;
@@ -1996,7 +1974,7 @@ populateCheckOut();
 function genCheckout(){
 
 $('.confirm-checkout').html('');
-gtotal="";
+gtotal=0;
 for (i=0;i<products.length;i++){
 var total=0;
 if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['price'] * products[i]['quantity']);
