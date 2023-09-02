@@ -1950,7 +1950,7 @@ if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['pric
             '                            <td class="product_quantity"><label>Quantity</label> <input min="0" max="100" onChange="updateProduct('+i+',this);" value="'+products[i]['quantity']+'" type="number"></td>'+
             '                            <td class="product_total">₹ '+total+'</td>'+
             '                    </tr>';
-            $('.cart-body').html(txt);
+            $('.cart-body').append(txt);
     gtotal+=total;
 
     }
