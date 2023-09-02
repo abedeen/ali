@@ -1724,14 +1724,14 @@ function openModal(productId, indexNumber) {
         var detailsHtml4 =  '<div class="col-lg-7 col-md-7 col-sm-12">'+
                                     '   <div class="modal_right">'+
                                     '       <div class="modal_title mb-10">'+
-                                    '           <h2>Donec Ac Tempu8s</h2>'+
+                                    '           <h2>'+categoryProducts[0].products_title+'</h2>'+
                                     '       </div>'+
                                     '       <div class="modal_price mb-10">'+
-                                    '           <span class="new_price">$64.99</span>'+
-                                    '           <span class="old_price" >$78.99</span>'+
+                                    '           <span class="new_price">'+categoryProducts[0].current_price+'</span>'+
+                                    '           <span class="old_price" ></span>'+
                                     '       </div>'+
                                     '       <div class="modal_description mb-15">'+
-                                    '           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam, reiciendis maiores quidem aperiam, rerum vel recusandae </p>'+
+                                    '           <p>'+categoryProducts[0].description+'</p>'+
                                     '       </div>'+
                                     '       <div class="variants_selects">'+
                                     '           <div class="variants_size">'+
@@ -1752,8 +1752,8 @@ function openModal(productId, indexNumber) {
                                     '           </div>'+
                                     '           <div class="modal_add_to_cart">'+
                                     '               <form action="#">'+
-                                    '                   <input min="1" max="100" step="2" value="1" type="number">'+
-                                    '                   <button type="submit">add to cart</button>'+
+                                    '                   <input class="modal_add_quantity" min="1" max="100" step="1" value="1" onchange="updateValue('+indexNumber+')" type="number">'+
+                                    '                   <button type="submit" onclick="addItemToCart('+productId+','+ indexNumber+')">add to cart</button>'+
                                     '               </form>'+
                                     '           </div>'+
                                     '       </div>'+
@@ -1778,11 +1778,23 @@ function openModal(productId, indexNumber) {
 
     // Prevent the default link behavior
 }
+function addItemToCart(a,b) {
+        const quantityInput = document.querySelector('.modal_add_to_cart input[type="number"]');
+        var material = parseInt($(".material_select_option")[0].value);
+        var size = parseInt($(".size_select_option")[0].value);
+        var quantity = parseInt($(".modal_add_quantity")[0].value);
+        var categoryProducts = GProduct[b];
+        //const quantity = parseInt(quantityInput.value);
+        //console.log("Added " + categoryProducts + " items to the cart.");
+        selPrd = {"id":categoryProducts['kId'],"name":categoryProducts['products_title'],"url":categoryProducts['url1'],"price":parseInt(categoryProducts['current_price']),"quantity":quantity}
+        addJsonToCart(selPrd,0)
+    }
 // Generate HTML for each product in a category
 function updateValue(id){
 console.log(id)
  var material = parseInt($(".material_select_option")[0].value);
   var size = parseInt($(".size_select_option")[0].value);
+  var quantity = parseInt($(".modal_add_quantity")[0].value);
   $(".material_select_option")[0][2].disabled=false
   if (size ==1 || size==3)
  $(".material_select_option")[0][2].disabled=true
@@ -1790,13 +1802,13 @@ var lprd = GProduct[id]
 var unitPrice =parseInt(lprd['current_price'])/3;
 qsize=3
 if (size==1) qsize=3
-if (size==2) qsize=6
-if (size==3) qsize=10
+if (size==2) qsize=4.5
+if (size==3) qsize=8.5
 bprice=0
 if(material==1) bprice=0;
 if(material==2) bprice=50;
 if(material==3) bprice=300;
-lprice  = (unitPrice*qsize)+bprice
+lprice  = ((unitPrice*qsize)+bprice)*quantity;
 $(".new_price").html(lprice)
 }
 function generateProductHTML(products) {
@@ -1894,7 +1906,6 @@ updateCookie(globalCookie);
 populateCheckOut();
 }
 function pullCart(){
-
 $('.cart-body').html('');
 gtotal="";
 for (i=0;i<products.length;i++){
@@ -1916,6 +1927,28 @@ if ((products[i]['price'] * products[i]['quantity'])>0) total=(products[i]['pric
     $('.price').html('₹ '+gtotal);
     $(".item_count").text(""+globalCookie.length);
 }
+//function pullCart(){
+//$('.cart-body').html('');
+//gtotal=0;
+//for (i=0;i<products.length;i++){
+//var total = products[i]['price']*products[i]['quantity'];
+//
+//    txt =   '                    <tr>'+
+//        '                           <td class="product_remove"><a href="#"  onclick="removeProductItem('+i+')"><i class="fa fa-trash-o"></i></a></td>'+
+//            '                            <td class="product_thumb"><a href="#"><img src="'+products[i]['url']+'" alt=""></a></td>'+
+//            '                            <td class="product_name"><a href="#">'+products[i]['name']+'</a></td>'+
+//            '                            <td class="product-price">₹ '+products[i]['price']+'</td>'+
+//            '                            <td class="product_quantity"><label>Quantity</label> <input min="0" max="100" onChange="updateProduct('+i+',this);" value="'+products[i]['quantity']+'" type="number"></td>'+
+//            '                            <td class="product_total">₹ '+total+'</td>'+
+//            '                    </tr>';
+//            $('.cart-body').append(txt);
+//    gtotal+=total;
+//
+//    }
+//    $('.cart_amount').html('₹ '+gtotal);
+//    $('.price').html('₹ '+gtotal);
+//    $(".item_count").text(""+globalCookie.length);
+//}
 function updateProduct(ind,quantity){
 products[ind]['quantity']=parseInt(quantity.value);
 globalCookie=products;
@@ -1928,30 +1961,6 @@ globalCookie=products;
 pullCart()
 updateCookie(products);
 populateCheckOut();
-}
-function pullCart(){
-
-$('.cart-body').html('');
-gtotal=0;
-for (i=0;i<products.length;i++){
-
-var total = products[i]['price']*products[i]['quantity'];
-
-    txt =   '                    <tr>'+
-        '                           <td class="product_remove"><a href="#"  onclick="removeProductItem('+i+')"><i class="fa fa-trash-o"></i></a></td>'+
-            '                            <td class="product_thumb"><a href="#"><img src="'+products[i]['url']+'" alt=""></a></td>'+
-            '                            <td class="product_name"><a href="#">'+products[i]['name']+'</a></td>'+
-            '                            <td class="product-price">₹ '+products[i]['price']+'</td>'+
-            '                            <td class="product_quantity"><label>Quantity</label> <input min="0" max="100" onChange="updateProduct('+i+',this);" value="'+products[i]['quantity']+'" type="number"></td>'+
-            '                            <td class="product_total">₹ '+total+'</td>'+
-            '                    </tr>';
-            $('.cart-body').append(txt);
-    gtotal+=total;
-
-    }
-    $('.cart_amount').html('₹ '+gtotal);
-    $('.price').html('₹ '+gtotal);
-    $(".item_count").text(""+globalCookie.length);
 }
 function genCheckout(){
 
