@@ -1271,6 +1271,25 @@ var k = $.cookie('checkOut');
 var l = JSON.parse(k)
 return l;
 }
+function getorderCookie(){
+var k = $.cookie('order');
+ck=[]
+if (k==undefined)
+    $.cookie('order', ck.toString());
+    return []
+return k.split(",");
+}
+function setorderCookie(ck){
+$.cookie('order', ck.toString());
+
+}
+
+function updateOrder(ord){
+
+var l=getorderCookie();
+l.push(ord)
+setorderCookie(l);
+}
 function initital(){
 
 dummyData=[];
@@ -1994,73 +2013,20 @@ function fetchWithoutCertificateValidation(url, options) {
 function sendToServer(){
 k = JSON.stringify(getCheckOutDetails())
 m = encodeURIComponent(k);
-// Create a custom fetch function with an options object that disables certificate validation
-
-// Usage example
-/*const apiUrl = 'https://192.168.1.6?body='+m;
-const requestOptions = {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'html/css',
-  },
-};
-
-fetchWithoutCertificateValidation(apiUrl, requestOptions)
-  .then(response => {
-    if (response.status === 200) {
-      return response.json();
-    } else {
-      throw new Error('Request failed with status ' + response.status);
-    }
-  })
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
-/*$.ajax({
-  url: 'https://192.168.1.6?body='+m,
-  method: "GET",
-  // Bypass certificate validation (not recommended for production)
-  xhrFields: {
-    withCredentials: true
-  },
-  crossDomain: true,
-  success: function(data) {
-     alert("order sent to server")
-  },
-  error: function(xhr, status, error) {
-    alert("Unable to place Order, "+status)
-  }
-});
-$.ajax({
-  url: settings[0]['ip']+'?body='+m,
-  method: "GET",
-  dataType: "json",
-  // Bypass certificate validation (not recommended for production)
-  beforeSend: function(xhr) {
-    xhr.overrideMimeType('text/plain; charset=x-user-defined');
-  },
-  success: function(data) {
-    alert("order sent to server")
-  },
-  error: function(xhr, status, error) {
-    alert("below response from server"+status)
-  }
-});
- $.ajax({
-        url: settings[0]['ip']+'?body='+m
-    }).then(function(data) {
-       alert("Successfully Order sent to server.")
-    });*/
 var request = new XMLHttpRequest()
-
-// Open a new connection, using the GET request on the URL endpoint
 request.open('GET', settings[0]['ip']+'?body='+m, true)
-
+request.onreadystatechange = function() {
+    if (request.readyState == XMLHttpRequest.DONE) {
+        updateOrder(request.responseText);
+        updateCookie([]);
+        globalCookie=[];
+        updateCookie(globalCookie);
+        populateCheckOut();
+        alert(request.responseText);
+    }
+}
 request.onload = function () {
-  // Begin accessing JSON data here
+
 }
 
 // Send request
