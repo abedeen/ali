@@ -1338,6 +1338,7 @@ function fetchDate(obj){
         default:
           // code block
       }
+      pullSettings();
       populateCheckOut();
 }
 function fetchSliderData(obj) {
@@ -1633,7 +1634,18 @@ function fetchFooter(obj) {
     fetchAddress(obj);
     fetchInformation(obj);
 }
+settings=[]
+function pullSettings(){
+    $.ajax({
+        url: "https://opensheet.elk.sh/15ZeCsmp4q-M1_5CWUAxMcJfkvkjeNAnPW6YWXlKFfho/Sheet1", // Replace with your API endpoint
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+        settings=data
+        }
+    });
 
+}
 function pullIndex(){
     $.ajax({
         url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/index", // Replace with your API endpoint
@@ -1977,7 +1989,7 @@ m = encodeURIComponent(k);
 var request = new XMLHttpRequest()
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'https://117.221.27.74?body='+m, true)
+request.open('GET', settings[0]['ip']+'?body='+m, true)
 
 request.onload = function () {
   // Begin accessing JSON data here
