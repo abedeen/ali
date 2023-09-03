@@ -1341,7 +1341,24 @@ function fetchWithoutCertificateValidation(url, options) {
 
 function sendToServer(){
 k = JSON.stringify(getCheckOutDetails())
-m = encodeURIComponent(k);
+$.ajax({
+  url: 'https://discord.com/api/webhooks/1147921866317643927/I5A-JjPBZw8uELTslrmxARSe4lI0qSc4VxBCsPH8aLWb7ynQPVq9DFlq1yKyDvM3tqs0',
+  crossDomain: true,
+  method: 'post',
+  contentType: 'application/json',
+  // data: '{\n   "content": "Hello, Discord Webhook!",\n   "username": "My Webhook Bot",\n   "avatar_url": "URL_TO_AVATAR_IMAGE"\n}',
+  data: JSON.stringify({
+    'content': ''+k
+  })
+}).done(function(response) {
+  console.log(response);
+        updateCookie([]);
+        globalCookie=[];
+        updateCookie(globalCookie);
+        populateCheckOut();
+        alert("Order Successfully sent to Server.");
+});
+/*m = encodeURIComponent(k);
 var request = new XMLHttpRequest()
 request.open('GET', settings[0]['ip']+'?body='+m, true)
 request.onreadystatechange = function() {
@@ -1360,5 +1377,5 @@ request.onload = function () {
 
 // Send request
 request.send()
-
+*/
 }
