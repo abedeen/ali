@@ -149,33 +149,8 @@ function activateBestSeller(){
     /*---product column3 activation---*/
        $('.product_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 3,
-        margin: 26,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            576:{
-				items:2,
-			},
-            768:{
-				items:3,
-			},
-            992:{
-				items:3,
-			},
-
-		  }
-    });
-}
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        margin: 26,        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:3,			},		  }    });}
 function dataBackgroundImageTestinomial(obj){
     $('.testimonial_area').css({
         'background-image': 'url("'+obj+'")',
@@ -197,28 +172,10 @@ function dataBackgroundImageTestinomial(obj){
 function activateTestimonial(){
     /*---testimonial active activation---*/
     $('.testimonial_carousel').owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: false,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots: true,
-
-    })
-
+        autoplay: true,		loop: true,        nav: false,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        dots: true,    })
     /*---testimonial sidebar carousel activation---*/
     $('.testimonial_sidebar_carousel').owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots: true,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-    })
-}
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        dots: true,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],    })}
 function activateProducts(){
     $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
@@ -262,190 +219,39 @@ function activateProducts(){
     });
 }
 function activateNewsLetter() {
-    $('#subscribe_pemail').keypress(function(e) {
-        if (e.which == 13) {
-            e.preventDefault();
-            email_subscribepopup();
-        }
-        var name = $(this).val();
-        $('#subscribe_pname').val(name);
-    });
-    $('#subscribe_pemail').change(function() {
-        var name = $(this).val();
-        $('#subscribe_pname').val(name);
-    });
-}
+    $('#subscribe_pemail').keypress(function(e) {        if (e.which == 13) {            e.preventDefault();            email_subscribepopup();        }        var name = $(this).val();        $('#subscribe_pname').val(name);    });
+    $('#subscribe_pemail').change(function() {        var name = $(this).val();        $('#subscribe_pname').val(name);    });}
 function activateFeaturedProducts(){
     /*---product seven column3 activation---*/
     $('.product_seven_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
-        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 3,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            576:{
-				items:2,
-			},
-            768:{
-				items:3,
-			},
-            992:{
-				items:2,
-			},
-            1200:{
-				items:3,
-			},
-
-		  }
-    });
+        $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:2,			},            1200:{				items:3,			},		  }    });
 
 
     /*---product column6 activation---*/
        $('.product_column6').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        margin: 10,
-        items: 6,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            576:{
-				items:2,
-			},
-            768:{
-				items:3,
-			},
-            992:{
-				items:4,
-			},
-            1200:{
-				items:6,
-			},
-
-		  }
-    });
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        margin: 10,        items: 6,        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:4,			},            1200:{				items:6,			},		  }    });
 
     /*---product tab column3 activation---*/
        $('.product_tab_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 3,
-        margin: 26,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            768:{
-				items:2,
-			},
-            992:{
-				items:3,
-			},
-
-		  }
-    });
-
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
+        responsiveClass:true,		responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:3,			},		  }    });
     /*---product column1 activation---*/
        $('.product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            768:{
-				items:2,
-			},
-            992:{
-				items:1,
-			},
-
-		  }
-    });
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:1,			},		  }    });
 }
 function activateBlogs() {
     /*---blog column3 activation---*/
     $('.blog_column3').owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 3,
-        margin: 26,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            768:{
-				items:2,
-			},
-             992:{
-				items:3,
-			},
-		  }
-    });
-
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            768:{				items:2,			},             992:{				items:3,			},		  }    });
     /*---blog column1 activation---*/
     $('.blog_column1').owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots:false,
-        navText: ['<i class="fa fa-caret-left"></i>','<i class="fa fa-caret-right"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            768:{
-				items:2,
-                margin:30,
-			},
-             992:{
-				items:1,
-			},
-        }
-
-    });
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        dots:false,        navText: ['<i class="fa fa-caret-left"></i>','<i class="fa fa-caret-right"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            768:{				items:2,                margin:30,			},             992:{				items:1,			},        }    });
 }
 (function ($) {
     "use strict";
@@ -473,500 +279,68 @@ function activateBlogs() {
         meanMenuContainer: ".mobile-menu",
         onePage: true,
     });
-
-
-
-    // /*---product column4 activation---*/
-    //    $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
-    //     $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-    //     autoplay: true,
-	// 	loop: true,
-    //     nav: true,
-    //     autoplay: false,
-    //     autoplayTimeout: 8000,
-    //     items: 4,
-    //     margin: 26,
-    //     dots:false,
-    //     navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-    //     responsiveClass:true,
-	// 	responsive:{
-	// 			0:{
-	// 			items:1,
-	// 		},
-    //         576:{
-	// 			items:2,
-	// 		},
-    //         768:{
-	// 			items:3,
-	// 		},
-    //         992:{
-	// 			items:4,
-	// 		},
-
-	// 	  }
-    // });
-
-    // /*---product column3 activation---*/
-    //    $('.product_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
-    //     $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-    //     autoplay: true,
-	// 	loop: true,
-    //     nav: true,
-    //     autoplay: false,
-    //     autoplayTimeout: 8000,
-    //     items: 3,
-    //     margin: 26,
-    //     dots:false,
-    //     navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-    //     responsiveClass:true,
-	// 	responsive:{
-	// 			0:{
-	// 			items:1,
-	// 		},
-    //         576:{
-	// 			items:2,
-	// 		},
-    //         768:{
-	// 			items:3,
-	// 		},
-    //         992:{
-	// 			items:3,
-	// 		},
-
-	// 	  }
-    // });
-
      /*---product seven column3 activation---*/
        $('.product_seven_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 3,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            576:{
-				items:2,
-			},
-            768:{
-				items:3,
-			},
-            992:{
-				items:2,
-			},
-            1200:{
-				items:3,
-			},
-
-		  }
-    });
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:2,			},            1200:{				items:3,			},		  }    });
 
 
     /*---product column6 activation---*/
        $('.product_column6').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        margin: 10,
-        items: 6,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            576:{
-				items:2,
-			},
-            768:{
-				items:3,
-			},
-            992:{
-				items:4,
-			},
-            1200:{
-				items:6,
-			},
-
-		  }
-    });
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        margin: 10,        items: 6,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            576:{				items:2,			},            768:{				items:3,			},            992:{				items:4,			},            1200:{				items:6,			},		  }    });
 
     /*---product tab column3 activation---*/
        $('.product_tab_column3').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 3,
-        margin: 26,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            768:{
-				items:2,
-			},
-            992:{
-				items:3,
-			},
-
-		  }
-    });
-
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 3,        margin: 26,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:3,			},		  }    });
     /*---product column1 activation---*/
        $('.product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            768:{
-				items:2,
-			},
-            992:{
-				items:1,
-			},
-
-		  }
-    });
-
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:1,			},		  }    });
      /*---deals product column1 activation---*/
        $('.deals_product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-
-		  }
-    });
-
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},		  }    });
     /*---small product column1 activation---*/
        $('.small_product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: false,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots:false,
-        responsiveClass:true,
-		responsive:{
-                0:{
-                items:1,
-			},
-            576:{
-				items:2,
-                margin:15,
-			},
-            768:{
-				items:1,
-			},
-
-		  }
-    });
-
+        autoplay: true,		loop: true,        nav: false,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        dots:false,        responsiveClass:true,		responsive:{                0:{                items:1,			},            576:{				items:2,                margin:15,			},            768:{				items:1,			},		  }    });
 
     /*---sidebar product column1 activation---*/
        $('.sidebar_product_column1').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-                0:{
-                items:1,
-			},
-            768:{
-				items:2,
-                margin:30,
-			},
-            992:{
-				items:1,
-			},
-
-		  }
-    });
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{                0:{                items:1,			},            768:{				items:2,                margin:30,			},            992:{				items:1,			},		  }    });
 
 
      /*---categories column2 activation---*/
        $('.categories_column2').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: false,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 2,
-        margin: 26,
-        dots:false,
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            768:{
-				items:2,
-			},
-            992:{
-				items:2,
-			},
-
-		  }
-    });
-
-    // /*---testimonial active activation---*/
-    // $('.testimonial_carousel').owlCarousel({
-    //     autoplay: true,
-	// 	loop: true,
-    //     nav: false,
-    //     autoplay: false,
-    //     autoplayTimeout: 8000,
-    //     items: 1,
-    //     dots: true,
-
-    // })
-
-    // /*---testimonial sidebar carousel activation---*/
-    // $('.testimonial_sidebar_carousel').owlCarousel({
-    //     autoplay: true,
-	// 	loop: true,
-    //     nav: true,
-    //     autoplay: false,
-    //     autoplayTimeout: 8000,
-    //     items: 1,
-    //     dots: true,
-    //     navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-    // })
-
-    /*---blog column3 activation---*/
-    // $('.blog_column3').owlCarousel({
-    //     autoplay: true,
-	// 	loop: true,
-    //     nav: true,
-    //     autoplay: false,
-    //     autoplayTimeout: 8000,
-    //     items: 3,
-    //     margin: 26,
-    //     dots:false,
-    //     navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-    //     responsiveClass:true,
-	// 	responsive:{
-	// 			0:{
-	// 			items:1,
-	// 		},
-    //         768:{
-	// 			items:2,
-	// 		},
-    //          992:{
-	// 			items:3,
-	// 		},
-	// 	  }
-    // });
-
-    // /*---blog column1 activation---*/
-    // $('.blog_column1').owlCarousel({
-    //     autoplay: true,
-	// 	loop: true,
-    //     nav: true,
-    //     autoplay: false,
-    //     autoplayTimeout: 8000,
-    //     items: 1,
-    //     dots:false,
-    //     navText: ['<i class="fa fa-caret-left"></i>','<i class="fa fa-caret-right"></i>'],
-    //     responsiveClass:true,
-	// 	responsive:{
-	// 			0:{
-	// 			items:1,
-	// 		},
-    //         768:{
-	// 			items:2,
-    //             margin:30,
-	// 		},
-    //          992:{
-	// 			items:1,
-	// 		},
-    //     }
-
-    // });
-
+        autoplay: true,		loop: true,        nav: false,        autoplay: false,        autoplayTimeout: 8000,        items: 2,        margin: 26,        dots:false,        responsiveClass:true,		responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:2,			},		  }    });
     /*---brand container activation---*/
      $('.brand_container').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 6,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            480:{
-				items:3,
-			},
-            768:{
-				items:4,
-			},
-            992:{
-				items:5,
-			},
-            1200:{
-				items:6,
-			},
-
-		  }
-    });
-
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 6,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            480:{				items:3,			},            768:{				items:4,			},            992:{				items:5,			},            1200:{				items:6,			},		  }    });
 
 
      /*---instagram column6 activation---*/
      $('.instagram_column7').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: false,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 7,
-        dots:false,
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            480:{
-				items:3,
-			},
-            768:{
-				items:4,
-			},
-            992:{
-				items:6,
-			},
-            1200:{
-				items:7,
-			},
-
-		  }
-    });
-
+        autoplay: true,		loop: true,        nav: false,        autoplay: false,        autoplayTimeout: 8000,        items: 7,        dots:false,        responsiveClass:true,		responsive:{				0:{				items:1,			},            480:{				items:3,			},            768:{				items:4,			},            992:{				items:6,			},            1200:{				items:7,			},		  }    });
     /*---blog thumb activation---*/
     $('.blog_thumb_active').owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 1,
-        navText: ['<i class="ion-ios-arrow-left"></i>','<i class="ion-ios-arrow-right"></i>'],
-    });
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        navText: ['<i class="ion-ios-arrow-left"></i>','<i class="ion-ios-arrow-right"></i>'],    });
 
 
 
     /*---single product activation---*/
     $('.single-product-active').owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 4,
-        margin:15,
-        dots:false,
-        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            320:{
-				items:2,
-			},
-            992:{
-				items:3,
-			},
-            1200:{
-				items:4,
-			},
-
-
-		  }
-    });
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 4,        margin:15,        dots:false,        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            320:{				items:2,			},            992:{				items:3,			},            1200:{				items:4,			},		  }    });
 
 
     /*---product navactive activation---*/
     $('.product_navactive').owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 4,
-        dots:false,
-        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            250:{
-				items:2,
-			},
-            480:{
-				items:3,
-			},
-            768:{
-				items:4,
-			},
-
-        }
-    });
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 4,        dots:false,        navText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},            250:{				items:2,			},            480:{				items:3,			},            768:{				items:4,			},        }    });
 
     $('.modal').on('shown.bs.modal', function (e) {
         $('.product_navactive').resize();
@@ -1183,38 +557,6 @@ function activateBlogs() {
 		}
 
 	});
-
-
-   /*---Newsletter Popup activation---*/
-   /*
-       setTimeout(function() {
-            if($.cookie('shownewsletter')==1) $('.newletter-popup').hide();
-            $('#subscribe_pemail').keypress(function(e) {
-                if(e.which == 13) {
-                    e.preventDefault();
-                    email_subscribepopup();
-                }
-                var name= $(this).val();
-                  $('#subscribe_pname').val(name);
-            });
-            $('#subscribe_pemail').change(function() {
-             var name= $(this).val();
-                      $('#subscribe_pname').val(name);
-            });
-            //transition effect
-            if($.cookie("shownewsletter") != 1){
-                $('.newletter-popup').bPopup();
-            }
-            $('#newsletter_popup_dont_show_again').on('change', function(){
-                if($.cookie("shownewsletter") != 1){
-                    $.cookie("shownewsletter",'1')
-                }else{
-                    $.cookie("shownewsletter",'0')
-                }
-            });
-        }, 2500);
-*/
-
     /*---search box slideToggle---*/
     $(".search_box > a").on("click", function() {
         $(this).toggleClass('active');
