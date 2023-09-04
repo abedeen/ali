@@ -1034,6 +1034,7 @@ function pullIndex(){
         success: function(data) {
             GProduct=data
             getProduct("Men");
+            //getCountryProduct("FRENCH");
         },
         error: function(xhr, status, error) {
             console.error("Error:", status, error);
@@ -1042,7 +1043,48 @@ function pullIndex(){
     });
 
 }
+// Define a function to load values into elements with id="french"
+        function loadFrenchValues() {
+            // Replace these sample values with your actual data
+            var frenchValues = {
+                french1: "Value 1",
+                french2: "Value 2",
+                french3: "Value 3",
+                french4: "Value 4",
+                french_attars: "Attars Value",
+                french_perfumes: "Perfumes Value"
+            };
+
+            // Loop through the French values and populate the elements
+            for (var id in frenchValues) {
+                if (frenchValues.hasOwnProperty(id)) {
+                    var element = document.getElementById(id);
+                    if (element) {
+                        element.innerHTML = frenchValues[id];
+                    }
+                }
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = loadFrenchValues;
 var GProduct=[];
+// Function to get URL parameters by name
+//function getUrlParameter(name) {
+//    $("#french").html("");
+//    var categoryProducts = GProduct.filter(product => product.FRENCH_ARABIAN === obj);
+//    var productContainer = $("#french");
+//    var getHtml = generateProductHTML(categoryProducts);
+//    productContainer.append(getHtml);
+//    activateProducts();
+//}
+
+//// Retrieve the 'category' parameter from the URL
+//var category = getUrlParameter('FRENCH');
+//
+//// Display the category value on the page
+//document.getElementById('french').textContent = category;
+
 function getProduct(obj) {
     $("#products").html("");
     var categoryProducts = GProduct.filter(product => product.id === obj);
@@ -1050,8 +1092,6 @@ function getProduct(obj) {
             var getHtml = generateProductHTML(categoryProducts);
             productContainer.append(getHtml);
             activateProducts();
-            //generateProductHTML
-
 }
 function openModal(productId, indexNumber) {
     var modal = new bootstrap.Modal(document.getElementById('modal_box'));
@@ -1306,6 +1346,66 @@ globalCookie=products;
 updateCookie(products);
 populateCheckOut();
 }
+function generateFrenchProductHTML(products) {
+    var productHTML = '';
+    for (var i = 0; i < products.length; i += 2) {
+        var currentElement = products[i];
+        var postElement = products[i+1];
+        productHTML +=  '<div class="col-12 ">'+
+                        '   <article class="single_product">'+
+                        '       <figure>'+
+                        '           <div class="product_thumb">'+
+                        '               <a class="primary_img" href1="product-details.html" ><img src="assets/img/product/product11.webp" alt=""></a>'+
+                        '               <a class="secondary_img" href1="product-details.html" ><img src="assets/img/product/product10.webp" alt=""></a>'+
+                        '               <div class="action_links">'+
+                        '                   <ul>'+
+                        '                       <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+                        '                       <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                        '                   </ul>'+
+                        '               </div>'+
+                        '           </div>'+
+                        '           <div class="product_content grid_content">'+
+                        '               <h4 class="product_name"><a href1="product-details.html" >Aliquam Consequat</a></h4>'+
+                        '               <div class="product_rating">'+
+                        '                   <ul>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                   </ul>'+
+                        '               </div>'+
+                        '               <div class="price_box">'+
+                        '                   <span class="old_price">$420.00</span>'+
+                        '                   <span class="current_price">$180.00</span>'+
+                        '               </div>'+
+                        '           </div>'+
+                        '           <div class="product_content list_content">'+
+                        '               <h4 class="product_name"><a href1="product-details.html" >Aliquam Consequat</a></h4>'+
+                        '               <div class="product_rating">'+
+                        '                   <ul>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                   </ul>'+
+                        '               </div>'+
+                        '               <div class="price_box">'+
+                        '                   <span class="old_price">$420.00</span>'+
+                        '                   <span class="current_price">$180.00</span>'+
+                        '               </div>'+
+                        '               <div class="product_desc">'+
+                        '                   <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ..</p>'+
+                        '               </div>'+
+                        '           </div>'+
+                        '       </figure>'+
+                        '   </article>'+
+                        '</div>';
+    };
+    productHTML1 = productHTML;
+    return productHTML1;
+}
 function removeProductItem(index){
 products.splice(index, 1);
 globalCookie=products;
@@ -1338,7 +1438,66 @@ function fetchWithoutCertificateValidation(url, options) {
 
   return fetch(url, options);
 }
-
+function generateFrenchProductHTML(products) {
+    var productHTML = '';
+    for (var i = 0; i < products.length; i += 2) {
+        var currentElement = products[i];
+        var postElement = products[i+1];
+        productHTML +=  '<div class="col-12 ">'+
+                        '   <article class="single_product">'+
+                        '       <figure>'+
+                        '           <div class="product_thumb">'+
+                        '               <a class="primary_img" href1="product-details.html" ><img src="assets/img/product/product11.webp" alt=""></a>'+
+                        '               <a class="secondary_img" href1="product-details.html" ><img src="assets/img/product/product10.webp" alt=""></a>'+
+                        '               <div class="action_links">'+
+                        '                   <ul>'+
+                        '                       <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+                        '                       <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                        '                   </ul>'+
+                        '               </div>'+
+                        '           </div>'+
+                        '           <div class="product_content grid_content">'+
+                        '               <h4 class="product_name"><a href1="product-details.html" >Aliquam Consequat</a></h4>'+
+                        '               <div class="product_rating">'+
+                        '                   <ul>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                   </ul>'+
+                        '               </div>'+
+                        '               <div class="price_box">'+
+                        '                   <span class="old_price">$420.00</span>'+
+                        '                   <span class="current_price">$180.00</span>'+
+                        '               </div>'+
+                        '           </div>'+
+                        '           <div class="product_content list_content">'+
+                        '               <h4 class="product_name"><a href1="product-details.html" >Aliquam Consequat</a></h4>'+
+                        '               <div class="product_rating">'+
+                        '                   <ul>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                        '                   </ul>'+
+                        '               </div>'+
+                        '               <div class="price_box">'+
+                        '                   <span class="old_price">$420.00</span>'+
+                        '                   <span class="current_price">$180.00</span>'+
+                        '               </div>'+
+                        '               <div class="product_desc">'+
+                        '                   <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ..</p>'+
+                        '               </div>'+
+                        '           </div>'+
+                        '       </figure>'+
+                        '   </article>'+
+                        '</div>';
+    };
+    productHTML1 = productHTML;
+    return productHTML1;
+}
 function sendToServer(){
 k = JSON.stringify(getCheckOutDetails())
 $.ajax({
