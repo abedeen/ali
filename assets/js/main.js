@@ -1296,8 +1296,6 @@ function updateValue(id) {
     var size = parseInt($(".size_select_option")[0].value);
     var quantity = parseInt($(".modal_add_quantity")[0].value);
     $(".material_select_option")[0][2].disabled = true
-    $(".size_select_option")[0][0].disabled = false;
-    $(".size_select_option")[0][2].disabled = false;
     if (size == 1 || size == 3)$(".material_select_option")[0][2].disabled = true;
     else if(size == 2)        $(".material_select_option")[0][2].disabled = false;
     if (material == 2){
