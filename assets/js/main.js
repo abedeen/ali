@@ -1097,9 +1097,13 @@ function openModal(productId, indexNumber) {
     var modal = new bootstrap.Modal(document.getElementById('modal_box'));
     var categoryProducts = GProduct.filter(product => product.kId === String(productId));
     var dataList = $("#modal_box_item")[0];
+    const size =1;
+    const material =1;
+    const quantity =1;
     itl = "";
     for (var i = 0; i < categoryProducts.length; i++) {
     //console.log("Processing item", item);
+        perfume_price = categoryProducts[i]['PERFUME(30ML/50ML/100ML)'].split("-")
         var detailsHtml3 =  '                   <div class="col-lg-5 col-md-5 col-sm-12">'+
                                     '                        <div class="modal_tab">'+
                                     '                           <div class="tab-content product-details-large">'+
@@ -1140,7 +1144,7 @@ function openModal(productId, indexNumber) {
                                     '           <h2>'+categoryProducts[0].products_title+'</h2>'+
                                     '       </div>'+
                                     '       <div class="modal_price mb-10">'+
-                                    '           <span class="new_price">'+categoryProducts[0].current_price+'</span>'+
+                                    '           <span class="new_price">₹'+perfume_price[0]+'</span>'+
                                     '           <span class="old_price" ></span>'+
                                     '       </div>'+
                                     '       <div class="modal_description mb-15">'+
@@ -1149,15 +1153,15 @@ function openModal(productId, indexNumber) {
                                     '       <div class="variants_selects">'+
                                     '           <div class="variants_size">'+
                                     '               <h2>size</h2>'+
-                                    '               <select class="size_select_option" onchange="updateValue('+indexNumber+')">'+
+                                    '               <select class="size_select_option" onchange="updateValue('+productId+')">'+
                                     '                   <option selected value="1">30ml</option>'+
                                     '                   <option value="2">60ml</option>'+
                                     '                   <option value="3">100ml</option>'+
                                     '               </select>'+
                                     '           </div>'+
                                     '           <div class="variants_color">'+
-                                    '               <h2>Material</h2>'+
-                                    '               <select class="material_select_option" onchange="updateValue('+indexNumber+')">'+
+                                    '               <h2>Material(* Fancy With Box is only with 60ml.)</h2>'+
+                                    '               <select class="material_select_option" onchange="updateValue('+productId+')">'+
                                     '                   <option selected value="1">Plastic</option>'+
                                     '                   <option value="2">Glass</option>'+
                                     '                   <option value="3">Fancy With Box</option>'+
@@ -1165,8 +1169,8 @@ function openModal(productId, indexNumber) {
                                     '           </div>'+
                                     '           <div class="modal_add_to_cart">'+
                                     '               <form action="#">'+
-                                    '                   <input class="modal_add_quantity" min="1" max="100" step="1" value="1" onchange="updateValue('+indexNumber+')" type="number">'+
-                                    '                   <button type="submit" onclick="addItemToCart('+productId+','+ indexNumber+')">add to cart</button>'+
+                                    '                   <input class="modal_add_quantity" min="1" max="100" step="1" value="1" onchange="updateValue('+productId+')" type="number">'+
+                                    '                   <button type="submit" onclick="addItemToCart('+productId+', \'' + categoryProducts[i]['PERFUME(30ML/50ML/100ML)'] + '\', ' +size+','+material+','+quantity+','+ indexNumber+')">add to cart</button>'+
                                     '               </form>'+
                                     '           </div>'+
                                     '       </div>'+
@@ -1188,42 +1192,133 @@ function openModal(productId, indexNumber) {
     //console.log(modal);
     modal.show();
     activateModalBox();
-
+    $(".material_select_option")[0][2].disabled = true;
     // Prevent the default link behavior
 }
-function addItemToCart(a,b) {
-        const quantityInput = document.querySelector('.modal_add_to_cart input[type="number"]');
-        var material = parseInt($(".material_select_option")[0].value);
-        var size = parseInt($(".size_select_option")[0].value);
-        var quantity = parseInt($(".modal_add_quantity")[0].value);
-        var categoryProducts = GProduct[b];
-        //const quantity = parseInt(quantityInput.value);
-        //console.log("Added " + categoryProducts + " items to the cart.");
-        selPrd = {"id":categoryProducts['kId'],"name":categoryProducts['products_title'],"url":categoryProducts['url1'],"price":parseInt(categoryProducts['current_price']),"quantity":quantity}
-        addJsonToCart(selPrd,0)
+//function addItemToCart(a,b) {
+//        const quantityInput = document.querySelector('.modal_add_to_cart input[type="number"]');
+//        var material = parseInt($(".material_select_option")[0].value);
+//        var size = parseInt($(".size_select_option")[0].value);
+//        var quantity = parseInt($(".modal_add_quantity")[0].value);
+//        var categoryProducts = GProduct[b];
+//        //const quantity = parseInt(quantityInput.value);
+//        //console.log("Added " + categoryProducts + " items to the cart.");
+//        selPrd = {"id":categoryProducts['kId'],"name":categoryProducts['products_title'],"url":categoryProducts['url1'],"price":parseInt(categoryProducts['current_price']),"quantity":quantity}
+//        addJsonToCart(selPrd,0)
+//    }
+
+//    function addItemToCart(productId, price, size, material, quantity, indexNumber) {
+//        var size1 ="";
+//        var material1 = "";
+//        price1 = price.split("-");
+//        const quantityInput = document.querySelector('.modal_add_to_cart input[type="number"]');
+//        var material = parseInt($(".material_select_option")[0].value);
+//        var size = parseInt($(".size_select_option")[0].value);
+//        var quantity = parseInt($(".modal_add_quantity")[0].value);
+////        var newPriceText = $(".new_price")[0].textContent;
+////        var newPrice = parseInt(newPriceText, 10);
+//        //var categoryProducts = GProduct[indexNumber];
+//        var categoryProducts = GProduct.filter(product => product.kId === String(productId));
+//        if (size == 1 ) {size1 = "30ml";var newPrice = price1[0];}
+//        else if (size == 2 ) {size1 = "60ml";var newPrice = price1[1];}
+//        else if (size == 3 ) {size1 = "100ml";var newPrice = price1[2];}
+//        if (material == 1 ) {material1 = "plastic";var mPrice = 0;}
+//        else if (material == 2 ) {material1 = "Glass";var mPrice = 50;}
+//        else if (material == 3 ) {material1 = "Fancy With Box";var mPrice = 400;}
+//        //const quantity = parseInt(quantityInput.value);
+//        //console.log("Added " + categoryProducts + " items to the cart.");
+//        selPrd = {
+//            "id": categoryProducts[0]['kId'],
+//            "name": categoryProducts[0]['products_title'],
+//            "url": categoryProducts[0]['url1'],
+//            "size": size1,
+//            "material": material1,
+//            "price": parseInt(newPrice)+parseInt(mPrice),
+//            "quantity": quantity
+//        }
+//        addJsonToCart(selPrd, 0);
+//        window.close();
+//    }
+function addItemToCart(productId, price, size, material, quantity, indexNumber) {
+    var size1 = "";
+    var material1 = "";
+    var price1 = price.split("-");
+    const quantityInput = document.querySelector('.modal_add_to_cart input[type="number"]');
+    var material = parseInt($(".material_select_option")[0].value);
+    var size = parseInt($(".size_select_option")[0].value);
+    var quantity = parseInt($(".modal_add_quantity")[0].value);
+
+    var categoryProducts = GProduct.filter(product => product.kId === String(productId));
+
+    if (size == 1) {
+        size1 = "30ml";
+        var newPrice = price1[0];
+    } else if (size == 2) {
+        size1 = "60ml";
+        var newPrice = price1[1];
+    } else if (size == 3) {
+        size1 = "100ml";
+        var newPrice = price1[2];
     }
-// Generate HTML for each product in a category
-function updateValue(id){
-console.log(id)
- var material = parseInt($(".material_select_option")[0].value);
-  var size = parseInt($(".size_select_option")[0].value);
-  var quantity = parseInt($(".modal_add_quantity")[0].value);
-  $(".material_select_option")[0][2].disabled=false
-  if (size ==1 || size==3)
- $(".material_select_option")[0][2].disabled=true
-var lprd = GProduct[id]
-var unitPrice =parseInt(lprd['current_price'])/3;
-qsize=3
-if (size==1) qsize=3
-if (size==2) qsize=4.5
-if (size==3) qsize=8.5
-bprice=0
-if(material==1) bprice=0;
-if(material==2) bprice=50;
-if(material==3) bprice=300;
-lprice  = ((unitPrice*qsize)+bprice)*quantity;
-$(".new_price").html(lprice)
+
+    if (material == 1) {
+        material1 = "plastic";
+        var mPrice = 0;
+    } else if (material == 2) {
+        material1 = "Glass";
+        var mPrice = 50;
+    } else if (material == 3) {
+        material1 = "Fancy With Box";
+        var mPrice = 400;
+    }
+
+    selPrd = {
+        "id": categoryProducts[0]['kId'],
+        "name": categoryProducts[0]['products_title'],
+        "url": categoryProducts[0]['url1'],
+        "size": size1,
+        "material": material1,
+        "price": parseInt(newPrice) + parseInt(mPrice),
+        "quantity": quantity
+    }
+
+    addJsonToCart(selPrd, 0);
+
+    // Close the window inside the function
+    $(".close").click();
 }
+
+
+// Generate HTML for each product in a category
+function updateValue(id) {
+    console.log(id)
+    var material = parseInt($(".material_select_option")[0].value);
+    var size = parseInt($(".size_select_option")[0].value);
+    var quantity = parseInt($(".modal_add_quantity")[0].value);
+    $(".material_select_option")[0][2].disabled = true
+    $(".size_select_option")[0][0].disabled = false;
+    $(".size_select_option")[0][2].disabled = false;
+    if (size == 1 || size == 3)$(".material_select_option")[0][2].disabled = true;
+    else if(size == 2)        $(".material_select_option")[0][2].disabled = false;
+    if (material == 2){
+        $(".size_select_option")[0][0].disabled = true;
+        $(".size_select_option")[0][2].disabled = true;
+        }
+    var lprd = GProduct.filter(product => product.kId === String(id));
+    price_list = lprd[0]['PERFUME(30ML/50ML/100ML)'].split("-");
+    //var unitPrice = parseInt(price_list[0]);
+    qsize = 3
+    if (size == 1) qsize = parseInt(price_list[0]);
+    else if (size == 2) qsize = parseInt(price_list[1]);
+    else if (size == 3) qsize = parseInt(price_list[2]);
+    bprice = 0
+    if (material == 1) bprice = 0;
+    else if (material == 2) bprice = 50;
+    else if (material == 3) bprice = 400;
+    lprice = (qsize + bprice) * quantity;
+    $(".new_price").html(lprice)
+}
+const rupeeSymbol = "₹";
 function generateProductHTML(products) {
     var productHTML = '';
     var productHTMLStart =  '<div class="tab-pane fade show active" id="'+products[0]["id"]+'" role="tabpanel">'+
@@ -1234,6 +1329,13 @@ function generateProductHTML(products) {
                         '   </div>'+
                         '</div>';
     for (var i = 0; i < products.length; i += 2) {
+        var Attar_types_current_prices = products[i]['ATTAR(12ML/6ML/3M)'].split("/");
+        var Attar_types_post_prices = products[i]['ATTAR(12ML/6ML/3M)'].split("/");
+        //var Attar_prices = Attar_types_prices[0].split("/");
+        var Perfume_types_current_prices = products[i]['PERFUME(30ML/50ML/100ML)'].split("-");
+        var Perfume_types_post_prices = products[i]['PERFUME(30ML/50ML/100ML)'].split("-");
+        //var Attar_prices = Attar_types_prices[0]
+        //var prices = prices1[0].split("");
         var currentElement = products[i];
         var postElement = products[i+1];
         productHTML +=
@@ -1255,7 +1357,7 @@ function generateProductHTML(products) {
                 '                    <h4 class="product_name"><a href1="product-details.html">' + currentElement.products_title + '</a></h4>' +
                 '                    <div class="price_box">' +
                 '                        <span class="old_price">' + currentElement.old_price + '</span>' +
-                '                        <span class="current_price">' + currentElement.current_price + '</span>' +
+                '                        <span class="current_price">' +rupeeSymbol+ Perfume_types_current_prices[0] + '</span>' +
                 '                    </div>' +
                 '                    <div class="product_rating">' +
                 '                        <ul>' +
@@ -1281,7 +1383,7 @@ function generateProductHTML(products) {
                 '                    <h4 class="product_name"><a href1="product-details.html">' + postElement.products_title + '</a></h4>' +
                 '                    <div class="price_box">' +
                 '                        <span class="old_price">' + postElement.old_price + '</span>' +
-                '                        <span class="current_price">' + postElement.current_price + '</span>' +
+                '                        <span class="current_price">' +rupeeSymbol+ Perfume_types_post_prices[0] + '</span>' +
                 '                    </div>' +
                 '                    <div class="product_rating">' +
                 '                        <ul>' +
@@ -1305,13 +1407,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
     globalCookie = JSON.parse(k)
     fetchDate(window.location.pathname);
   });
-function addToCart(id){
-sp = GProduct[id];
-cp=Number(sp['current_price']);
-if (!Number.isInteger(cp))
-cp = 300;
-selPrd = {"id":sp['id'],"name":sp['products_title'],"url":sp['url1'],"price":cp,"quantity":1}
-addJsonToCart(selPrd,0)
+function addToCart(id) {
+    sp = GProduct[id];
+    attar_sp = GProduct[id]['ATTAR(12ML/6ML/3M)'].split("/");
+    perfume_sp = GProduct[id]['PERFUME(30ML/50ML/100ML)'].split("-");
+    cp = Number(perfume_sp[0]);
+    selPrd = {"id": sp['id'],"name": sp['products_title'],"url": sp['url1'],"price": cp,"quantity": 1}
+//    cp = Math.round(cp);
+//    //cp=Number(sp['current_price']);
+//    if (!Number.isInteger(cp))
+//        selPrd = {"id": sp['id'],"name": sp['products_title'],"url": sp['url1'],"price": cp,"quantity": 1}
+    addJsonToCart(selPrd, 0)
 }
 function addJsonToCart(selPrd,type){
 globalCookie.push(selPrd)
