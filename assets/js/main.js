@@ -1069,22 +1069,6 @@ function pullIndex(){
         // Call the function when the page loads
         window.onload = loadFrenchValues;
 var GProduct=[];
-// Function to get URL parameters by name
-//function getUrlParameter(name) {
-//    $("#french").html("");
-//    var categoryProducts = GProduct.filter(product => product.FRENCH_ARABIAN === obj);
-//    var productContainer = $("#french");
-//    var getHtml = generateProductHTML(categoryProducts);
-//    productContainer.append(getHtml);
-//    activateProducts();
-//}
-
-//// Retrieve the 'category' parameter from the URL
-//var category = getUrlParameter('FRENCH');
-//
-//// Display the category value on the page
-//document.getElementById('french').textContent = category;
-
 function getProduct(obj) {
     $("#products").html("");
     var categoryProducts = GProduct.filter(product => product.id === obj);
