@@ -456,167 +456,163 @@
                     <div class="col-lg-6 col-md-6">
                         <form action="#">
                             <h3>Billing Details</h3>
-                            <div class="row">
-
+                            <div id="checkout_form" class="row">
                                 <div class="col-lg-6 mb-20">
                                     <label>First Name <span>*</span></label>
-                                    <input type="text">    
+                                    <input name="first_name" type="text">
                                 </div>
                                 <div class="col-lg-6 mb-20">
                                     <label>Last Name  <span>*</span></label>
-                                    <input type="text"> 
+                                    <input name="last_name" type="text">
                                 </div>
                                 <div class="col-12 mb-20">
                                     <label>Company Name</label>
-                                    <input type="text">     
+                                    <input name="company_name" type="text">
+                                </div>
+<!--                                <div class="col-12 mb-20">-->
+<!--                                    <label for="State">State <span>*</span></label>-->
+<!--                                    <select class="niceselect_option" name="state" id="state">-->
+<!--                                        <option value=""></option>-->
+<!--                                        <option value=""></option>-->
+<!--                                        <option value=""></option>-->
+<!--                                        <option value=""></option>-->
+<!--                                        <option value=""></option>-->
+<!--                                        <option value=""></option>-->
+<!--                                        <option value=""></option>-->
+<!--                                        <option value=""></option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+                                <div class="col-12 mb-20">
+                                    <label>Street Name  <span>*</span></label>
+                                    <input name="street_name" placeholder="House number and street name" type="text">
                                 </div>
                                 <div class="col-12 mb-20">
-                                    <label for="State">State <span>*</span></label>
-                                    <select class="niceselect_option" name="State" id="State">
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                    </select>
-                                </div>
-
-                                <div class="col-12 mb-20">
-                                    <label>Street address  <span>*</span></label>
-                                    <input placeholder="House number and street name" type="text">     
-                                </div>
-                                <div class="col-12 mb-20">
-                                    <input placeholder="Apartment, suite, unit etc. (optional)" type="text">     
+                                    <input name="apartment_name" placeholder="Apartment, suite, unit etc. (optional)" type="text">
                                 </div>
                                 <div class="col-12 mb-20">
                                     <label>Town / City <span>*</span></label>
-                                    <input  type="text">    
+                                    <input  name="town_city" type="text">
                                 </div> 
                                  <div class="col-12 mb-20">
-                                    <label>State / County <span>*</span></label>
-                                    <input type="text">    
+                                    <label>State <span>*</span></label>
+                                    <input name="state" type="text">
                                 </div> 
                                 <div class="col-lg-6 mb-20">
                                     <label>Phone<span>*</span></label>
-                                    <input type="text"> 
-
+                                    <input name="phone" type="text">
                                 </div> 
                                  <div class="col-lg-6 mb-20">
                                     <label> Email Address   <span>*</span></label>
-                                      <input type="text"> 
-
+                                      <input name="email" type="text">
                                 </div> 
-                                <div class="col-12 mb-20">
-                                    <input id="account" type="checkbox" data-bs-target="createp_account" />
-                                    <label for="account" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">Create an account?</label>
+<!--                                <div class="col-12 mb-20">-->
+<!--                                    <input id="account" name="account"  type="checkbox" data-bs-target="createp_account" />-->
+<!--                                    <label for="account" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">Create an account?</label>-->
 
-                                    <div id="collapseOne" class="collapse one" data-parent="#accordion">
-                                        <div class="card-body1">
-                                           <label> Account password   <span>*</span></label>
-                                            <input placeholder="password" type="password">  
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 mb-20">
-                                    <input id="address" type="checkbox" data-bs-target="createp_account" />
-                                    <label class="righ_0" for="address" data-bs-toggle="collapse" data-bs-target="#collapsetwo" aria-controls="collapseOne">Ship to a different address?</label>
+<!--                                    <div id="collapseOne" class="collapse one" data-parent="#accordion">-->
+<!--                                        <div class="card-body1">-->
+<!--                                           <label> Account password   <span>*</span></label>-->
+<!--                                            <input placeholder="password" type="password">  -->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-12 mb-20">-->
+<!--                                    <input id="address" name="address" type="checkbox" data-bs-target="createp_account" />-->
+<!--                                    <label class="righ_0" for="address" data-bs-toggle="collapse" data-bs-target="#collapsetwo" aria-controls="collapseOne">Ship to a different address?</label>-->
 
-                                    <div id="collapsetwo" class="collapse one" data-parent="#accordion">
-                                       <div class="row">
-                                            <div class="col-lg-6 mb-20">
-                                                <label>First Name <span>*</span></label>
-                                                <input type="text">    
-                                            </div>
-                                            <div class="col-lg-6 mb-20">
-                                                <label>Last Name  <span>*</span></label>
-                                                <input type="text"> 
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <label>Company Name</label>
-                                                <input type="text">     
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <div class="select_form_select">
-                                                    <label for="countru_name">State <span>*</span></label>
-                                                    <select class="niceselect_option" name="State" id="countru_name">
-                                                        <option value="1">Andhra Pradesh</option>
-                                                        <option value="2">Arunachal Pradesh</option>
-                                                        <option value="3">Assam</option>
-                                                        <option value="4">Bihar</option>
-                                                        <option value="5">Chhattisgarh</option>
-                                                        <option value="6">Goa</option>
-                                                        <option value="7">Gujarat</option>
-                                                        <option value="8">Haryana</option>
-                                                        <option value="9">Himachal Pradesh</option>
-                                                        <option value="10">Jharkhand</option>
-                                                        <option value="11">Karnataka</option>
-                                                        <option value="12">Kerala</option>
-                                                        <option value="13">Madhya Pradesh</option>
-                                                        <option value="14">Maharashtra</option>
-                                                        <option value="15">Manipur</option>
-                                                        <option value="16">Meghalaya</option>
-                                                        <option value="17">Mizoram</option>
-                                                        <option value="18">Nagaland</option>
-                                                        <option value="19">Odisha</option>
-                                                        <option value="20">Punjab</option>
-                                                        <option value="21">Rajasthan</option>
-                                                        <option value="22">Sikkim</option>
-                                                        <option value="23">Tamil Nadu</option>
-                                                        <option value="24">Telangana</option>
-                                                        <option value="25">Tripura</option>
-                                                        <option value="26">Uttarakhand</option>
-                                                        <option value="27">Uttar Pradesh</option>
-                                                        <option value="28">West Bengal</option>
-                                                        <option value="29">Andaman and Nicobar Islands</option>
-                                                        <option value="30">Chandigarh</option>
-                                                        <option value="31"> Dadra & Nagar Haveli And Daman & Diu</option>
-                                                        <option value="32">National Capital Territory of Delhi</option>
-                                                        <option value="33">Jammu and Kashmir</option>
-                                                        <option value="34">Ladakh</option>
-                                                        <option value="35">Lakshadweep</option>
-                                                        <option value="36">Puducherry</option>
+<!--                                    <div id="collapsetwo" class="collapse one" data-parent="#accordion">-->
+<!--                                       <div class="row">-->
+<!--                                            <div class="col-lg-6 mb-20">-->
+<!--                                                <label>First Name <span>*</span></label>-->
+<!--                                                <input type="text">    -->
+<!--                                            </div>-->
+<!--                                            <div class="col-lg-6 mb-20">-->
+<!--                                                <label>Last Name  <span>*</span></label>-->
+<!--                                                <input type="text"> -->
+<!--                                            </div>-->
+<!--                                            <div class="col-12 mb-20">-->
+<!--                                                <label>Company Name</label>-->
+<!--                                                <input type="text">     -->
+<!--                                            </div>-->
+<!--                                            <div class="col-12 mb-20">-->
+<!--                                                <div class="select_form_select">-->
+<!--                                                    <label for="countru_name">State <span>*</span></label>-->
+<!--                                                    <select class="niceselect_option" name="State" id="countru_name">-->
+<!--                                                        <option value="1">Andhra Pradesh</option>-->
+<!--                                                        <option value="2">Arunachal Pradesh</option>-->
+<!--                                                        <option value="3">Assam</option>-->
+<!--                                                        <option value="4">Bihar</option>-->
+<!--                                                        <option value="5">Chhattisgarh</option>-->
+<!--                                                        <option value="6">Goa</option>-->
+<!--                                                        <option value="7">Gujarat</option>-->
+<!--                                                        <option value="8">Haryana</option>-->
+<!--                                                        <option value="9">Himachal Pradesh</option>-->
+<!--                                                        <option value="10">Jharkhand</option>-->
+<!--                                                        <option value="11">Karnataka</option>-->
+<!--                                                        <option value="12">Kerala</option>-->
+<!--                                                        <option value="13">Madhya Pradesh</option>-->
+<!--                                                        <option value="14">Maharashtra</option>-->
+<!--                                                        <option value="15">Manipur</option>-->
+<!--                                                        <option value="16">Meghalaya</option>-->
+<!--                                                        <option value="17">Mizoram</option>-->
+<!--                                                        <option value="18">Nagaland</option>-->
+<!--                                                        <option value="19">Odisha</option>-->
+<!--                                                        <option value="20">Punjab</option>-->
+<!--                                                        <option value="21">Rajasthan</option>-->
+<!--                                                        <option value="22">Sikkim</option>-->
+<!--                                                        <option value="23">Tamil Nadu</option>-->
+<!--                                                        <option value="24">Telangana</option>-->
+<!--                                                        <option value="25">Tripura</option>-->
+<!--                                                        <option value="26">Uttarakhand</option>-->
+<!--                                                        <option value="27">Uttar Pradesh</option>-->
+<!--                                                        <option value="28">West Bengal</option>-->
+<!--                                                        <option value="29">Andaman and Nicobar Islands</option>-->
+<!--                                                        <option value="30">Chandigarh</option>-->
+<!--                                                        <option value="31"> Dadra & Nagar Haveli And Daman & Diu</option>-->
+<!--                                                        <option value="32">National Capital Territory of Delhi</option>-->
+<!--                                                        <option value="33">Jammu and Kashmir</option>-->
+<!--                                                        <option value="34">Ladakh</option>-->
+<!--                                                        <option value="35">Lakshadweep</option>-->
+<!--                                                        <option value="36">Puducherry</option>-->
 
-                                                    </select>
-                                                </div> 
-                                            </div>
+<!--                                                    </select>-->
+<!--                                                </div> -->
+<!--                                            </div>-->
 
-                                            <div class="col-12 mb-20">
-                                                <label>Street address  <span>*</span></label>
-                                                <input placeholder="House number and street name" type="text">     
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <input placeholder="Apartment, suite, unit etc. (optional)" type="text">     
-                                            </div>
-                                            <div class="col-12 mb-20">
-                                                <label>Town / City <span>*</span></label>
-                                                <input  type="text">    
-                                            </div> 
-                                             <div class="col-12 mb-20">
-                                                <label>State / County <span>*</span></label>
-                                                <input type="text">    
-                                            </div> 
-                                            <div class="col-lg-6 mb-20">
-                                                <label>Phone<span>*</span></label>
-                                                <input type="text"> 
+<!--                                            <div class="col-12 mb-20">-->
+<!--                                                <label>Street address  <span>*</span></label>-->
+<!--                                                <input placeholder="House number and street name" type="text">     -->
+<!--                                            </div>-->
+<!--                                            <div class="col-12 mb-20">-->
+<!--                                                <input placeholder="Apartment, suite, unit etc. (optional)" type="text">     -->
+<!--                                            </div>-->
+<!--                                            <div class="col-12 mb-20">-->
+<!--                                                <label>Town / City <span>*</span></label>-->
+<!--                                                <input  type="text">    -->
+<!--                                            </div> -->
+<!--                                             <div class="col-12 mb-20">-->
+<!--                                                <label>State / County <span>*</span></label>-->
+<!--                                                <input type="text">    -->
+<!--                                            </div> -->
+<!--                                            <div class="col-lg-6 mb-20">-->
+<!--                                                <label>Phone<span>*</span></label>-->
+<!--                                                <input type="text"> -->
 
-                                            </div> 
-                                             <div class="col-lg-6">
-                                                <label> Email Address   <span>*</span></label>
-                                                  <input type="text"> 
+<!--                                            </div> -->
+<!--                                             <div class="col-lg-6">-->
+<!--                                                <label> Email Address   <span>*</span></label>-->
+<!--                                                  <input type="text"> -->
 
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="order-notes">
-                                         <label for="order_note">Order Notes</label>
-                                        <textarea id="order_note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-                                    </div>    
-                                </div>     	    	    	    	    	    	    
+<!--                                            </div> -->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-12">-->
+<!--                                    <div class="order-notes">-->
+<!--                                         <label for="order_note">Order Notes</label>-->
+<!--                                        <textarea id="order_note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>-->
+<!--                                    </div>    -->
+<!--                                </div>     	    	    	    	    	    	    -->
                             </div>
                         </form>    
                     </div>
@@ -765,7 +761,7 @@
 <script src="assets/js/plugins.js"></script>
 
 <!-- Main JS -->
-<script src="assets/js/main.js?214803092023=false&asunc=2"></script>
+<script src="assets/js/main.js?235003092023=false&asunc=2"></script>
 
 
 

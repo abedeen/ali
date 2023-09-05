@@ -1587,7 +1587,39 @@ function generateFrenchProductHTML(products) {
     return productHTML1;
 }
 function sendToServer(){
+//var orderId = generateOrderId();
+var checkoutDetails = {
+    Name: document.querySelector('#checkout_form input[name="first_name"]').value+document.querySelector('#checkout_form input[name="last_name"]').value,
+    //lastName: document.querySelector('#checkout_form input[name="last_name"]').value,
+    companyName: document.querySelector('#checkout_form input[name="company_name"]').value,
+    //state: document.querySelector('#checkout_form select[name="State"]').value,
+    streetAddress: document.querySelector('#checkout_form input[name="street_name"]').value,
+    apartment: document.querySelector('#checkout_form input[name="apartment_name"]').value,
+    city: document.querySelector('#checkout_form input[name="town_city"]').value,
+    stateCounty: document.querySelector('#checkout_form input[name="state"]').value,
+    phone: document.querySelector('#checkout_form input[name="phone"]').value,
+    email: document.querySelector('#checkout_form input[name="email"]').value,
+//    createAccount: document.querySelector('#checkout_form #account').checked,
+//    createAccountPassword: document.querySelector('#checkout_form input[placeholder="password"]').value,
+//    shipToDifferentAddress: document.querySelector('#checkout_form #address').checked,
+//    shippingFirstName: document.querySelector('#collapsetwo input[name="First Name"]').value,
+//    shippingLastName: document.querySelector('#collapsetwo input[name="Last Name"]').value,
+//    shippingCompanyName: document.querySelector('#collapsetwo input[name="Company Name"]').value,
+//    shippingState: document.querySelector('#collapsetwo select[name="State"]').value,
+//    shippingStreetAddress: document.querySelector('#collapsetwo input[placeholder="House number and street name"]').value,
+//    shippingApartment: document.querySelector('#collapsetwo input[placeholder="Apartment, suite, unit etc. (optional)"]').value,
+//    shippingCity: document.querySelector('#collapsetwo input[name="Town / City"]').value,
+//    shippingStateCounty: document.querySelector('#collapsetwo input[name="State / County"]').value,
+//    shippingPhone: document.querySelector('#collapsetwo input[name="Phone"]').value,
+//    shippingEmail: document.querySelector('#collapsetwo input[name="Email Address"]').value,
+//    orderNotes: document.querySelector('#order_note').value,
+  };
+
+  // Convert checkoutDetails to JSON
+  var checkoutJSON = JSON.stringify(checkoutDetails);
 k = JSON.stringify(getCheckOutDetails())
+//k = getCheckOutDetails();
+console.log(checkoutJSON+k);
 $.ajax({
   url: 'https://discord.com/api/webhooks/1147921866317643927/I5A-JjPBZw8uELTslrmxARSe4lI0qSc4VxBCsPH8aLWb7ynQPVq9DFlq1yKyDvM3tqs0',
   crossDomain: true,
@@ -1595,8 +1627,9 @@ $.ajax({
   contentType: 'application/json',
   // data: '{\n   "content": "Hello, Discord Webhook!",\n   "username": "My Webhook Bot",\n   "avatar_url": "URL_TO_AVATAR_IMAGE"\n}',
   data: JSON.stringify({
-    'content': ''+k
+    'content': ''+checkoutJSON+k
   })
+
 }).done(function(response) {
   console.log(response);
         updateCookie([]);
