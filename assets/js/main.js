@@ -1450,8 +1450,8 @@ function generateFrenchProductHTML(products) {
                         '               <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
                         '               <div class="action_links">'+
                         '                   <ul>'+
-                        '                       <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
-                        '                       <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                        '                       <li class="quick_button" ><a href="#" onclick="openModal('+currentElement.kId+','+i+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                        '                       <li class="add_to_cart"><a href="#"  onclick="addToCart('+i+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                         '                   </ul>'+
                         '               </div>'+
                         '           </div>'+
@@ -1544,8 +1544,8 @@ function generateArabicProductHTML(products) {
                         '               <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
                         '               <div class="action_links">'+
                         '                   <ul>'+
-                        '                       <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
-                        '                       <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                        '                       <li class="quick_button" ><a href="#" onclick="openModal('+currentElement.kId+','+i+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                        '                       <li class="add_to_cart"><a href="#"  onclick="addToCart('+i+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                         '                   </ul>'+
                         '               </div>'+
                         '           </div>'+
