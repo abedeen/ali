@@ -7,6 +7,35 @@ function dataBackgroundImage() {
         });
     });
 }
+function activateFrench(){
+$('.shop_toolbar_btn > button').on('click', function (e) {
+
+		e.preventDefault();
+
+        $('.shop_toolbar_btn > button').removeClass('active');
+		$(this).addClass('active');
+
+		var parentsDiv = $('.shop_wrapper');
+		var viewMode = $(this).data('role');
+
+
+		parentsDiv.removeClass('grid_3 grid_4 grid_5 grid_list').addClass(viewMode);
+
+		if(viewMode == 'grid_3'){
+			parentsDiv.children().addClass('col-lg-4 col-md-4 col-sm-6').removeClass('col-lg-3 col-cust-5 col-12');
+
+		}
+
+		if(viewMode == 'grid_4'){
+			parentsDiv.children().addClass('col-lg-3 col-md-4 col-sm-6').removeClass('col-lg-4 col-cust-5 col-12');
+		}
+
+        if(viewMode == 'grid_list'){
+			parentsDiv.children().addClass('col-12').removeClass('col-lg-3 col-lg-4 col-md-4 col-sm-6 col-cust-5');
+		}
+
+	});
+}
 function activateModalBox(){
     $('.modal').on('shown.bs.modal', function (e) {
         $('.product_navactive').resize();
@@ -119,31 +148,9 @@ function activateBestSeller(){
     /*---product column4 activation---*/
     $('.product_column4').on('changed.owl.carousel initialized.owl.carousel', function (event) {
         $(event.target).find('.owl-item').removeClass('last').eq(event.item.index + event.page.size - 1).addClass('last')}).owlCarousel({
-        autoplay: true,
-		loop: true,
-        nav: true,
-        autoplay: false,
-        autoplayTimeout: 8000,
-        items: 4,
-        margin: 26,
-        dots:false,
-        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],
-        responsiveClass:true,
-		responsive:{
-				0:{
-				items:1,
-			},
-            576:{
-				items:2,
-			},
-            768:{
-				items:3,
-			},
-            992:{
-				items:4,
-			},
-
-		  }
+        autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 4,        margin: 26,        dots:false,
+        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],        responsiveClass:true,		responsive:{				0:{				items:1,			},
+            576:{				items:2,			},            768:{				items:3,			},            992:{				items:4,			},		  }
     });
 
     /*---product column3 activation---*/
@@ -688,6 +695,12 @@ function fetchDate(obj){
         case '/':
             pullIndex();
             break;
+        case "/French.html":
+                  pullFrench();
+                  break;
+        case '/Arabic.html':
+                 pullArabic();
+                 break;
         case "/cart.html":
           products = getCheckOutDetails();
           pullCart();
@@ -1034,7 +1047,6 @@ function pullIndex(){
         success: function(data) {
             GProduct=data
             getProduct("Men");
-            //getCountryProduct("FRENCH");
         },
         error: function(xhr, status, error) {
             console.error("Error:", status, error);
@@ -1043,31 +1055,65 @@ function pullIndex(){
     });
 
 }
-// Define a function to load values into elements with id="french"
-        function loadFrenchValues() {
-            // Replace these sample values with your actual data
-            var frenchValues = {
-                french1: "Value 1",
-                french2: "Value 2",
-                french3: "Value 3",
-                french4: "Value 4",
-                french_attars: "Attars Value",
-                french_perfumes: "Perfumes Value"
-            };
-
-            // Loop through the French values and populate the elements
-            for (var id in frenchValues) {
-                if (frenchValues.hasOwnProperty(id)) {
-                    var element = document.getElementById(id);
-                    if (element) {
-                        element.innerHTML = frenchValues[id];
-                    }
-                }
-            }
+function pullFrench(){
+    $.ajax({
+        url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/products", // Replace with your API endpoint
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            GProduct=data
+            loadFrenchValues("FRENCH");
+        },
+        error: function(xhr, status, error) {
+            console.error("Error:", status, error);
+            //$("#dataList").html("An error occurred while fetching data.");
         }
+    });
 
-        // Call the function when the page loads
-        window.onload = loadFrenchValues;
+}
+function pullArabic(){
+    $.ajax({
+        url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/products", // Replace with your API endpoint
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            GProduct=data
+            loadArabicValues("ARABIAN");
+        },
+        error: function(xhr, status, error) {
+            console.error("Error:", status, error);
+            //$("#dataList").html("An error occurred while fetching data.");
+        }
+    });
+}
+function loadFrenchValues(obj) {
+    var element = document.getElementById(obj);
+    var frenchValues = {french: "1",french1: "2",french2: "3",french3: "4",french_attars: "Attars",french_perfumes: "Perfumes"};
+    var frenchElements = GProduct.filter(product => product.FRENCH_ARABIAN === obj);
+//    for (var id in frenchValues) {
+//        if (frenchValues.hasOwnProperty(id)) {
+//            var element = document.getElementById(id);
+            //var frenchElements = GProduct.filter(product => product.FRENCH_ARABIAN === 'FRENCH');
+//            for (var i = 0; i < frenchElements.length; i++) {
+                fElements = generateFrenchProductHTML(frenchElements);
+//            }
+//        }
+//    }
+element.innerHTML = fElements;
+//console.log(fElements);
+//console.log(element.innerHTML);
+activateFrench();
+}
+function loadArabicValues(obj) {
+    var element = document.getElementById(obj);
+    var arabicValues = {arabic: "1",arabic1: "2",arabic2: "3",arabic3: "4",arabic_attars: "Attars",arabic_perfumes: "Perfumes"};
+    var arabicElements = GProduct.filter(product => product.FRENCH_ARABIAN === obj);
+    fElements = generateArabicProductHTML(arabicElements);
+    element.innerHTML = fElements;
+//    console.log(fElements);
+//    console.log(element.innerHTML);
+    activateFrench();
+}
 var GProduct=[];
 function getProduct(obj) {
     $("#products").html("");
@@ -1179,50 +1225,6 @@ function openModal(productId, indexNumber) {
     $(".material_select_option")[0][2].disabled = true;
     // Prevent the default link behavior
 }
-//function addItemToCart(a,b) {
-//        const quantityInput = document.querySelector('.modal_add_to_cart input[type="number"]');
-//        var material = parseInt($(".material_select_option")[0].value);
-//        var size = parseInt($(".size_select_option")[0].value);
-//        var quantity = parseInt($(".modal_add_quantity")[0].value);
-//        var categoryProducts = GProduct[b];
-//        //const quantity = parseInt(quantityInput.value);
-//        //console.log("Added " + categoryProducts + " items to the cart.");
-//        selPrd = {"id":categoryProducts['kId'],"name":categoryProducts['products_title'],"url":categoryProducts['url1'],"price":parseInt(categoryProducts['current_price']),"quantity":quantity}
-//        addJsonToCart(selPrd,0)
-//    }
-
-//    function addItemToCart(productId, price, size, material, quantity, indexNumber) {
-//        var size1 ="";
-//        var material1 = "";
-//        price1 = price.split("-");
-//        const quantityInput = document.querySelector('.modal_add_to_cart input[type="number"]');
-//        var material = parseInt($(".material_select_option")[0].value);
-//        var size = parseInt($(".size_select_option")[0].value);
-//        var quantity = parseInt($(".modal_add_quantity")[0].value);
-////        var newPriceText = $(".new_price")[0].textContent;
-////        var newPrice = parseInt(newPriceText, 10);
-//        //var categoryProducts = GProduct[indexNumber];
-//        var categoryProducts = GProduct.filter(product => product.kId === String(productId));
-//        if (size == 1 ) {size1 = "30ml";var newPrice = price1[0];}
-//        else if (size == 2 ) {size1 = "60ml";var newPrice = price1[1];}
-//        else if (size == 3 ) {size1 = "100ml";var newPrice = price1[2];}
-//        if (material == 1 ) {material1 = "plastic";var mPrice = 0;}
-//        else if (material == 2 ) {material1 = "Glass";var mPrice = 50;}
-//        else if (material == 3 ) {material1 = "Fancy With Box";var mPrice = 400;}
-//        //const quantity = parseInt(quantityInput.value);
-//        //console.log("Added " + categoryProducts + " items to the cart.");
-//        selPrd = {
-//            "id": categoryProducts[0]['kId'],
-//            "name": categoryProducts[0]['products_title'],
-//            "url": categoryProducts[0]['url1'],
-//            "size": size1,
-//            "material": material1,
-//            "price": parseInt(newPrice)+parseInt(mPrice),
-//            "quantity": quantity
-//        }
-//        addJsonToCart(selPrd, 0);
-//        window.close();
-//    }
 function addItemToCart(productId, price, size, material, quantity, indexNumber) {
     var size1 = "";
     var material1 = "";
@@ -1436,15 +1438,16 @@ populateCheckOut();
 }
 function generateFrenchProductHTML(products) {
     var productHTML = '';
-    for (var i = 0; i < products.length; i += 2) {
+    for (var i = 0; i < products.length; i += 1) {
+        var Attar_types_current_prices = products[i]['ATTAR(12ML/6ML/3M)'].split("/");
+        var Perfume_types_current_prices = products[i]['PERFUME(30ML/50ML/100ML)'].split("-");
         var currentElement = products[i];
-        var postElement = products[i+1];
         productHTML +=  '<div class="col-12 ">'+
                         '   <article class="single_product">'+
                         '       <figure>'+
                         '           <div class="product_thumb">'+
-                        '               <a class="primary_img" href1="product-details.html" ><img src="assets/img/product/product11.webp" alt=""></a>'+
-                        '               <a class="secondary_img" href1="product-details.html" ><img src="assets/img/product/product10.webp" alt=""></a>'+
+                        '               <a class="primary_img" href1="product-details.html" ><img src="'+currentElement.url1+'" alt=""></a>'+
+                        '               <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
                         '               <div class="action_links">'+
                         '                   <ul>'+
                         '                       <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
@@ -1453,7 +1456,7 @@ function generateFrenchProductHTML(products) {
                         '               </div>'+
                         '           </div>'+
                         '           <div class="product_content grid_content">'+
-                        '               <h4 class="product_name"><a href1="product-details.html" >Aliquam Consequat</a></h4>'+
+                        '               <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
                         '               <div class="product_rating">'+
                         '                   <ul>'+
                         '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
@@ -1464,12 +1467,12 @@ function generateFrenchProductHTML(products) {
                         '                   </ul>'+
                         '               </div>'+
                         '               <div class="price_box">'+
-                        '                   <span class="old_price">$420.00</span>'+
-                        '                   <span class="current_price">$180.00</span>'+
+                        '                   <span class="old_price"></span>'+
+                        '                   <span class="current_price">' +rupeeSymbol+ Perfume_types_current_prices[0] + '</span>'+
                         '               </div>'+
                         '           </div>'+
                         '           <div class="product_content list_content">'+
-                        '               <h4 class="product_name"><a href1="product-details.html" >Aliquam Consequat</a></h4>'+
+                        '               <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
                         '               <div class="product_rating">'+
                         '                   <ul>'+
                         '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
@@ -1480,11 +1483,11 @@ function generateFrenchProductHTML(products) {
                         '                   </ul>'+
                         '               </div>'+
                         '               <div class="price_box">'+
-                        '                   <span class="old_price">$420.00</span>'+
-                        '                   <span class="current_price">$180.00</span>'+
+                        '                   <span class="old_price"></span>'+
+                        '                   <span class="current_price">' +rupeeSymbol+ Perfume_types_current_prices[0] + '</span>'+
                         '               </div>'+
                         '               <div class="product_desc">'+
-                        '                   <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ..</p>'+
+                        '                   <p>'+currentElement.description+'</p>'+
                         '               </div>'+
                         '           </div>'+
                         '       </figure>'+
@@ -1526,17 +1529,19 @@ function fetchWithoutCertificateValidation(url, options) {
 
   return fetch(url, options);
 }
-function generateFrenchProductHTML(products) {
+function generateArabicProductHTML(products) {
     var productHTML = '';
-    for (var i = 0; i < products.length; i += 2) {
+    //var container = document.getElementById(obj);
+    for (var i = 0; i < products.length; i += 1) {
+        var Attar_types_current_prices = products[i]['ATTAR(12ML/6ML/3M)'].split("/");
+        var Perfume_types_current_prices = products[i]['PERFUME(30ML/50ML/100ML)'].split("-");
         var currentElement = products[i];
-        var postElement = products[i+1];
         productHTML +=  '<div class="col-12 ">'+
                         '   <article class="single_product">'+
                         '       <figure>'+
                         '           <div class="product_thumb">'+
-                        '               <a class="primary_img" href1="product-details.html" ><img src="assets/img/product/product11.webp" alt=""></a>'+
-                        '               <a class="secondary_img" href1="product-details.html" ><img src="assets/img/product/product10.webp" alt=""></a>'+
+                        '               <a class="primary_img" href1="product-details.html" ><img src="'+currentElement.url1+'" alt=""></a>'+
+                        '               <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
                         '               <div class="action_links">'+
                         '                   <ul>'+
                         '                       <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
@@ -1545,7 +1550,7 @@ function generateFrenchProductHTML(products) {
                         '               </div>'+
                         '           </div>'+
                         '           <div class="product_content grid_content">'+
-                        '               <h4 class="product_name"><a href1="product-details.html" >Aliquam Consequat</a></h4>'+
+                        '               <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
                         '               <div class="product_rating">'+
                         '                   <ul>'+
                         '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
@@ -1556,12 +1561,12 @@ function generateFrenchProductHTML(products) {
                         '                   </ul>'+
                         '               </div>'+
                         '               <div class="price_box">'+
-                        '                   <span class="old_price">$420.00</span>'+
-                        '                   <span class="current_price">$180.00</span>'+
+                        '                   <span class="old_price"></span>'+
+                        '                   <span class="current_price">'+rupeeSymbol+ Perfume_types_current_prices[0] +'</span>'+
                         '               </div>'+
                         '           </div>'+
                         '           <div class="product_content list_content">'+
-                        '               <h4 class="product_name"><a href1="product-details.html" >Aliquam Consequat</a></h4>'+
+                        '               <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
                         '               <div class="product_rating">'+
                         '                   <ul>'+
                         '                       <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
@@ -1572,11 +1577,11 @@ function generateFrenchProductHTML(products) {
                         '                   </ul>'+
                         '               </div>'+
                         '               <div class="price_box">'+
-                        '                   <span class="old_price">$420.00</span>'+
-                        '                   <span class="current_price">$180.00</span>'+
+                        '                   <span class="old_price"></span>'+
+                        '                   <span class="current_price">'+rupeeSymbol+ Perfume_types_current_prices[0] +'</span>'+
                         '               </div>'+
                         '               <div class="product_desc">'+
-                        '                   <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ..</p>'+
+                        '                   <p>'+currentElement.description+'</p>'+
                         '               </div>'+
                         '           </div>'+
                         '       </figure>'+
@@ -1599,20 +1604,6 @@ var checkoutDetails = {
     stateCounty: document.querySelector('#checkout_form input[name="state"]').value,
     phone: document.querySelector('#checkout_form input[name="phone"]').value,
     email: document.querySelector('#checkout_form input[name="email"]').value,
-//    createAccount: document.querySelector('#checkout_form #account').checked,
-//    createAccountPassword: document.querySelector('#checkout_form input[placeholder="password"]').value,
-//    shipToDifferentAddress: document.querySelector('#checkout_form #address').checked,
-//    shippingFirstName: document.querySelector('#collapsetwo input[name="First Name"]').value,
-//    shippingLastName: document.querySelector('#collapsetwo input[name="Last Name"]').value,
-//    shippingCompanyName: document.querySelector('#collapsetwo input[name="Company Name"]').value,
-//    shippingState: document.querySelector('#collapsetwo select[name="State"]').value,
-//    shippingStreetAddress: document.querySelector('#collapsetwo input[placeholder="House number and street name"]').value,
-//    shippingApartment: document.querySelector('#collapsetwo input[placeholder="Apartment, suite, unit etc. (optional)"]').value,
-//    shippingCity: document.querySelector('#collapsetwo input[name="Town / City"]').value,
-//    shippingStateCounty: document.querySelector('#collapsetwo input[name="State / County"]').value,
-//    shippingPhone: document.querySelector('#collapsetwo input[name="Phone"]').value,
-//    shippingEmail: document.querySelector('#collapsetwo input[name="Email Address"]').value,
-//    orderNotes: document.querySelector('#order_note').value,
   };
 
   // Convert checkoutDetails to JSON
