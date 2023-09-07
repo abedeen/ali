@@ -125,7 +125,7 @@ function activateBanner() {
         }
 
         .banner_conent p {
-            font-size: 14px;
+            font-size: 16px;
             margin: 0;
             font-weight: 300;
         }
@@ -698,6 +698,12 @@ function fetchDate(obj){
         case "/French.html":
                   pullFrench();
                   break;
+        case "/shop.html":
+                          pullBurners();
+                          break;
+        case "/Non_Electric_Burners.html":
+                                  pullNonElectricBurners();
+                                  break;
         case '/Arabic.html':
                  pullArabic();
                  break;
@@ -1031,7 +1037,7 @@ function pullIndex(){
             fetchTestimonialContainerData(data);
             fetchBannerData(data);
             fetchProductAreaData(data);
-            fetchNewsLetterData(data);
+            //fetchNewsLetterData(data);
             fetchBlogs(data);
             fetchFooter(data);
         },
@@ -1047,6 +1053,98 @@ function pullIndex(){
         success: function(data) {
             GProduct=data
             getProduct("Men");
+        },
+        error: function(xhr, status, error) {
+            console.error("Error:", status, error);
+            //$("#dataList").html("An error occurred while fetching data.");
+        }
+    });
+
+}
+function fetchBurnersData(products){
+    var productHTML = '';
+    for (var i = 0; i < products.length; i += 1) {
+        var currentElement = products[i];
+        productHTML +=                           '<div class="col-lg-4 col-md-4 col-12 ">'+
+                                                 '    <article class="single_product">'+
+                                                 '        <figure>'+
+                                                 '              <div class="product_thumb">'+
+                                                 '                  <a class="primary_img" href1="product-details.html" ><img src="'+currentElement.url1+'" alt=""></a>'+
+                                                 '                  <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
+                                                 '                  <div class="action_links">'+
+                                                 '                      <ul>'+
+                                                 '                          <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+                                                 '                          <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                                                 '                      </ul>'+
+                                                 '                  </div>'+
+                                                 '              </div>'+
+                                                 '              <div class="product_content grid_content">'+
+                                                 '                  <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
+                                                 '                  <div class="product_rating">'+
+                                                 '                      <ul>'+
+                                                 '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                 '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                 '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                 '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                 '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                 '                      </ul>'+
+                                                 '                  </div>'+
+                                                 '                  <div class="price_box">'+
+                                                 '                      <span class="old_price"></span>'+
+                                                 '                      <span class="current_price">'+currentElement.price+'</span>'+
+                                                 '                  </div>'+
+                                                 '              </div>'+
+                                                 '              <div class="product_content list_content">'+
+                                                 '                  <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
+                                                 '                  <div class="product_rating">'+
+                                                 '                      <ul>'+
+                                                 '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                 '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                 '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                 '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                 '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                 '                      </ul>'+
+                                                 '                  </div>'+
+                                                 '                  <div class="price_box">'+
+                                                 '                      <span class="old_price"></span>'+
+                                                 '                      <span class="current_price">'+currentElement.price+'</span>'+
+                                                 '                  </div>'+
+                                                 '                  <div class="product_desc">'+
+                                                 '                      <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ..</p>'+
+                                                 '                  </div>'+
+                                                 '              </div>'+
+                                                 '          </figure>'+
+                                                 '      </article>'+
+                                                 '  </div>';
+    };
+    productHTML1 = productHTML;
+    return productHTML1;
+
+}
+function pullBurners(){
+    $.ajax({
+        url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/Burners", // Replace with your API endpoint
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            GProduct=data
+            loadBurners("Electric_Burners");
+        },
+        error: function(xhr, status, error) {
+            console.error("Error:", status, error);
+            //$("#dataList").html("An error occurred while fetching data.");
+        }
+    });
+
+}
+function pullNonElectricBurners(){
+    $.ajax({
+        url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/Burners", // Replace with your API endpoint
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            GProduct=data
+            loadBurners("Non_Electric_Burners");
         },
         error: function(xhr, status, error) {
             console.error("Error:", status, error);
@@ -1085,6 +1183,15 @@ function pullArabic(){
             //$("#dataList").html("An error occurred while fetching data.");
         }
     });
+}
+function loadBurners(obj) {
+    var element = document.getElementById(obj);
+    var burnerElements = GProduct.filter(Burners => Burners.products_title === obj);
+    fElements = fetchBurnersData(burnerElements);
+    element.innerHTML = fElements;
+    //console.log(fElements);
+    //console.log(element.innerHTML);
+    activateFrench();
 }
 function loadFrenchValues(obj) {
     var element = document.getElementById(obj);

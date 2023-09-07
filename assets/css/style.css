@@ -4688,6 +4688,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     margin-bottom: 7px;
   }
 }
+
 .banner_conent h2 {
   font-size: 72px;
   line-height: 72px;
@@ -4716,6 +4717,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   }
 }
 .banner_conent p {
+    margin-top: auto;
   font-size: 18px;
   line-height: 20px;
   color: #ffffff;

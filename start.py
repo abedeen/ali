@@ -48,7 +48,7 @@ menu = [
     ['Premium',['Premium Perfumes','Premium Attars'],0],
     ['Attars',['French','Arabian','Indian'],1],
     ['Perfumes',['French','Arabic','Indian'],1],
-    ['Branded Fragrances',['Al-Haramain','Ajmal','Rasasi','Other'],1],
+    ['Oud Burners',['Al-Haramain','Ajmal','Rasasi','Other'],1],
     ['Incense',['Bakhoor & Oudh','Oudh Burners'],0],
     ['Fancy Bottles',['Attar Bottles','Perfume Bottles'],0],
     ['Gift Sets',None,0],
