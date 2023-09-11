@@ -695,18 +695,24 @@ function fetchDate(obj){
         case '/':
             pullIndex();
             break;
-        case "/French.html":
-                  pullFrench();
+        case "/FrenchAttars.html":
+                  pullFrenchAttars();
                   break;
+        case "/FrenchPerfumes.html":
+                          pullFrenchPerfumes();
+                          break;
         case "/shop.html":
                           pullBurners();
                           break;
         case "/Non_Electric_Burners.html":
                                   pullNonElectricBurners();
                                   break;
-        case '/Arabic.html':
-                 pullArabic();
+        case '/ArabicAttars.html':
+                 pullArabicAttars();
                  break;
+        case '/ArabicPerfumes.html':
+                         pullArabicPerfumes();
+                         break;
         case "/cart.html":
           products = getCheckOutDetails();
           pullCart();
@@ -1153,30 +1159,59 @@ function pullNonElectricBurners(){
     });
 
 }
-function pullFrench(){
+function pullFrenchAttars(){
     $.ajax({
         url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/products", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
             GProduct=data
-            loadFrenchValues("FRENCH");
+            loadFrenchValues("FRENCH_ATTAR");
         },
         error: function(xhr, status, error) {
             console.error("Error:", status, error);
             //$("#dataList").html("An error occurred while fetching data.");
         }
     });
-
 }
-function pullArabic(){
+function pullFrenchPerfumes(){
     $.ajax({
         url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/products", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
             GProduct=data
-            loadArabicValues("ARABIAN");
+            loadFrenchValues("FRENCH_PERFUME");
+        },
+        error: function(xhr, status, error) {
+            console.error("Error:", status, error);
+            //$("#dataList").html("An error occurred while fetching data.");
+        }
+    });
+}
+function pullArabicAttars(){
+    $.ajax({
+        url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/products", // Replace with your API endpoint
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            GProduct=data
+            loadArabicValues("ARABIAN_ATTAR");
+        },
+        error: function(xhr, status, error) {
+            console.error("Error:", status, error);
+            //$("#dataList").html("An error occurred while fetching data.");
+        }
+    });
+}
+function pullArabicPerfumes(){
+    $.ajax({
+        url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/products", // Replace with your API endpoint
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            GProduct=data
+            loadArabicValues("ARABIAN_PERFUME");
         },
         error: function(xhr, status, error) {
             console.error("Error:", status, error);
@@ -1194,9 +1229,11 @@ function loadBurners(obj) {
     activateFrench();
 }
 function loadFrenchValues(obj) {
+    var obj1 = obj.split("_")[0];
+    var obj2 = obj.split("_")[1];
     var element = document.getElementById(obj);
     var frenchValues = {french: "1",french1: "2",french2: "3",french3: "4",french_attars: "Attars",french_perfumes: "Perfumes"};
-    var frenchElements = GProduct.filter(product => product.FRENCH_ARABIAN === obj);
+    var frenchElements = GProduct.filter(product => product.FRENCH_ARABIAN === obj1 && product.ATTAR_PERFUME === obj2 );
 //    for (var id in frenchValues) {
 //        if (frenchValues.hasOwnProperty(id)) {
 //            var element = document.getElementById(id);
@@ -1212,13 +1249,13 @@ element.innerHTML = fElements;
 activateFrench();
 }
 function loadArabicValues(obj) {
+    var obj1 = obj.split("_")[0];
+    var obj2 = obj.split("_")[1];
     var element = document.getElementById(obj);
     var arabicValues = {arabic: "1",arabic1: "2",arabic2: "3",arabic3: "4",arabic_attars: "Attars",arabic_perfumes: "Perfumes"};
-    var arabicElements = GProduct.filter(product => product.FRENCH_ARABIAN === obj);
+    var arabicElements = GProduct.filter(product => product.FRENCH_ARABIAN === obj1 && product.ATTAR_PERFUME === obj2 );
     fElements = generateArabicProductHTML(arabicElements);
     element.innerHTML = fElements;
-//    console.log(fElements);
-//    console.log(element.innerHTML);
     activateFrench();
 }
 var GProduct=[];
@@ -1557,8 +1594,8 @@ function generateFrenchProductHTML(products) {
                         '               <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
                         '               <div class="action_links">'+
                         '                   <ul>'+
-                        '                       <li class="quick_button" ><a href="#" onclick="openModal('+currentElement.kId+','+i+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
-                        '                       <li class="add_to_cart"><a href="#"  onclick="addToCart('+i+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+//                        '                       <li class="quick_button" ><a href="#" onclick="openModal('+currentElement.kId+','+i+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                        '                       <li class="add_to_cart"><a href="#"  onclick="addToCart('+products[i].kId+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                         '                   </ul>'+
                         '               </div>'+
                         '           </div>'+
@@ -1651,8 +1688,8 @@ function generateArabicProductHTML(products) {
                         '               <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
                         '               <div class="action_links">'+
                         '                   <ul>'+
-                        '                       <li class="quick_button" ><a href="#" onclick="openModal('+currentElement.kId+','+i+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
-                        '                       <li class="add_to_cart"><a href="#"  onclick="addToCart('+i+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+//                        '                       <li class="quick_button" ><a href="#" onclick="openModal('+currentElement.kId+','+i+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                        '                       <li class="add_to_cart"><a href="#"  onclick="addToCart('+products[i].kId+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                         '                   </ul>'+
                         '               </div>'+
                         '           </div>'+
