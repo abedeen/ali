@@ -820,7 +820,7 @@ function fetchProductAreaData(obj) {
                         '                       <div class="product_content">'+
                         '                           <h4 class="product_name"><a href1="product-details.html">'+item.Text1+'</a></h4>'+
                         '                           <div class="price_box"> '+
-                        '                               <span class="old_price">₹'+item.Text2+'</span> '+
+                        //'                               <span class="old_price">₹'+item.Text2+'</span> '+
                         '                               <span class="current_price">₹'+item.Text3+'</span>'+
                         '                           </div>'+
                         '                       </div>'+
@@ -1096,7 +1096,7 @@ function fetchBurnersData(products){
                                                  '                      </ul>'+
                                                  '                  </div>'+
                                                  '                  <div class="price_box">'+
-                                                 '                      <span class="old_price"></span>'+
+                                                 //'                      <span class="old_price"></span>'+
                                                  '                      <span class="current_price">'+currentElement.price+'</span>'+
                                                  '                  </div>'+
                                                  '              </div>'+
@@ -1112,7 +1112,7 @@ function fetchBurnersData(products){
                                                  '                      </ul>'+
                                                  '                  </div>'+
                                                  '                  <div class="price_box">'+
-                                                 '                      <span class="old_price"></span>'+
+                                                 //'                      <span class="old_price"></span>'+
                                                  '                      <span class="current_price">'+currentElement.price+'</span>'+
                                                  '                  </div>'+
                                                  '                  <div class="product_desc">'+
@@ -1319,7 +1319,7 @@ function openModal(productId, indexNumber) {
                                     '       </div>'+
                                     '       <div class="modal_price mb-10">'+
                                     '           <span class="new_price">₹'+perfume_price[0]+'</span>'+
-                                    '           <span class="old_price" ></span>'+
+                                    //'           <span class="old_price" ></span>'+
                                     '       </div>'+
                                     '       <div class="modal_description mb-15">'+
                                     '           <p>'+categoryProducts[0].description+'</p>'+
@@ -1484,7 +1484,7 @@ function generateProductHTML(products) {
                 '                <figcaption class="product_content">' +
                 '                    <h4 class="product_name"><a href1="product-details.html">' + currentElement.products_title + '</a></h4>' +
                 '                    <div class="price_box">' +
-                '                        <span class="old_price">' + currentElement.old_price + '</span>' +
+                //'                        <span class="old_price">' + currentElement.old_price + '</span>' +
                 '                        <span class="current_price">' +rupeeSymbol+ Perfume_types_current_prices[0] + '</span>' +
                 '                    </div>' +
                 '                    <div class="product_rating">' +
@@ -1510,7 +1510,7 @@ function generateProductHTML(products) {
                 '                <figcaption class="product_content">' +
                 '                    <h4 class="product_name"><a href1="product-details.html">' + postElement.products_title + '</a></h4>' +
                 '                    <div class="price_box">' +
-                '                        <span class="old_price">' + postElement.old_price + '</span>' +
+                //'                        <span class="old_price">' + postElement.old_price + '</span>' +
                 '                        <span class="current_price">' +rupeeSymbol+ Perfume_types_post_prices[0] + '</span>' +
                 '                    </div>' +
                 '                    <div class="product_rating">' +
@@ -1611,7 +1611,7 @@ function generateFrenchProductHTML(products) {
                         '                   </ul>'+
                         '               </div>'+
                         '               <div class="price_box">'+
-                        '                   <span class="old_price"></span>'+
+                        //'                   <span class="old_price"></span>'+
                         '                   <span class="current_price">' +rupeeSymbol+ Perfume_types_current_prices[0] + '</span>'+
                         '               </div>'+
                         '           </div>'+
@@ -1627,7 +1627,7 @@ function generateFrenchProductHTML(products) {
                         '                   </ul>'+
                         '               </div>'+
                         '               <div class="price_box">'+
-                        '                   <span class="old_price"></span>'+
+                        //'                   <span class="old_price"></span>'+
                         '                   <span class="current_price">' +rupeeSymbol+ Perfume_types_current_prices[0] + '</span>'+
                         '               </div>'+
                         '               <div class="product_desc">'+
@@ -1705,7 +1705,7 @@ function generateArabicProductHTML(products) {
                         '                   </ul>'+
                         '               </div>'+
                         '               <div class="price_box">'+
-                        '                   <span class="old_price"></span>'+
+//                        //'                   <span class="old_price"></span>'+
                         '                   <span class="current_price">'+rupeeSymbol+ Perfume_types_current_prices[0] +'</span>'+
                         '               </div>'+
                         '           </div>'+
@@ -1721,7 +1721,7 @@ function generateArabicProductHTML(products) {
                         '                   </ul>'+
                         '               </div>'+
                         '               <div class="price_box">'+
-                        '                   <span class="old_price"></span>'+
+                        //'                   <span class="old_price"></span>'+
                         '                   <span class="current_price">'+rupeeSymbol+ Perfume_types_current_prices[0] +'</span>'+
                         '               </div>'+
                         '               <div class="product_desc">'+
