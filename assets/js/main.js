@@ -698,6 +698,9 @@ function fetchDate(obj){
         case "/FrenchAttars.html":
                   pullFrenchAttars();
                   break;
+        case "/shop.html":
+                  pullBanner();
+                  break;
         case "/FrenchPerfumes.html":
                           pullFrenchPerfumes();
                           break;
@@ -741,7 +744,7 @@ function fetchSliderData(obj) {
                 '                    <h1> ' + item['Text1'] + ' </h1>' +
                 '                     <h2>' + item['Text2'] + '</h2>' +
                 '                     <p>  ' + item['Text3'] + ' </p>' +
-                '                     <a class="button" href="shop.html?itemId=' + item['ObjetId'] + ' ">shop Now <i class="zmdi zmdi-long-arrow-right"></i></a>' +
+                '                     <a class="button" href="#">shop Now <i class="zmdi zmdi-long-arrow-right"></i></a>' +
                 '                             </div>' +
                 '            </div>' +
                 '       </div>' +
@@ -770,16 +773,17 @@ function fetchBannerData(obj) {
             var banner = '<div class="col-lg-4 col-md-4">' +
                          '    <figure class="single_banner">' +
                          '        <div class="banner_thumb">' +
-                         '            <a href="shop.html">' +
+                         '            <a href="shop.html?item='+i+'">' +
                          '                <img src="' + item['url1'] + '" alt="" width="370" height="430">' +
                          '            </a>' +
                          '            <div class="banner_conent">' +
-                         '                <h3>' + item['Text1'] + '</h3>' +
+                         //'                <h3>' + item['Text1'] + '</h3>' +
                          '                <h2>' + item['Text2'] + '</h2>' +
                          '                <p>' + item['Text3'] + '</p>' +
                          '            </div>' +
                          '        </div>' +
                          '    </figure>' +
+                         '<h3 style="font-family: Arial, sans-serif; font-size: 25px; font-weight: bold;text-align: center;">' + item['Text1'] + '</h3>' +
                          '</div>';
             bannerHTML += banner;
         }
@@ -1067,6 +1071,39 @@ function pullIndex(){
     });
 
 }
+function pullBanner(){
+    $.ajax({
+        url: "https://opensheet.elk.sh/1HN35lxS5gKZ6rVOrpNvNHQseiBvZbE-z2rBMzl0piMQ/Banner", // Replace with your API endpoint
+        method: "GET",
+        dataType: "json",
+        success: function(data) {
+            GProduct=data;
+            const url = new URL(window.location.href);
+            const itemValue = url.searchParams.get("item");
+            if (itemValue === "2") {
+              console.log("Item is equal to 2");
+              getDehnalOud("DehnalOud");
+            }
+             else if (itemValue === "3") {
+                console.log("Item is equal to 3");
+                getInsenceSticks("InsenceSticks");
+            }
+            else if (itemValue === "4"){
+              console.log("Item is not equal to 4");
+              getBakhoorDakhoon("BakhoorDakhoon");
+            }
+
+            // Assuming the API response is an array of objects
+
+
+
+        },
+        error: function(xhr, status, error) {
+            console.error("Error:", status, error);
+            //$("#dataList").html("An error occurred while fetching data.");
+        }
+    });
+}
 function fetchBurnersData(products){
     var productHTML = '';
     for (var i = 0; i < products.length; i += 1) {
@@ -1266,6 +1303,31 @@ function getProduct(obj) {
             var getHtml = generateProductHTML(categoryProducts);
             productContainer.append(getHtml);
             activateProducts();
+}
+function getDehnalOud(obj) {
+    $("#DehnalOud").html("");
+    var categoryProducts = GProduct.filter(product => product.item === obj);
+    var productContainer = $("#DehnalOud");
+            var getHtml = generateDehnalOudHTML(categoryProducts);
+            productContainer.append(getHtml);
+            activateFrench();
+}
+function getInsenceSticks(obj) {
+    $("#InsenceSticks").html("");
+    var categoryProducts = GProduct.filter(product => product.item === obj);
+    var productContainer = $("#InsenceSticks");
+            var getHtml = generateInsenceSticksHTML(categoryProducts);
+            productContainer.append(getHtml);
+            activateFrench();
+}
+function getBakhoorDakhoon(obj) {
+    $("#BakhoorDakhoon").html("");
+    var categoryProducts = GProduct.filter(product => product.item === obj);
+    var productContainer = $("#BakhoorDakhoon");
+            var getHtml = generateBakhoorDakhoonHTML(categoryProducts);
+            productContainer.append(getHtml);
+            activateFrench();
+
 }
 function openModal(productId, indexNumber) {
     var modal = new bootstrap.Modal(document.getElementById('modal_box'));
@@ -1526,6 +1588,183 @@ function generateProductHTML(products) {
     };
     productHTML1 = productHTMLStart+productHTML+productHTMLEnd;
     return productHTML1;
+}
+function generateDehnalOudHTML(products) {
+    var productHTML = '';
+        for (var i = 0; i < products.length; i += 1) {
+            var currentElement = products[i];
+            productHTML +=                           '<div class="col-lg-4 col-md-4 col-12 ">'+
+                                                     '    <article class="single_product">'+
+                                                     '        <figure>'+
+                                                     '              <div class="product_thumb">'+
+                                                     '                  <a class="primary_img" href1="product-details.html" ><img src="'+currentElement.url1+'" alt=""></a>'+
+                                                     '                  <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
+                                                     '                  <div class="action_links">'+
+                                                     '                      <ul>'+
+                                                     '                          <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+                                                     '                          <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                                                     '                      </ul>'+
+                                                     '                  </div>'+
+                                                     '              </div>'+
+                                                     '              <div class="product_content grid_content">'+
+                                                     '                  <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
+                                                     '                  <div class="product_rating">'+
+                                                     '                      <ul>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                      </ul>'+
+                                                     '                  </div>'+
+                                                     '                  <div class="price_box">'+
+                                                     //'                      <span class="old_price"></span>'+
+                                                     '                      <span class="current_price">'+currentElement.price+'</span>'+
+                                                     '                  </div>'+
+                                                     '              </div>'+
+                                                     '              <div class="product_content list_content">'+
+                                                     '                  <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
+                                                     '                  <div class="product_rating">'+
+                                                     '                      <ul>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                      </ul>'+
+                                                     '                  </div>'+
+                                                     '                  <div class="price_box">'+
+                                                     //'                      <span class="old_price"></span>'+
+                                                     '                      <span class="current_price">'+currentElement.price+'</span>'+
+                                                     '                  </div>'+
+                                                     '                  <div class="product_desc">'+
+                                                     '                      <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ..</p>'+
+                                                     '                  </div>'+
+                                                     '              </div>'+
+                                                     '          </figure>'+
+                                                     '      </article>'+
+                                                     '  </div>';
+        };
+        productHTML1 = productHTML;
+        return productHTML1;
+}
+function generateInsenceSticksHTML(products) {
+    var productHTML = '';
+        for (var i = 0; i < products.length; i += 1) {
+            var currentElement = products[i];
+            productHTML +=                           '<div class="col-lg-4 col-md-4 col-12 ">'+
+                                                     '    <article class="single_product">'+
+                                                     '        <figure>'+
+                                                     '              <div class="product_thumb">'+
+                                                     '                  <a class="primary_img" href1="product-details.html" ><img src="'+currentElement.url1+'" alt=""></a>'+
+                                                     '                  <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
+                                                     '                  <div class="action_links">'+
+                                                     '                      <ul>'+
+                                                     '                          <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+                                                     '                          <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                                                     '                      </ul>'+
+                                                     '                  </div>'+
+                                                     '              </div>'+
+                                                     '              <div class="product_content grid_content">'+
+                                                     '                  <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
+                                                     '                  <div class="product_rating">'+
+                                                     '                      <ul>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                      </ul>'+
+                                                     '                  </div>'+
+                                                     '                  <div class="price_box">'+
+                                                     //'                      <span class="old_price"></span>'+
+                                                     '                      <span class="current_price">'+currentElement.price+'</span>'+
+                                                     '                  </div>'+
+                                                     '              </div>'+
+                                                     '              <div class="product_content list_content">'+
+                                                     '                  <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
+                                                     '                  <div class="product_rating">'+
+                                                     '                      <ul>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                      </ul>'+
+                                                     '                  </div>'+
+                                                     '                  <div class="price_box">'+
+                                                     //'                      <span class="old_price"></span>'+
+                                                     '                      <span class="current_price">'+currentElement.price+'</span>'+
+                                                     '                  </div>'+
+                                                     '                  <div class="product_desc">'+
+                                                     '                      <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ..</p>'+
+                                                     '                  </div>'+
+                                                     '              </div>'+
+                                                     '          </figure>'+
+                                                     '      </article>'+
+                                                     '  </div>';
+        };
+        productHTML1 = productHTML;
+        return productHTML1;
+}
+function generateBakhoorDakhoonHTML(products) {
+    var productHTML = '';
+        for (var i = 0; i < products.length; i += 1) {
+            var currentElement = products[i];
+            productHTML +=                           '<div class="col-lg-4 col-md-4 col-12 ">'+
+                                                     '    <article class="single_product">'+
+                                                     '        <figure>'+
+                                                     '              <div class="product_thumb">'+
+                                                     '                  <a class="primary_img" href1="product-details.html" ><img src="'+currentElement.url1+'" alt=""></a>'+
+                                                     '                  <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
+                                                     '                  <div class="action_links">'+
+                                                     '                      <ul>'+
+                                                     '                          <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+                                                     '                          <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+                                                     '                      </ul>'+
+                                                     '                  </div>'+
+                                                     '              </div>'+
+                                                     '              <div class="product_content grid_content">'+
+                                                     '                  <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
+                                                     '                  <div class="product_rating">'+
+                                                     '                      <ul>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                      </ul>'+
+                                                     '                  </div>'+
+                                                     '                  <div class="price_box">'+
+                                                     //'                      <span class="old_price"></span>'+
+                                                     '                      <span class="current_price">'+currentElement.price+'</span>'+
+                                                     '                  </div>'+
+                                                     '              </div>'+
+                                                     '              <div class="product_content list_content">'+
+                                                     '                  <h4 class="product_name"><a href1="product-details.html" >'+currentElement.products_title+'</a></h4>'+
+                                                     '                  <div class="product_rating">'+
+                                                     '                      <ul>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                          <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>'+
+                                                     '                      </ul>'+
+                                                     '                  </div>'+
+                                                     '                  <div class="price_box">'+
+                                                     //'                      <span class="old_price"></span>'+
+                                                     '                      <span class="current_price">'+currentElement.price+'</span>'+
+                                                     '                  </div>'+
+                                                     '                  <div class="product_desc">'+
+                                                     '                      <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ..</p>'+
+                                                     '                  </div>'+
+                                                     '              </div>'+
+                                                     '          </figure>'+
+                                                     '      </article>'+
+                                                     '  </div>';
+        };
+        productHTML1 = productHTML;
+        return productHTML1;
 }
 document.addEventListener("DOMContentLoaded", function(event) {
     k=''
