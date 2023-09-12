@@ -1407,7 +1407,7 @@ function openModal(productId, indexNumber) {
                                     '           <div class="modal_add_to_cart">'+
                                     '               <form action="#">'+
                                     '                   <input class="modal_add_quantity" min="1" max="100" step="1" value="1" onchange="updateAttarValue('+productId+')" type="number">'+
-                                    '                   <button type="submit" onclick="addItemToCart('+productId+', \'' + categoryProducts[i]['PERFUME(30ML/50ML/100ML)'] + '\', ' +size+','+material+','+quantity+','+ indexNumber+')">add to cart</button>'+
+                                    '                   <button type="submit" onclick="addItemToCart('+productId+', \'' + categoryProducts[0]['ATTAR(24ML/12ML/6ML/3ML)'] + '\', ' +size+','+material+','+quantity+','+ indexNumber+')">add to cart</button>'+
                                     '               </form>'+
                                     '           </div>'+
                                     '       </div>'+
@@ -1642,7 +1642,7 @@ function generateProductHTML(products) {
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
                 '                                        <li class="quick_button" ><a href="#" onclick="openModal('+currentElement.kId+','+i+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
-                '                                        <li class="add_to_cart"><a href="#"  onclick="addToCart('+i+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+                '                                        <li class="add_to_cart"><a href="#"  onclick="addToCart('+currentElement.kId+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                 '                                   </ul>' +
                 '                                </div>' +
                 '                </div>' +
@@ -1650,7 +1650,7 @@ function generateProductHTML(products) {
                 '                    <h4 class="product_name"><a href1="product-details.html">' + currentElement.products_title + '</a></h4>' +
                 '                    <div class="price_box">' +
                 //'                        <span class="old_price">' + currentElement.old_price + '</span>' +
-                '                        <span class="current_price">' +rupeeSymbol+ Perfume_types_current_prices[0] + '</span>' +
+                '                        <span class="current_price">' +rupeeSymbol+ Attar_types_current_prices[3] + '</span>' +
                 '                    </div>' +
                 '                    <div class="product_rating">' +
                 '                        <ul>' +
@@ -1668,7 +1668,7 @@ function generateProductHTML(products) {
                 '                               <div class="action_links">' +
                 '                                   <ul>' +
                 '                                        <li class="quick_button" ><a href="#" onclick="openModal('+postElement.kId+','+(i+1)+');" title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
-                '                                        <li class="add_to_cart"><a href=""  onclick="addToCart('+(i+1)+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+                '                                        <li class="add_to_cart"><a href=""  onclick="addToCart('+postElement.kId+')"  title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                 '                                   </ul>' +
                 '                                </div>' +
                 '                </div>' +
@@ -1878,15 +1878,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     fetchDate(window.location.pathname);
   });
 function addToCart(id) {
-    sp = GProduct[id];
+    sp = GProduct.filter(product => product.kId === String(id));
     attar_sp = GProduct[id]['ATTAR(24ML/12ML/6ML/3ML)'].split("/");
     perfume_sp = GProduct[id]['PERFUME(30ML/50ML/100ML)'].split("-");
+    if(sp[0]['ATTAR_PERFUME']=='PERFUME'){
     cp = Number(perfume_sp[0]);
-    selPrd = {"id": sp['id'],"name": sp['products_title'],"url": sp['url1'],"price": cp,"quantity": 1}
-//    cp = Math.round(cp);
-//    //cp=Number(sp['current_price']);
-//    if (!Number.isInteger(cp))
-//        selPrd = {"id": sp['id'],"name": sp['products_title'],"url": sp['url1'],"price": cp,"quantity": 1}
+    selPrd = {"id": sp[0]['id'],"name": sp[0]['products_title'],"url": sp[0]['url1'],"price": cp,"quantity": 1}
+    }else if(sp[0]['ATTAR_PERFUME']=='ATTAR'){
+              cp = Number(attar_sp[3]);
+              selPrd = {"id": sp[0]['id'],"name": sp[0]['products_title'],"url": sp[0]['url1'],"price": cp,"quantity": 1}
+              }
     addJsonToCart(selPrd, 0)
 }
 function addJsonToCart(selPrd,type){
