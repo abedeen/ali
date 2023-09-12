@@ -1337,9 +1337,10 @@ function openModal(productId, indexNumber) {
     const material =1;
     const quantity =1;
     itl = "";
-    for (var i = 0; i < categoryProducts.length; i++) {
     //console.log("Processing item", item);
-        perfume_price = categoryProducts[i]['PERFUME(30ML/50ML/100ML)'].split("-")
+    perfume_price = categoryProducts[0]['PERFUME(30ML/50ML/100ML)'].split("-")
+    attar_price = categoryProducts[0]['ATTAR(24ML/12ML/6ML/3ML)'].split("/")
+    if (categoryProducts[0]['ATTAR_PERFUME']=='ATTAR'){
         var detailsHtml3 =  '                   <div class="col-lg-5 col-md-5 col-sm-12">'+
                                     '                        <div class="modal_tab">'+
                                     '                           <div class="tab-content product-details-large">'+
@@ -1389,23 +1390,23 @@ function openModal(productId, indexNumber) {
                                     '       <div class="variants_selects">'+
                                     '           <div class="variants_size">'+
                                     '               <h2>size</h2>'+
-                                    '               <select class="size_select_option" onchange="updateValue('+productId+')">'+
-                                    '                   <option selected value="1">30ml</option>'+
-                                    '                   <option value="2">60ml</option>'+
-                                    '                   <option value="3">100ml</option>'+
+                                    '               <select class="size_select_option" onchange="updateAttarValue('+productId+')">'+
+                                    '                   <option selected value="1">3ML</option>'+
+                                    '                   <option value="2">6ML</option>'+
+                                    '                   <option value="3">12ML</option>'+
+                                    '                   <option value="4">24ML</option>'+
                                     '               </select>'+
                                     '           </div>'+
                                     '           <div class="variants_color">'+
                                     '               <h2>Material(* Fancy With Box is only with 60ml.)</h2>'+
-                                    '               <select class="material_select_option" onchange="updateValue('+productId+')">'+
-                                    '                   <option selected value="1">Plastic</option>'+
-                                    '                   <option value="2">Glass</option>'+
-                                    '                   <option value="3">Fancy With Box</option>'+
+                                    '               <select class="material_select_option" onchange="updateAttarValue('+productId+')">'+
+                                    '                   <option value="1">Glass</option>'+
+                                    '                   <option value="2">Fancy Glass</option>'+
                                     '               </select>'+
                                     '           </div>'+
                                     '           <div class="modal_add_to_cart">'+
                                     '               <form action="#">'+
-                                    '                   <input class="modal_add_quantity" min="1" max="100" step="1" value="1" onchange="updateValue('+productId+')" type="number">'+
+                                    '                   <input class="modal_add_quantity" min="1" max="100" step="1" value="1" onchange="updateAttarValue('+productId+')" type="number">'+
                                     '                   <button type="submit" onclick="addItemToCart('+productId+', \'' + categoryProducts[i]['PERFUME(30ML/50ML/100ML)'] + '\', ' +size+','+material+','+quantity+','+ indexNumber+')">add to cart</button>'+
                                     '               </form>'+
                                     '           </div>'+
@@ -1423,12 +1424,96 @@ function openModal(productId, indexNumber) {
                                     '   </div>'+
                                     '</div>';
         itl = detailsHtml3+detailsHtml4;
-    }
+        }else if (categoryProducts[0]['ATTAR_PERFUME']=='PERFUME'){
+                 var detailsHtml3 =  '                   <div class="col-lg-5 col-md-5 col-sm-12">'+
+                                             '                        <div class="modal_tab">'+
+                                             '                           <div class="tab-content product-details-large">'+
+                                             '                               <div class="tab-pane fade show active" id="tab1" role="tabpanel" >'+
+                                             '                                   <div class="modal_tab_img">'+
+                                             '                                       <a href="#"><img src="'+categoryProducts[0].url2+'" alt=""></a>'+
+                                             '                                   </div>'+
+                                             '                               </div>'+
+                                             '                               <div class="tab-pane fade" id="tab2" role="tabpanel">'+
+                                             '                                   <div class="modal_tab_img">'+
+                                             '                                       <a href="#"><img src="'+categoryProducts[0].url3+'" alt=""></a>'+
+                                             '                                   </div>'+
+                                             '                               </div>'+
+                                             '                               <div class="tab-pane fade" id="tab3" role="tabpanel">'+
+                                             '                                   <div class="modal_tab_img">'+
+                                             '                                       <a href="#"><img src="'+categoryProducts[0].url4+'" alt=""></a>'+
+                                             '                                   </div>'+
+                                             '                               </div>'+
+                                             '                               <div class="tab-pane fade" id="tab4" role="tabpanel">'+
+                                             '                                   <div class="modal_tab_img">'+
+                                             '                                       <a href="#"><img src="'+categoryProducts[0].url5+'" alt=""></a>'+
+                                             '                                   </div>'+
+                                             '                               </div>'+
+                                             '                           </div>'+
+                                             '                           <div class="modal_tab_button">'+
+                                             '                               <ul class="nav product_navactive owl-carousel" role="tablist">'+
+                                             '                                   <li ><a class="nav-link active" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="'+categoryProducts[0].url2+'" alt=""></a></li>'+
+                                             '                                   <li><a class="nav-link" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="'+categoryProducts[0].url3+'" alt=""></a></li>'+
+                                             '                                   <li><a class="nav-link button_three" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="'+categoryProducts[0].url4+'" alt=""></a></li>'+
+                                             '                                   <li><a class="nav-link" data-bs-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="'+categoryProducts[0].url5+'" alt=""></a></li>'+
+                                             '                               </ul>'+
+                                             '                           </div>'+
+                                             '                       </div>'+
+                                             '                    </div>';
+                 var detailsHtml4 =  '<div class="col-lg-7 col-md-7 col-sm-12">'+
+                                             '   <div class="modal_right">'+
+                                             '       <div class="modal_title mb-10">'+
+                                             '           <h2>'+categoryProducts[0].products_title+'</h2>'+
+                                             '       </div>'+
+                                             '       <div class="modal_price mb-10">'+
+                                             '           <span class="new_price">₹'+perfume_price[0]+'</span>'+
+                                             //'           <span class="old_price" ></span>'+
+                                             '       </div>'+
+                                             '       <div class="modal_description mb-15">'+
+                                             '           <p>'+categoryProducts[0].description+'</p>'+
+                                             '       </div>'+
+                                             '       <div class="variants_selects">'+
+                                             '           <div class="variants_size">'+
+                                             '               <h2>size</h2>'+
+                                             '               <select class="size_select_option" onchange="updateValue('+productId+')">'+
+                                             '                   <option selected value="1">30ml</option>'+
+                                             '                   <option value="2">60ml</option>'+
+                                             '                   <option value="3">100ml</option>'+
+                                             '               </select>'+
+                                             '           </div>'+
+                                             '           <div class="variants_color">'+
+                                             '               <h2>Material(* Fancy With Box is only with 60ml.)</h2>'+
+                                             '               <select class="material_select_option" onchange="updateValue('+productId+')">'+
+                                             '                   <option selected value="1">Plastic</option>'+
+                                             '                   <option value="2">Glass</option>'+
+                                             '                   <option value="3">Fancy With Box</option>'+
+                                             '               </select>'+
+                                             '           </div>'+
+                                             '           <div class="modal_add_to_cart">'+
+                                             '               <form action="#">'+
+                                             '                   <input class="modal_add_quantity" min="1" max="100" step="1" value="1" onchange="updateValue('+productId+')" type="number">'+
+                                             '                   <button type="submit" onclick="addItemToCart('+productId+', \'' + categoryProducts[i]['PERFUME(30ML/50ML/100ML)'] + '\', ' +size+','+material+','+quantity+','+ indexNumber+')">add to cart</button>'+
+                                             '               </form>'+
+                                             '           </div>'+
+                                             '       </div>'+
+                                             '       <div class="modal_social">'+
+                                             '           <h2>Share this product</h2>'+
+                                             '           <ul>'+
+                                             '               <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>'+
+                                             '               <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>'+
+                                             '               <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>'+
+                                             '               <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>'+
+                                             '               <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>'+
+                                             '           </ul>'+
+                                             '       </div>'+
+                                             '   </div>'+
+                                             '</div>';
+                 itl = detailsHtml3+detailsHtml4;
+                 }
     dataList.innerHTML = itl;
     //console.log(modal);
     modal.show();
     activateModalBox();
-    $(".material_select_option")[0][2].disabled = true;
+    //$(".material_select_option")[0][2].disabled = true;
     // Prevent the default link behavior
 }
 function addItemToCart(productId, price, size, material, quantity, indexNumber) {
@@ -1480,7 +1565,25 @@ function addItemToCart(productId, price, size, material, quantity, indexNumber) 
     $(".close").click();
 }
 
-
+function updateAttarValue(id) {
+    console.log(id)
+    var material = parseInt($(".material_select_option")[0].value);
+    var size = parseInt($(".size_select_option")[0].value);
+    var quantity = parseInt($(".modal_add_quantity")[0].value);
+    var lprd = GProduct.filter(product => product.kId === String(id));
+    price_list = lprd[0]['ATTAR(24ML/12ML/6ML/3ML)'].split("/");
+    //var unitPrice = parseInt(price_list[0]);
+    qsize = 4
+    if (size == 1) qsize = parseInt(price_list[3]);
+    else if (size == 2) qsize = parseInt(price_list[2]);
+    else if (size == 3) qsize = parseInt(price_list[1]);
+    else if (size == 4) qsize = parseInt(price_list[0]);
+    bprice = 0
+    if (material == 1) bprice = 0;
+    else if (material == 2) bprice = 50;
+    lprice = (qsize + bprice) * quantity;
+    $(".new_price").html(lprice)
+}
 // Generate HTML for each product in a category
 function updateValue(id) {
     console.log(id)
@@ -1519,8 +1622,8 @@ function generateProductHTML(products) {
                         '   </div>'+
                         '</div>';
     for (var i = 0; i < products.length; i += 2) {
-        var Attar_types_current_prices = products[i]['ATTAR(12ML/6ML/3M)'].split("/");
-        var Attar_types_post_prices = products[i]['ATTAR(12ML/6ML/3M)'].split("/");
+        var Attar_types_current_prices = products[i]['ATTAR(24ML/12ML/6ML/3ML)'].split("/");
+        var Attar_types_post_prices = products[i]['ATTAR(24ML/12ML/6ML/3ML)'].split("/");
         //var Attar_prices = Attar_types_prices[0].split("/");
         var Perfume_types_current_prices = products[i]['PERFUME(30ML/50ML/100ML)'].split("-");
         var Perfume_types_post_prices = products[i]['PERFUME(30ML/50ML/100ML)'].split("-");
@@ -1776,7 +1879,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 function addToCart(id) {
     sp = GProduct[id];
-    attar_sp = GProduct[id]['ATTAR(12ML/6ML/3M)'].split("/");
+    attar_sp = GProduct[id]['ATTAR(24ML/12ML/6ML/3ML)'].split("/");
     perfume_sp = GProduct[id]['PERFUME(30ML/50ML/100ML)'].split("-");
     cp = Number(perfume_sp[0]);
     selPrd = {"id": sp['id'],"name": sp['products_title'],"url": sp['url1'],"price": cp,"quantity": 1}
@@ -1822,7 +1925,7 @@ populateCheckOut();
 function generateFrenchProductHTML(products) {
     var productHTML = '';
     for (var i = 0; i < products.length; i += 1) {
-        var Attar_types_current_prices = products[i]['ATTAR(12ML/6ML/3M)'].split("/");
+        var Attar_types_current_prices = products[i]['ATTAR(24ML/12ML/6ML/3ML)'].split("/");
         var Perfume_types_current_prices = products[i]['PERFUME(30ML/50ML/100ML)'].split("-");
         var currentElement = products[i];
         productHTML +=  '<div class="col-12 ">'+
@@ -1916,7 +2019,7 @@ function generateArabicProductHTML(products) {
     var productHTML = '';
     //var container = document.getElementById(obj);
     for (var i = 0; i < products.length; i += 1) {
-        var Attar_types_current_prices = products[i]['ATTAR(12ML/6ML/3M)'].split("/");
+        var Attar_types_current_prices = products[i]['ATTAR(24ML/12ML/6ML/3ML)'].split("/");
         var Perfume_types_current_prices = products[i]['PERFUME(30ML/50ML/100ML)'].split("-");
         var currentElement = products[i];
         productHTML +=  '<div class="col-12 ">'+
