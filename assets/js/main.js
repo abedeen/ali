@@ -1381,7 +1381,7 @@ function openModal(productId, indexNumber) {
                                     '           <h2>'+categoryProducts[0].products_title+'</h2>'+
                                     '       </div>'+
                                     '       <div class="modal_price mb-10">'+
-                                    '           <span class="new_price">₹'+perfume_price[0]+'</span>'+
+                                    '           <span class="new_price">₹'+attar_price[3]+'</span>'+
                                     //'           <span class="old_price" ></span>'+
                                     '       </div>'+
                                     '       <div class="modal_description mb-15">'+
@@ -1491,7 +1491,7 @@ function openModal(productId, indexNumber) {
                                              '           <div class="modal_add_to_cart">'+
                                              '               <form action="#">'+
                                              '                   <input class="modal_add_quantity" min="1" max="100" step="1" value="1" onchange="updateValue('+productId+')" type="number">'+
-                                             '                   <button type="submit" onclick="addItemToCart('+productId+', \'' + categoryProducts[i]['PERFUME(30ML/50ML/100ML)'] + '\', ' +size+','+material+','+quantity+','+ indexNumber+')">add to cart</button>'+
+                                             '                   <button type="submit" onclick="addItemToCart('+productId+', \'' + categoryProducts[0]['PERFUME(30ML/50ML/100ML)'] + '\', ' +size+','+material+','+quantity+','+ indexNumber+')">add to cart</button>'+
                                              '               </form>'+
                                              '           </div>'+
                                              '       </div>'+
@@ -1519,34 +1519,66 @@ function openModal(productId, indexNumber) {
 function addItemToCart(productId, price, size, material, quantity, indexNumber) {
     var size1 = "";
     var material1 = "";
-    var price1 = price.split("-");
+    //var categoryProducts = GProduct.filter(product => product.kId === String(productId));
     const quantityInput = document.querySelector('.modal_add_to_cart input[type="number"]');
     var material = parseInt($(".material_select_option")[0].value);
     var size = parseInt($(".size_select_option")[0].value);
     var quantity = parseInt($(".modal_add_quantity")[0].value);
 
     var categoryProducts = GProduct.filter(product => product.kId === String(productId));
+    if(categoryProducts[0]['ATTAR_PERFUME']=='ATTAR'){
+        if (size == 1) {
+                    size1 = "3ml";
+                    var price1 = price.split("/");
+                    var newPrice = price1[3];
+                } else if (size == 2) {
+                    size1 = "6ml";
+                    var price1 = price.split("/");
+                    var newPrice = price1[2];
+                } else if (size == 3) {
+                    size1 = "12ml";
+                    var price1 = price.split("/");
+                    var newPrice = price1[1];
+                } else if (size == 4) {
+                    size1 = "24ml";
+                    var price1 = price.split("/");
+                    var newPrice = price1[0];
+                    }
 
-    if (size == 1) {
-        size1 = "30ml";
-        var newPrice = price1[0];
-    } else if (size == 2) {
-        size1 = "60ml";
-        var newPrice = price1[1];
-    } else if (size == 3) {
-        size1 = "100ml";
-        var newPrice = price1[2];
+                if (material == 1) {
+                    material1 = "Glass";
+                    var mPrice = 0;
+                 } else if (material == 2) {
+                     material1 = "Fancy With Box";
+                     var mPrice = 50;
+                 }
+
     }
+    else if(categoryProducts[0]['ATTAR_PERFUME']=='PERFUME'){
+        if (size == 1) {
+            size1 = "30ml";
+            var price1 = price.split("-");
+            var newPrice = price1[0];
+        } else if (size == 2) {
+            size1 = "60ml";
+            var price1 = price.split("-");
+            var newPrice = price1[1];
+        } else if (size == 3) {
+            size1 = "100ml";
+            var price1 = price.split("-");
+            var newPrice = price1[2];
+        }
 
-    if (material == 1) {
-        material1 = "plastic";
-        var mPrice = 0;
-    } else if (material == 2) {
-        material1 = "Glass";
-        var mPrice = 50;
-    } else if (material == 3) {
-        material1 = "Fancy With Box";
-        var mPrice = 400;
+        if (material == 1) {
+            material1 = "plastic";
+            var mPrice = 0;
+        } else if (material == 2) {
+            material1 = "Glass";
+            var mPrice = 50;
+        } else if (material == 3) {
+            material1 = "Fancy With Box";
+            var mPrice = 400;
+        }
     }
 
     selPrd = {
