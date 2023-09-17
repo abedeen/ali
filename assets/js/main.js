@@ -1351,17 +1351,17 @@ function openModal(productId, indexNumber) {
                                     '                               </div>'+
                                     '                               <div class="tab-pane fade" id="tab2" role="tabpanel">'+
                                     '                                   <div class="modal_tab_img">'+
-                                    '                                       <a href="#"><img src="'+categoryProducts[0].url3+'" alt=""></a>'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url6+'" alt=""></a>'+
                                     '                                   </div>'+
                                     '                               </div>'+
                                     '                               <div class="tab-pane fade" id="tab3" role="tabpanel">'+
                                     '                                   <div class="modal_tab_img">'+
-                                    '                                       <a href="#"><img src="'+categoryProducts[0].url4+'" alt=""></a>'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url7+'" alt=""></a>'+
                                     '                                   </div>'+
                                     '                               </div>'+
                                     '                               <div class="tab-pane fade" id="tab4" role="tabpanel">'+
                                     '                                   <div class="modal_tab_img">'+
-                                    '                                       <a href="#"><img src="'+categoryProducts[0].url5+'" alt=""></a>'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url8+'" alt=""></a>'+
                                     '                                   </div>'+
                                     '                               </div>'+
                                     '                           </div>'+
