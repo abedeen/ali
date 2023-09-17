@@ -1622,27 +1622,37 @@ function updateValue(id) {
     var material = parseInt($(".material_select_option")[0].value);
     var size = parseInt($(".size_select_option")[0].value);
     var quantity = parseInt($(".modal_add_quantity")[0].value);
-    $(".material_select_option")[0][2].disabled = true
-    if (size == 1 || size == 3)$(".material_select_option")[0][2].disabled = true;
-    else if(size == 2)        $(".material_select_option")[0][2].disabled = false;
-    if (material == 2){
-        $(".size_select_option")[0][0].disabled = true;
-        $(".size_select_option")[0][2].disabled = true;
-        }
+
+    // Hide the third option in the material select
+    if (size == 1 || size == 3) {
+        $(".material_select_option")[0][2].style.display = 'none';
+    } else if (size == 2) {
+        $(".material_select_option")[0][2].style.display = 'block'; // Show the third option
+    }
+
+    // Hide options in the size select based on material
+    if (material == 3) {
+        $(".size_select_option")[0][0].style.display = 'none';
+        $(".size_select_option")[0][2].style.display = 'none';
+    } else {
+        $(".size_select_option")[0][0].style.display = 'block'; // Show the first option
+        $(".size_select_option")[0][2].style.display = 'block'; // Show the third option
+    }
+
     var lprd = GProduct.filter(product => product.kId === String(id));
     price_list = lprd[0]['PERFUME(30ML/50ML/100ML)'].split("-");
-    //var unitPrice = parseInt(price_list[0]);
-    qsize = 3
+    qsize = 3;
     if (size == 1) qsize = parseInt(price_list[0]);
     else if (size == 2) qsize = parseInt(price_list[1]);
     else if (size == 3) qsize = parseInt(price_list[2]);
-    bprice = 0
+    bprice = 0;
     if (material == 1) bprice = 0;
     else if (material == 2) bprice = 50;
     else if (material == 3) bprice = 400;
     lprice = (qsize + bprice) * quantity;
-    $(".new_price").html(lprice)
+    $(".new_price").html(lprice);
 }
+
 const rupeeSymbol = "₹";
 function generateProductHTML(products) {
     var productHTML = '';
