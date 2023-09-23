@@ -2023,8 +2023,10 @@ function generateProductHTML(products) {
 }
 function generateDehnalOudHTML(products) {
     var productHTML = '';
+
         for (var i = 0; i < products.length; i += 1) {
             var currentElement = products[i];
+            price=products[i]['price(12Ml/6ML/3ML)'].split('-');
             productHTML +=                           '<div class="col-lg-4 col-md-4 col-12 ">'+
                                                      '    <article class="single_product">'+
                                                      '        <figure>'+
@@ -2051,7 +2053,7 @@ function generateDehnalOudHTML(products) {
                                                      '                  </div>'+
                                                      '                  <div class="price_box">'+
                                                      //'                      <span class="old_price"></span>'+
-                                                     '                      <span class="current_price">'+currentElement.price+'</span>'+
+                                                     '                      <span class="current_price">'+price[2]+'</span>'+
                                                      '                  </div>'+
                                                      '              </div>'+
                                                      '              <div class="product_content list_content">'+
