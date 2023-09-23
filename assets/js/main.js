@@ -1116,7 +1116,7 @@ function fetchBurnersData(products){
                                                  '                  <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
                                                  '                  <div class="action_links">'+
                                                  '                      <ul>'+
-                                                 '                          <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+//                                                 '                          <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
                                                  '                          <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
                                                  '                      </ul>'+
                                                  '                  </div>'+
@@ -1336,7 +1336,8 @@ function openModal(productId, indexNumber) {
     const size =1;
     const material =1;
     const quantity =1;
-    itl = "";
+    itl1 = "";
+    itl2 = "";
     //console.log("Processing item", item);
     perfume_price = categoryProducts[0]['PERFUME(30ML/50ML/100ML)'].split("-")
     attar_price = categoryProducts[0]['ATTAR(24ML/12ML/6ML/3ML)'].split("/")
@@ -1351,17 +1352,17 @@ function openModal(productId, indexNumber) {
                                     '                               </div>'+
                                     '                               <div class="tab-pane fade" id="tab2" role="tabpanel">'+
                                     '                                   <div class="modal_tab_img">'+
-                                    '                                       <a href="#"><img src="'+categoryProducts[0].url6+'" alt=""></a>'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url3+'" alt=""></a>'+
                                     '                                   </div>'+
                                     '                               </div>'+
                                     '                               <div class="tab-pane fade" id="tab3" role="tabpanel">'+
                                     '                                   <div class="modal_tab_img">'+
-                                    '                                       <a href="#"><img src="'+categoryProducts[0].url7+'" alt=""></a>'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url4+'" alt=""></a>'+
                                     '                                   </div>'+
                                     '                               </div>'+
                                     '                               <div class="tab-pane fade" id="tab4" role="tabpanel">'+
                                     '                                   <div class="modal_tab_img">'+
-                                    '                                       <a href="#"><img src="'+categoryProducts[0].url8+'" alt=""></a>'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url5+'" alt=""></a>'+
                                     '                                   </div>'+
                                     '                               </div>'+
                                     '                           </div>'+
@@ -1423,7 +1424,7 @@ function openModal(productId, indexNumber) {
                                     '       </div>'+
                                     '   </div>'+
                                     '</div>';
-        itl = detailsHtml3+detailsHtml4;
+        itl1 = detailsHtml3+detailsHtml4;
         }else if (categoryProducts[0]['ATTAR_PERFUME']=='PERFUME'){
                  var detailsHtml3 =  '                   <div class="col-lg-5 col-md-5 col-sm-12">'+
                                              '                        <div class="modal_tab">'+
@@ -1507,10 +1508,280 @@ function openModal(productId, indexNumber) {
                                              '       </div>'+
                                              '   </div>'+
                                              '</div>';
-                 itl = detailsHtml3+detailsHtml4;
+                 itl2 = detailsHtml3+detailsHtml4;
                  }
-    dataList.innerHTML = itl;
-    //console.log(modal);
+    dataList.innerHTML = itl1+itl2;
+//    console.log(itl1+itl2);
+//    console.log(dataList);
+    modal.show();
+    activateModalBox();
+    //$(".material_select_option")[0][2].disabled = true;
+    // Prevent the default link behavior
+}
+function openDehnalOudModal(productId, indexNumber) {
+    var modal = new bootstrap.Modal(document.getElementById('modal_box'));
+    var categoryProducts = GProduct.filter(product => product.kId === String(productId));
+    var dataList = $("#modal_box_item")[0];
+    const size =1;
+    //const material =1;
+    const quantity =1;
+    itl1 = "";
+    //console.log("Processing item", item);
+    //perfume_price = categoryProducts[0]['PERFUME(30ML/50ML/100ML)'].split("-")
+    if (categoryProducts[0]['item']=='DehnalOud'){
+        attar_price = categoryProducts[0]['price(12Ml/6ML/3ML)'].split("-")
+        var detailsHtml3 =  '                   <div class="col-lg-5 col-md-5 col-sm-12">'+
+                                    '                        <div class="modal_tab">'+
+                                    '                           <div class="tab-content product-details-large">'+
+                                    '                               <div class="tab-pane fade show active" id="tab1" role="tabpanel" >'+
+                                    '                                   <div class="modal_tab_img">'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url2+'" alt=""></a>'+
+                                    '                                   </div>'+
+                                    '                               </div>'+
+                                    '                               <div class="tab-pane fade" id="tab2" role="tabpanel">'+
+                                    '                                   <div class="modal_tab_img">'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url3+'" alt=""></a>'+
+                                    '                                   </div>'+
+                                    '                               </div>'+
+                                    '                               <div class="tab-pane fade" id="tab3" role="tabpanel">'+
+                                    '                                   <div class="modal_tab_img">'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url4+'" alt=""></a>'+
+                                    '                                   </div>'+
+                                    '                               </div>'+
+                                    '                               <div class="tab-pane fade" id="tab4" role="tabpanel">'+
+                                    '                                   <div class="modal_tab_img">'+
+                                    '                                       <a href="#"><img src="'+categoryProducts[0].url5+'" alt=""></a>'+
+                                    '                                   </div>'+
+                                    '                               </div>'+
+                                    '                           </div>'+
+                                    '                           <div class="modal_tab_button">'+
+                                    '                               <ul class="nav product_navactive owl-carousel" role="tablist">'+
+                                    '                                   <li ><a class="nav-link active" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="'+categoryProducts[0].url2+'" alt=""></a></li>'+
+                                    '                                   <li><a class="nav-link" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="'+categoryProducts[0].url3+'" alt=""></a></li>'+
+                                    '                                   <li><a class="nav-link button_three" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="'+categoryProducts[0].url4+'" alt=""></a></li>'+
+                                    '                                   <li><a class="nav-link" data-bs-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="'+categoryProducts[0].url5+'" alt=""></a></li>'+
+                                    '                               </ul>'+
+                                    '                           </div>'+
+                                    '                       </div>'+
+                                    '                    </div>';
+        var detailsHtml4 =  '<div class="col-lg-7 col-md-7 col-sm-12">'+
+                                    '   <div class="modal_right">'+
+                                    '       <div class="modal_title mb-10">'+
+                                    '           <h2>'+categoryProducts[0].products_title+'</h2>'+
+                                    '       </div>'+
+                                    '       <div class="modal_price mb-10">'+
+                                    '           <span class="new_price">₹'+attar_price[2]+'</span>'+
+                                    //'           <span class="old_price" ></span>'+
+                                    '       </div>'+
+                                    '       <div class="modal_description mb-15">'+
+                                    '           <p>'+categoryProducts[0].description+'</p>'+
+                                    '       </div>'+
+                                    '       <div class="variants_selects">'+
+                                    '           <div class="variants_size">'+
+                                    '               <h2>size</h2>'+
+                                    '               <select class="size_select_option" onchange="updateDehnalOudValue('+productId+')">'+
+                                    '                   <option selected value="1">3ML</option>'+
+                                    '                   <option value="2">6ML</option>'+
+                                    '                   <option value="3">12ML</option>'+
+                                    //'                   <option value="4">24ML</option>'+
+                                    '               </select>'+
+                                    '           </div>'+
+                                    '           <div class="modal_add_to_cart">'+
+                                    '               <form action="#">'+
+                                    '                   <input class="modal_add_quantity" min="1" max="100" step="1" value="1" onchange="updateDehnalOudValue('+productId+')" type="number">'+
+                                    '                   <button type="submit" onclick="addItemToCart('+productId+', \'' + categoryProducts[0]['ATTAR(24ML/12ML/6ML/3ML)'] + '\', ' +size+','+quantity+','+ indexNumber+')">add to cart</button>'+
+                                    '               </form>'+
+                                    '           </div>'+
+                                    '       </div>'+
+                                    '       <div class="modal_social">'+
+                                    '           <h2>Share this product</h2>'+
+                                    '           <ul>'+
+                                    '               <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>'+
+                                    '               <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>'+
+                                    '               <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>'+
+                                    '               <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>'+
+                                    '               <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>'+
+                                    '           </ul>'+
+                                    '       </div>'+
+                                    '   </div>'+
+                                    '</div>';
+        itl1 = detailsHtml3+detailsHtml4;
+        }
+        else if (categoryProducts[0]['item']=='InsenceSticks'){
+            attar_price = categoryProducts[0]['price(12Ml/6ML/3ML)'];
+                var detailsHtml3 =  '                   <div class="col-lg-5 col-md-5 col-sm-12">'+
+                                            '                        <div class="modal_tab">'+
+                                            '                           <div class="tab-content product-details-large">'+
+                                            '                               <div class="tab-pane fade show active" id="tab1" role="tabpanel" >'+
+                                            '                                   <div class="modal_tab_img">'+
+                                            '                                       <a href="#"><img src="'+categoryProducts[0].url2+'" alt=""></a>'+
+                                            '                                   </div>'+
+                                            '                               </div>'+
+                                            '                               <div class="tab-pane fade" id="tab2" role="tabpanel">'+
+                                            '                                   <div class="modal_tab_img">'+
+                                            '                                       <a href="#"><img src="'+categoryProducts[0].url3+'" alt=""></a>'+
+                                            '                                   </div>'+
+                                            '                               </div>'+
+                                            '                               <div class="tab-pane fade" id="tab3" role="tabpanel">'+
+                                            '                                   <div class="modal_tab_img">'+
+                                            '                                       <a href="#"><img src="'+categoryProducts[0].url4+'" alt=""></a>'+
+                                            '                                   </div>'+
+                                            '                               </div>'+
+                                            '                               <div class="tab-pane fade" id="tab4" role="tabpanel">'+
+                                            '                                   <div class="modal_tab_img">'+
+                                            '                                       <a href="#"><img src="'+categoryProducts[0].url5+'" alt=""></a>'+
+                                            '                                   </div>'+
+                                            '                               </div>'+
+                                            '                           </div>'+
+                                            '                           <div class="modal_tab_button">'+
+                                            '                               <ul class="nav product_navactive owl-carousel" role="tablist">'+
+                                            '                                   <li ><a class="nav-link active" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="'+categoryProducts[0].url2+'" alt=""></a></li>'+
+                                            '                                   <li><a class="nav-link" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="'+categoryProducts[0].url3+'" alt=""></a></li>'+
+                                            '                                   <li><a class="nav-link button_three" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="'+categoryProducts[0].url4+'" alt=""></a></li>'+
+                                            '                                   <li><a class="nav-link" data-bs-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="'+categoryProducts[0].url5+'" alt=""></a></li>'+
+                                            '                               </ul>'+
+                                            '                           </div>'+
+                                            '                       </div>'+
+                                            '                    </div>';
+                var detailsHtml4 =  '<div class="col-lg-7 col-md-7 col-sm-12">'+
+                                            '   <div class="modal_right">'+
+                                            '       <div class="modal_title mb-10">'+
+                                            '           <h2>'+categoryProducts[0].products_title+'</h2>'+
+                                            '       </div>'+
+                                            '       <div class="modal_price mb-10">'+
+                                            '           <span class="new_price">₹'+attar_price+'</span>'+
+                                            //'           <span class="old_price" ></span>'+
+                                            '       </div>'+
+                                            '       <div class="modal_description mb-15">'+
+                                            '           <p>'+categoryProducts[0].description+'</p>'+
+                                            '       </div>'+
+                                            '       <div class="variants_selects">'+
+//                                            '           <div class="variants_size">'+
+//                                            '               <h2>size</h2>'+
+//                                            '               <select class="size_select_option" onchange="updateAttarValue('+productId+')">'+
+//                                            '                   <option selected value="1">3ML</option>'+
+//                                            '                   <option value="2">6ML</option>'+
+//                                            '                   <option value="3">12ML</option>'+
+//                                            //'                   <option value="4">24ML</option>'+
+//                                            '               </select>'+
+//                                            '           </div>'+
+//                                            '           <div class="variants_color">'+
+//                                            '               <h2>Material(* Fancy With Box is only with 60ml.)</h2>'+
+//                                            '               <select class="material_select_option" onchange="updateAttarValue('+productId+')">'+
+//                                            '                   <option value="1">Glass</option>'+
+//                                            '                   <option value="2">Fancy Glass</option>'+
+//                                            '               </select>'+
+//                                            '           </div>'+
+                                            '           <div class="modal_add_to_cart">'+
+                                            '               <form action="#">'+
+                                            '                   <input class="modal_add_quantity" min="1" max="100" step="1" value="1" onchange="updateAttarValue('+productId+')" type="number">'+
+                                            '                   <button type="submit" onclick="addItemToCart('+productId+', \'' + categoryProducts[0]['ATTAR(24ML/12ML/6ML/3ML)'] + '\','+quantity+','+ indexNumber+')">add to cart</button>'+
+                                            '               </form>'+
+                                            '           </div>'+
+                                            '       </div>'+
+                                            '       <div class="modal_social">'+
+                                            '           <h2>Share this product</h2>'+
+                                            '           <ul>'+
+                                            '               <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>'+
+                                            '               <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>'+
+                                            '               <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>'+
+                                            '               <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>'+
+                                            '               <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>'+
+                                            '           </ul>'+
+                                            '       </div>'+
+                                            '   </div>'+
+                                            '</div>';
+                itl1 = detailsHtml3+detailsHtml4;
+                }
+                else if (categoryProducts[0]['item']=='BakhoorDakhoon'){
+                    attar_price = categoryProducts[0]['price(12Ml/6ML/3ML)'];
+                        var detailsHtml3 =  '                   <div class="col-lg-5 col-md-5 col-sm-12">'+
+                                                    '                        <div class="modal_tab">'+
+                                                    '                           <div class="tab-content product-details-large">'+
+                                                    '                               <div class="tab-pane fade show active" id="tab1" role="tabpanel" >'+
+                                                    '                                   <div class="modal_tab_img">'+
+                                                    '                                       <a href="#"><img src="'+categoryProducts[0].url2+'" alt=""></a>'+
+                                                    '                                   </div>'+
+                                                    '                               </div>'+
+                                                    '                               <div class="tab-pane fade" id="tab2" role="tabpanel">'+
+                                                    '                                   <div class="modal_tab_img">'+
+                                                    '                                       <a href="#"><img src="'+categoryProducts[0].url3+'" alt=""></a>'+
+                                                    '                                   </div>'+
+                                                    '                               </div>'+
+                                                    '                               <div class="tab-pane fade" id="tab3" role="tabpanel">'+
+                                                    '                                   <div class="modal_tab_img">'+
+                                                    '                                       <a href="#"><img src="'+categoryProducts[0].url4+'" alt=""></a>'+
+                                                    '                                   </div>'+
+                                                    '                               </div>'+
+                                                    '                               <div class="tab-pane fade" id="tab4" role="tabpanel">'+
+                                                    '                                   <div class="modal_tab_img">'+
+                                                    '                                       <a href="#"><img src="'+categoryProducts[0].url5+'" alt=""></a>'+
+                                                    '                                   </div>'+
+                                                    '                               </div>'+
+                                                    '                           </div>'+
+                                                    '                           <div class="modal_tab_button">'+
+                                                    '                               <ul class="nav product_navactive owl-carousel" role="tablist">'+
+                                                    '                                   <li ><a class="nav-link active" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="'+categoryProducts[0].url2+'" alt=""></a></li>'+
+                                                    '                                   <li><a class="nav-link" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="'+categoryProducts[0].url3+'" alt=""></a></li>'+
+                                                    '                                   <li><a class="nav-link button_three" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="'+categoryProducts[0].url4+'" alt=""></a></li>'+
+                                                    '                                   <li><a class="nav-link" data-bs-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="'+categoryProducts[0].url5+'" alt=""></a></li>'+
+                                                    '                               </ul>'+
+                                                    '                           </div>'+
+                                                    '                       </div>'+
+                                                    '                    </div>';
+                        var detailsHtml4 =  '<div class="col-lg-7 col-md-7 col-sm-12">'+
+                                                    '   <div class="modal_right">'+
+                                                    '       <div class="modal_title mb-10">'+
+                                                    '           <h2>'+categoryProducts[0].products_title+'</h2>'+
+                                                    '       </div>'+
+                                                    '       <div class="modal_price mb-10">'+
+                                                    '           <span class="new_price">₹'+attar_price+'</span>'+
+                                                    //'           <span class="old_price" ></span>'+
+                                                    '       </div>'+
+                                                    '       <div class="modal_description mb-15">'+
+                                                    '           <p>'+categoryProducts[0].description+'</p>'+
+                                                    '       </div>'+
+                                                    '       <div class="variants_selects">'+
+//                                                    '           <div class="variants_size">'+
+//                                                    '               <h2>size</h2>'+
+//                                                    '               <select class="size_select_option" onchange="updateAttarValue('+productId+')">'+
+//                                                    '                   <option selected value="1">3ML</option>'+
+//                                                    '                   <option value="2">6ML</option>'+
+//                                                    '                   <option value="3">12ML</option>'+
+//                                                    '                   <option value="4">24ML</option>'+
+//                                                    '               </select>'+
+//                                                    '           </div>'+
+//                                                    '           <div class="variants_color">'+
+//                                                    '               <h2>Material(* Fancy With Box is only with 60ml.)</h2>'+
+//                                                    '               <select class="material_select_option" onchange="updateAttarValue('+productId+')">'+
+//                                                    '                   <option value="1">Glass</option>'+
+//                                                    '                   <option value="2">Fancy Glass</option>'+
+//                                                    '               </select>'+
+//                                                    '           </div>'+
+                                                    '           <div class="modal_add_to_cart">'+
+                                                    '               <form action="#">'+
+                                                    '                   <input class="modal_add_quantity" min="1" max="100" step="1" value="1" onchange="updateAttarValue('+productId+')" type="number">'+
+                                                    '                   <button type="submit" onclick="addItemToCart('+productId+', \'' + categoryProducts[0]['ATTAR(24ML/12ML/6ML/3ML)'] + '\', ' +quantity+','+ indexNumber+')">add to cart</button>'+
+                                                    '               </form>'+
+                                                    '           </div>'+
+                                                    '       </div>'+
+                                                    '       <div class="modal_social">'+
+                                                    '           <h2>Share this product</h2>'+
+                                                    '           <ul>'+
+                                                    '               <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>'+
+                                                    '               <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>'+
+                                                    '               <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>'+
+                                                    '               <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>'+
+                                                    '               <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>'+
+                                                    '           </ul>'+
+                                                    '       </div>'+
+                                                    '   </div>'+
+                                                    '</div>';
+                        itl1 = detailsHtml3+detailsHtml4;
+                        }
+    dataList.innerHTML = itl1;
+//    console.log(itl1+itl2);
+//    console.log(dataList);
     modal.show();
     activateModalBox();
     //$(".material_select_option")[0][2].disabled = true;
@@ -1597,6 +1868,7 @@ function addItemToCart(productId, price, size, material, quantity, indexNumber) 
     $(".close").click();
 }
 
+
 function updateAttarValue(id) {
     console.log(id)
     var material = parseInt($(".material_select_option")[0].value);
@@ -1617,6 +1889,21 @@ function updateAttarValue(id) {
     $(".new_price").html(lprice)
 }
 // Generate HTML for each product in a category
+
+function updateDehnalOudValue(id) {
+    //var material = parseInt($(".material_select_option")[0].value);
+    var size = parseInt($(".size_select_option")[0].value);
+    var quantity = parseInt($(".modal_add_quantity")[0].value);
+    var lprd = GProduct.filter(product => product.kId === String(id));
+    price_list = lprd[0]['price(12Ml/6ML/3ML)'].split("-");
+    qsize = 3;
+    if (size == 1) qsize = parseInt(price_list[2]);
+    else if (size == 2) qsize = parseInt(price_list[1]);
+    else if (size == 3) qsize = parseInt(price_list[0]);
+    lprice = (qsize) * quantity;
+    $(".new_price").html(lprice);
+}
+
 function updateValue(id) {
     console.log(id)
     var material = parseInt($(".material_select_option")[0].value);
@@ -1746,8 +2033,8 @@ function generateDehnalOudHTML(products) {
                                                      '                  <a class="secondary_img" href1="product-details.html" ><img src="'+currentElement.url2+'" alt=""></a>'+
                                                      '                  <div class="action_links">'+
                                                      '                      <ul>'+
-                                                     '                          <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
-                                                     '                          <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
+//                                                     '                          <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart"></i></a></li>'+
+                                                     '                          <li class="quick_button"><a href="#" onclick="openDehnalOudModal('+currentElement.kId+','+i+');" data-bs-toggle="modal" data-bs-target="#modal_box"  title="quick view"> <i class="zmdi zmdi-eye"></i></a></li>'+
                                                      '                      </ul>'+
                                                      '                  </div>'+
                                                      '              </div>'+
