@@ -889,7 +889,7 @@ function fetchTestimonialContainerData(obj) {
             var obj1 = item["bgimg"];
             var txt = '<div class="single_testimonial">'+
                     '       <div class="testimonial_img">'+
-                    '            <a href="#"><img src="'+item['url1'] + '" alt="" width="263" height="360"></a>'+
+                    '            <a href="#"><img href="'+item['url1'] + '" alt="" width="263" height="360"></a>'+
                     '      </div>'+
                     '       <div class="testimonial_content">'+
                     '           <h4><a href="#">' + item['Text2'] + '</a></h4>'+
@@ -900,7 +900,7 @@ function fetchTestimonialContainerData(obj) {
         }
     }
     dataList.innerHTML = itl;
-    // dataBackgroundImageTestinomial(obj1)
+    dataBackgroundImageTestinomial(item['bg'])
     //dataBackgroundImage();
     activateTestimonial();
 }
