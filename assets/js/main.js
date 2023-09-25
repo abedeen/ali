@@ -1027,7 +1027,7 @@ function fetchFooter(obj) {
 settings=[]
 function pullSettings(){
     $.ajax({
-        url: "https://opensheet.elk.sh/1bfqrLyW_rP16Sa7ljx2JlvynmY4qestQ/Sheet1", // Replace with your API endpoint
+        url: "https://opensheet.elk.sh/1VP02CjQNP_ux70IbgOQJiCsHuwIeFypN4Fu5tn4YYxo/Sheet1", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -1038,7 +1038,7 @@ function pullSettings(){
 }
 function pullIndex(){
     $.ajax({
-        url: "https://opensheet.elk.sh/1bfqrLyW_rP16Sa7ljx2JlvynmY4qestQ/index", // Replace with your API endpoint
+        url: "https://opensheet.elk.sh/1VP02CjQNP_ux70IbgOQJiCsHuwIeFypN4Fu5tn4YYxo/index", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -1057,7 +1057,7 @@ function pullIndex(){
         }
     });
     $.ajax({
-        url: "https://opensheet.elk.sh/1bfqrLyW_rP16Sa7ljx2JlvynmY4qestQ/products", // Replace with your API endpoint
+        url: "https://opensheet.elk.sh/1VP02CjQNP_ux70IbgOQJiCsHuwIeFypN4Fu5tn4YYxo/products", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -1073,7 +1073,7 @@ function pullIndex(){
 }
 function pullBanner(){
     $.ajax({
-        url: "https://opensheet.elk.sh/1bfqrLyW_rP16Sa7ljx2JlvynmY4qestQ/Banner", // Replace with your API endpoint
+        url: "https://opensheet.elk.sh/1VP02CjQNP_ux70IbgOQJiCsHuwIeFypN4Fu5tn4YYxo/Banner", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -1166,7 +1166,7 @@ function fetchBurnersData(products){
 }
 function pullBurners(){
     $.ajax({
-        url: "https://opensheet.elk.sh/1bfqrLyW_rP16Sa7ljx2JlvynmY4qestQ/Burners", // Replace with your API endpoint
+        url: "https://opensheet.elk.sh/1VP02CjQNP_ux70IbgOQJiCsHuwIeFypN4Fu5tn4YYxo/Burners", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -1182,7 +1182,7 @@ function pullBurners(){
 }
 function pullNonElectricBurners(){
     $.ajax({
-        url: "https://opensheet.elk.sh/1bfqrLyW_rP16Sa7ljx2JlvynmY4qestQ/Burners", // Replace with your API endpoint
+        url: "https://opensheet.elk.sh/1VP02CjQNP_ux70IbgOQJiCsHuwIeFypN4Fu5tn4YYxo/Burners", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -1198,7 +1198,7 @@ function pullNonElectricBurners(){
 }
 function pullFrenchAttars(){
     $.ajax({
-        url: "https://opensheet.elk.sh/1bfqrLyW_rP16Sa7ljx2JlvynmY4qestQ/products", // Replace with your API endpoint
+        url: "https://opensheet.elk.sh/1VP02CjQNP_ux70IbgOQJiCsHuwIeFypN4Fu5tn4YYxo/products", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -1213,7 +1213,7 @@ function pullFrenchAttars(){
 }
 function pullFrenchPerfumes(){
     $.ajax({
-        url: "https://opensheet.elk.sh/1bfqrLyW_rP16Sa7ljx2JlvynmY4qestQ/products", // Replace with your API endpoint
+        url: "https://opensheet.elk.sh/1VP02CjQNP_ux70IbgOQJiCsHuwIeFypN4Fu5tn4YYxo/products", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -1228,7 +1228,7 @@ function pullFrenchPerfumes(){
 }
 function pullArabicAttars(){
     $.ajax({
-        url: "https://opensheet.elk.sh/1bfqrLyW_rP16Sa7ljx2JlvynmY4qestQ/products", // Replace with your API endpoint
+        url: "https://opensheet.elk.sh/1VP02CjQNP_ux70IbgOQJiCsHuwIeFypN4Fu5tn4YYxo/products", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -1243,7 +1243,7 @@ function pullArabicAttars(){
 }
 function pullArabicPerfumes(){
     $.ajax({
-        url: "https://opensheet.elk.sh/1bfqrLyW_rP16Sa7ljx2JlvynmY4qestQ/products", // Replace with your API endpoint
+        url: "https://opensheet.elk.sh/1VP02CjQNP_ux70IbgOQJiCsHuwIeFypN4Fu5tn4YYxo/products", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
