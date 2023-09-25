@@ -900,7 +900,7 @@ function fetchTestimonialContainerData(obj) {
         }
     }
     dataList.innerHTML = itl;
-    dataBackgroundImageTestinomial(item['bg'])
+    //dataBackgroundImageTestinomial(item['bg'])
     //dataBackgroundImage();
     activateTestimonial();
 }
