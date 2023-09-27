@@ -1027,7 +1027,7 @@ function fetchFooter(obj) {
 settings=[]
 function pullSettings(){
     $.ajax({
-        url: "https://opensheet.elk.sh/1VP02CjQNP_ux70IbgOQJiCsHuwIeFypN4Fu5tn4YYxo/Sheet1", // Replace with your API endpoint
+        url: "https://opensheet.elk.sh/15ZeCsmp4q-M1_5CWUAxMcJfkvkjeNAnPW6YWXlKFfho/Sheet1", // Replace with your API endpoint
         method: "GET",
         dataType: "json",
         success: function(data) {
@@ -1486,7 +1486,7 @@ function openModal(productId, indexNumber) {
                                              '               <select class="material_select_option" onchange="updateValue('+productId+')">'+
                                              '                   <option selected value="1">Plastic</option>'+
                                              '                   <option value="2">Glass</option>'+
-                                             '                   <option value="3">Fancy With Box</option>'+
+                                             //'                   <option value="3">Fancy With Box</option>'+
                                              '               </select>'+
                                              '           </div>'+
                                              '           <div class="modal_add_to_cart">'+
@@ -1515,7 +1515,6 @@ function openModal(productId, indexNumber) {
 //    console.log(dataList);
     modal.show();
     activateModalBox();
-    //$(".material_select_option")[0][2].disabled = true;
     // Prevent the default link behavior
 }
 function openDehnalOudModal(productId, indexNumber) {
@@ -1906,24 +1905,63 @@ function updateDehnalOudValue(id) {
 
 function updateValue(id) {
     console.log(id)
+    const tab1 = document.getElementById('tab1');
+        const tab2 = document.getElementById('tab2');
+        const tab3 = document.getElementById('tab3');
+        const tab4 = document.getElementById('tab4');
     var material = parseInt($(".material_select_option")[0].value);
+    const elements = document.querySelectorAll(".material_select_option");
     var size = parseInt($(".size_select_option")[0].value);
     var quantity = parseInt($(".modal_add_quantity")[0].value);
-
     // Hide the third option in the material select
     if (size == 1 || size == 3) {
-        $(".material_select_option")[0][2].style.display = 'none';
+        //$(".material_select_option")[0][2].style.display = 'none';
+        if (elements.length === 2) {
+            const addedOption = element.querySelector('option[value="3"]');
+                    if (addedOption) {
+                                    // Remove the option element
+                                    element.removeChild(addedOption);
+                                }
+                }
+
+
+            // Check if the option element exists
+
     } else if (size == 2) {
-        $(".material_select_option")[0][2].style.display = 'block'; // Show the third option
+        if (elements.length === 1) {
+            // Create a new option element
+            const newOption = document.createElement("option");
+            newOption.value = "3";
+            newOption.textContent = "Fancy With Box";
+
+            // Iterate through the selected elements and append the new option
+            elements.forEach((element) => {
+                element.appendChild(newOption.cloneNode(true));
+            });
+        }
     }
 
     // Hide options in the size select based on material
-    if (material == 3) {
+    if(material == 1){
+            $(".size_select_option")[0][0].style.display = 'block'; // Show the first option
+            $(".size_select_option")[0][2].style.display = 'block'; // Show the third option
+            tab1.classList.add('show', 'active');
+                    tab2.classList.remove('show', 'active');
+                    tab3.classList.remove('show', 'active');
+        }
+        else if(material == 2){
+            tab2.classList.add('show', 'active');
+                            tab1.classList.remove('show', 'active');
+                            tab3.classList.remove('show', 'active');
+                     $(".size_select_option")[0][0].style.display = 'block'; // Show the first option
+                     $(".size_select_option")[0][2].style.display = 'block'; // Show the third option
+                 }
+    else if(material == 3) {
+        tab3.classList.add('show', 'active');
+                        tab2.classList.remove('show', 'active');
+                        tab1.classList.remove('show', 'active');
         $(".size_select_option")[0][0].style.display = 'none';
         $(".size_select_option")[0][2].style.display = 'none';
-    } else {
-        $(".size_select_option")[0][0].style.display = 'block'; // Show the first option
-        $(".size_select_option")[0][2].style.display = 'block'; // Show the third option
     }
 
     var lprd = GProduct.filter(product => product.kId === String(id));
@@ -1937,7 +1975,7 @@ function updateValue(id) {
     else if (material == 2) bprice = 50;
     else if (material == 3) bprice = 400;
     lprice = (qsize + bprice) * quantity;
-    $(".new_price").html(lprice);
+    $(".new_price").html(rupeeSymbol+lprice);
 }
 
 const rupeeSymbol = "₹";
