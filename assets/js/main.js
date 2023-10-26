@@ -225,15 +225,7 @@ function activateProducts(){
         autoplay: true,		loop: true,        nav: true,        autoplay: false,        autoplayTimeout: 8000,        items: 1,        dots:false,        navText: ['<i class="ion-ios-arrow-back"></i>','<i class="ion-ios-arrow-forward"></i>'],       responsiveClass:true,
         responsive:{				0:{				items:1,			},            768:{				items:2,			},            992:{				items:1,			},		  }
     });
-    @media screen and (min-width: 390px) and (min-height: 844px) and (-webkit-min-device-pixel-ratio: 3) {
-            /* Styles for devices with width >= 390px, height >= 844px, and device pixel ratio = 3 */
-            /* Add your styles for this condition here */
-          }
 
-          @media screen and (min-width: 428px) and (min-height: 926px) and (-webkit-min-device-pixel-ratio: 3) {
-            /* Styles for devices with width >= 428px, height >= 926px, and device pixel ratio = 3 */
-            /* Add your styles for this condition here */
-          }
 }
 function activateNewsLetter() {
     $('#subscribe_pemail').keypress(function(e) {        if (e.which == 13) {            e.preventDefault();            email_subscribepopup();        }        var name = $(this).val();        $('#subscribe_pname').val(name);    });
