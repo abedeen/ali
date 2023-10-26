@@ -227,22 +227,6 @@ function activateProducts(){
     });
 
 }
-/* For devices with a CSS Pixel Ratio of 3 */
-@media screen and (-webkit-min-device-pixel-ratio: 3) {
-    /* Add your webkit-specific styles here */
-    /* For example, you can target high-resolution displays with background images */
-    .example-class {
-        background-image: url('image@3x.png'); /* Provide high-resolution image for Retina displays */
-    }
-}
-
-/* For devices with a screen width of 430px and a screen height of 932px */
-@media screen and (width: 430px) and (height: 932px) {
-    /* Add your specific styles for this screen size */
-    .example-class {
-        font-size: 18px; /* Adjust font size for this screen size */
-    }
-}
 
 function activateNewsLetter() {
     $('#subscribe_pemail').keypress(function(e) {        if (e.which == 13) {            e.preventDefault();            email_subscribepopup();        }        var name = $(this).val();        $('#subscribe_pname').val(name);    });
